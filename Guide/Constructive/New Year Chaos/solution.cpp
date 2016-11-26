@@ -17,11 +17,7 @@ int main() {
      */
     int line[N + 1];
 
-    /*
-       Flag here so we can check for chaotic while reading in the numbers to
-          prevent uneeded calculations in the future
-     */
-    bool is_chaotic = false;
+    bool is_chaotic = false; //To check for chaotic while reading in numbers
 
     /*
        Read in the numbers and store them in the line array.
@@ -53,68 +49,16 @@ int main() {
     } else {
       int count = 0; // AKA number of bribes
 
-      /*
-         Note we are iterating backwards and arranging people as we go.
-         This means that at any point, we can assume everybody behind that point
-            is where they are supposed to be.
-          This forces the situation where if
-            line[i] != i, then either line[i-1] = i or line[i-2] = i
-       */
       for (n = N; n > 0; n--) {
-        /*
-           We only care about 3 people & 3 positions at a time.
-           Suppose it starts as follows:
-           Person A at position X
-           Person B at position Y
-           Person C at position Z
-
-           Then the line looks like this:
-           Person    : C B A
-           Position  : Z Y X
-
-           We want the person at position X to be the greatest value.
-           We can assume that anybody behind (to the right) of position X is
-              already where they are supposed to be.
-           AKA every person after position X has a value greater than every
-              person at and before position X.
-
-         */
         int x = line[n]; // Person A
 
         if (x != n) {
-          /*
-             A is not supposed to be here, since we know they aren't behind
-                posiion n, he must have been bribed!
-             The question is, who bribed him? B or C?
-           */
           count++;             // They must have bribed at least once
           int y = line[n - 1]; // Person B
-
-          /*
-             This is here because if person A isn't where he is supposed to
-                be, then no matter whether he was bribed by B or C, A needs to
-                be in the middle.
-             Now where C & B need to be changes depending on whether it was C or
-                B that did the bribing.
-           */
           line[n - 1] = x;
-
-          /*
-             If we stop here, our line will look like this: CAB
-           */
-
+          
           if (y != n) {
-            /*
-               Hmm.. person B, was also not supposed to be here, C must have
-                  bribed two people!
-               We have already incremented once, now just increment once more to
-                  reflect that it was 2 bribes, not 1.
-                Since we know CBA and CAB were not correct, the correct odering
-                   of these three people to make it so the person at position X
-                   has the greatest value MUST BE BAC
-             */
             count++;
-
             int z = line[n - 2]; // Person C
             line[n]     = z;
             line[n - 2] = y;

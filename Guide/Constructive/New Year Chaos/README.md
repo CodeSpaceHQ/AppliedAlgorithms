@@ -52,7 +52,7 @@ First check to see if A is where they should be, if not, we need to find out if 
 A is not supposed to be here, since we know they aren’t behind position n, he must have been bribed!  
 The question is, who bribed him? B or C? Regardless, we need to increment counter and find out the value of person B.  
 
-If person A isn’t where he is supposed to be, then no matter whether he was bribed by B or C, A needs to be in the middle.
+If person A isn’t where he is supposed to be, then no matter whether he was bribed by B or C, A needs to be in the middle.  
 Now where C & B need to be changes depending on whether it was C or B that did the bribing
 
 #### Person B:
@@ -73,7 +73,7 @@ Finally, the counter now holds the correct output value.
 ### Analysis
 Within in the source code are two for loops (Ignoring the one for test cases).  
 Both of these for loops are linear with size _N_. Therefore the Big-O for this algorithm is _O(N)_.  
-Upon submitting this, the solution passes all of HackerRank’s test cases, gaining a score of 40.0.  
+Upon submitting this, the solution passes all of HackerRank’s test cases, gaining a score of 40.0.   
 The longest test case was Test Case #6 with a runtime of 0.16s.
 
 
