@@ -56,7 +56,7 @@ int main() {
           count++;             // They must have bribed at least once
           int y = line[n - 1]; // Person B
           line[n - 1] = x;
-          
+
           if (y != n) {
             count++;
             int z = line[n - 2]; // Person C
