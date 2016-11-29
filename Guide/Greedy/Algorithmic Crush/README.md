@@ -30,9 +30,6 @@ Difficulty: Hard
 ## Algorithm
 
 ### Overview
-The naive method to solve this problem involves adding the value of ‘k’ to each element in the list from ‘a’ to ‘b’ inclusively for each of the ‘M’ operations.
-The issue is that this could be an O(N*M) operation if ‘a’ is 1 and ‘b’ is ‘N’ for each of the ‘M’ operations.
-
 The main realization that helps reduce the complexity of the problem is that one doesn’t need to worry about when a specific operation begins or ends.
 
 For example, one could have this input:
@@ -80,5 +77,9 @@ As a result, the algorithm can be classified as O(N).
 
 ## Conclusion
 This problem is particularly good at highlighting the usefulness of eliminating repeated operations.
-Without optimizing the solution can be costly, but there are fairly obvious places where optimization can happen.
+Without optimization the solution can be costly.
+For instance, the naive method to solve this problem involves adding the value of ‘k’ to each element in the list from ‘a’ to ‘b’ inclusively for each of the ‘M’ operations.
+The worst case would be if ‘a’ is 1 and ‘b’ is ‘N’ for each of the ‘M’ operations, making this algorithm an O(N*M) operation.
+However, there are fairly obvious places where optimization can happen, as shown in this solution.
+
 Additionally, the solution is quite simple, so one doesn't get sidetracked with the minutiae of implementation.
