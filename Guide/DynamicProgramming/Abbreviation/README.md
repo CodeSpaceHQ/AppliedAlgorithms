@@ -6,11 +6,7 @@ Category: Dynamic Programming
 Difficulty: Medium
 
 ### Overview
-Read the link instructions,
-they are helpful when solving
-greater than eye deep
-
-Edge cases and complexities are covered below. Please read the problem first.
+Read the problem statement. The problem is clearly stated and doesn't have a story to add complexity.
 
 ## Algorithm
 ### Overview
@@ -39,10 +35,8 @@ It looks like this (credit to Orion for the edge case),
     be deleted but uppercase cannot, **every uppercase character must be
     used by the algorithm.**
 
-So what's the solution? Well, either you can backtrack whenever you reach
-an uppercase character that could have been used up by a lowercase
-character previously. Or, you can create a kind of "memory" for the
-algorithm. A memory would need the following,
+You can create a kind of "memory" for the algorithm to allow checking of previous characters.
+A memory would need the following,
 - A unique ID for combinations of lowercase characters.
 - A way for uppercase characters to check if they could replace those
 lowercase characters that had been previously used.
@@ -105,9 +99,11 @@ Test Case #10.
 
 ## Conclusion
 This is a good problem to practice dynamic programming on. Although my
-solution wasn't exactly dynamic programming, it's possible to create a
-recursive solution and make it faster by using memoization. Other
-things to consider are,
+solution was not dynamic programming, it's possible to create a
+recursive solution and make it faster by using memoization. For it to be
+a dynamic programming solution it would need to break the problem into
+sub-problems that can be solved and combined to solve the original problem.
+Other things to consider are,
 - It would be interesting to see how different solutions match up as the
 test cases get much larger in size. My solution is slower than DP solutions
 at test case sizes of the ones we used.
