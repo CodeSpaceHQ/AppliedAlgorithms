@@ -1,9 +1,7 @@
 # Bonetrousle
 [https://www.hackerrank.com/challenges/bonetrousle](https://www.hackerrank.com/challenges/bonetrousle)
 
-Nothing
-
-Medium
+Difficulty: Medium
 
 
 ## Problem
