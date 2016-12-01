@@ -1,45 +1,15 @@
 # Bonetrousle
 [https://www.hackerrank.com/challenges/bonetrousle](https://www.hackerrank.com/challenges/bonetrousle)
 
+Category: Constructive
+
 Difficulty: Medium
 
 
 ## Problem
-### Statement
-Once upon a time, Papyrus the skeleton went to buy some pasta from the store. The store's inventory is bare-bones and they only sell one thing — boxes of uncooked spaghetti! The store always stocks exactly k boxes of pasta, and each box is numbered sequentially from 1 to k. This box number also corresponds to the number of sticks of spaghetti in the box, meaning the first box contains 1 stick, the second box contains 2 sticks, the third box contains 3 sticks, …, and the k<sup>th</sup> box contains k sticks. Because they only stock one box of each kind, the store has a tendon-cy to sell out of spaghetti.
-
-During each trip to the store, Papyrus likes to buy exactly n sticks of spaghetti by purchasing exactly b boxes (no more, no less). Not sure which boxes to purchase, Papyrus calls Sherlock Bones for help but he's also stumped! Do you have the guts to solve this puzzle?
-
-Given the values of n, k, and b for t trips to the store, determine which boxes Papyrus must purchase during each trip. For each trip, print a single line of b distinct space-separated integers denoting the box number for each box of spaghetti Papyrus purchases (recall that the store only has one box of each kind). If it's not possible to buy n sticks of spaghetti by purchasing  boxes, print -1 instead.
-
-###Input Format
-
-The first line contains a single integer, t, denoting the number of trips to the store.
-Each of the t subsequent lines describes a trip to the store in the form of three space-separated integers describing the respective values of n (the number of sticks to buy), k (the number of boxes the store has for sale), and b (the number of boxes to buy) for that trip to the store.
-
-###Constraints
-
-* 1 <= t <= 20
-
-* 1 <= b <= 10<sup>5</sup>
-
-* 1 <= n <= 10<sup>18</sup>
-
-* 1 <= k <= 10<sup>18</sup>
-
-* b <= k
-
-###Output Format
-
-For each trip to the store:
-
-* If there is no solution, print -1 on a new line.
-
-* Otherwise, print a single line of  distinct space-separated integers where each integer denotes the box number (i.e., the number of spaghetti sticks in the box) that Papyrus must purchase.
-
-If there are multiple possible solutions, you can print any one of them. Do not print any leading or trailing spaces.
 
 ### Overview
+
 ####Given:
 * The number of boxes to buy, b.
 * The number of noodles to buy, n.
@@ -60,6 +30,12 @@ For example if you had the boxes 1, 2, 3, and 4 and you needed 6 noodles, no two
 will give you six, but if you pick boxes 2 and 4 you will get 6 noodles. This algorithm modifies the
 formula above so that it does work. Note that the problem says that any combination of boxes that produces
 the needed number of noodles is a valid solution.
+</p>
+
+<p>
+It is important to keep in mind that for this problem some variable values could exceed
+the value of an int in Java. Also, System.out.println(), may be too slow for big inputs.
+Instead, use OutputStream.
 </p>
 
 ### Pseudo Code
@@ -91,7 +67,9 @@ the list of boxes out. This loop goes b times and thusly the algorithm's time co
 
 ## Conclusion
 <p>
-It is important to keep in mind that for this problem some variable values could exceed
-the value of an int in Java. Also, System.out.println(), may be too slow for big inputs.
-Instead, use OutputStream.
+As computer science is closely related to math, some problems can be easily solved 
+using math to create a formula. This problem is a great example of this. Without the formula stated
+above, this problem would have been much more difficult. When starting to solve a programming
+problem, it is always best to see if there is a formula that can be derived quickly 
+that will accurately produce a solution. 
 </p>
