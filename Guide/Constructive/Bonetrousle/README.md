@@ -32,11 +32,7 @@ formula above so that it does work. Note that the problem says that any combinat
 the needed number of noodles is a valid solution.
 </p>
 
-<p>
-It is important to keep in mind that for this problem some variable values could exceed
-the value of an int in Java. Also, System.out.println(), may be too slow for big inputs.
-Instead, use OutputStream.
-</p>
+It is important to keep in mind that for this problem some variable values could exceed the value of an int in Java. Also, `System.out.println()`, may be too slow for big inputs. Instead, use OutputStream.
 
 ### Pseudo Code
 1. Read in n, k, and b.
