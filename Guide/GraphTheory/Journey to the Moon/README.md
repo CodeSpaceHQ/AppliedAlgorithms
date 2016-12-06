@@ -99,7 +99,8 @@ Given that 'pairs' contains 'I' * 2 values, it can be considered a linear time o
 
 ## Conclusion
 This problem is particularly good at highlighting the importance of not focusing on the most obvious parts of a solution.
-The last step is calculating the number of possible unique pairs.
+For instance, the last step is calculating the number of possible unique pairs, an operation that can be accomplished with four lines of code.
+Because of its simplicity, it is easy to code the last step without thinking about the correct method to use.
 Given a list of group sizes, the naive method involves adding the product of a given element and all other elements until the end of the list, for each element in the list.
 This results in an O(G^2) operation, where G is the number of groups.
 This is far inferior to the method shown in this solution, which is an O(G) operation.
