@@ -35,15 +35,15 @@ Output Format
 For each _find partial_ operation, print the number of contact names starting with _partial_  on a new line.
 
 #### Sample Input
-4
-add hack
-add hackerrank
-find hac
-fink hak
+4</br>
+add hack</br>
+add hackerrank</br>
+find hac</br>
+fink hak</br>
 
 #### Sample Output
-2
-0
+2</br>
+0</br>
 
 #### Explanation
 
@@ -51,14 +51,13 @@ We perform the following sequence of operations:
 
 1. Add a contact named _hack_.
 2. Add a contact named _hackerrank_.
-3. Find and print the number of contact names beginning with _hac_. There are currently two contact names
-in the application and both of them start with _hac_, so we print 2 on a new line.
-4. Find and print the number of contact names beginning with _hak_. There are two contact names in the application
-but neither of them start with _hak_, so we print 0 on a new line
+3. Find and print the number of contact names beginning with _hac_. There are currently two contact names in the application and both of them start with _hac_, so we print 2 on a new line.
+4. Find and print the number of contact names beginning with _hak_. There are two contact names in the application but neither of them start with _hak_, so we print 0 on a new line
 
 ### Overview
 
 This is a two step problem.
+
 1. Setting up the Trie data structure.
 2. Finding the number of sub strings.
 
@@ -75,11 +74,11 @@ seen that substring when doing the add.
 Part one of this problem lies in the creation of the data structure that will be used to store the input strings and subsequent sub-strings.
 This data structure is called a Trie (from re-_trie_-val) and can be thought of as a tree of characters, Like the following:
 
-&nbsp;&nbsp;&nbsp;&nbsp; a
-&nbsp;&nbsp;&nbsp;&nbsp; / \\
-&nbsp;&nbsp;r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t
-&nbsp;/
-t
+&nbsp;&nbsp;&nbsp;&nbsp; a</br>
+&nbsp;&nbsp;&nbsp;&nbsp; / \\</br>
+&nbsp;&nbsp;r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t</br>
+&nbsp;/</br>
+t</br>
 
 This is a trie that contains two words (art and at), as you can see it is space efficient because if they both contain the same substring (a in this case)
 space is not being wasted.  This is the data structure we are trying to create, but at each node (or letter in this case) we would like to store an integer
@@ -100,13 +99,13 @@ Once the class Trie class is created with all the necessary functionality, part 
 ### Pseudo Code
 
 1. Create Trie Class
-..* HashMap that maps characters to Trie Class.
-..* Integer value to keep track of times character has been seen.
+  * HashMap that maps characters to Trie Class.
+  * Integer value to keep track of times character has been seen.
 2. Add proper functionality to Trie class. 
-..* Create Add function.
-..* Create Find function.
+  * Create Add function.
+  * Create Find function.
 3. Add all strings to trie.
-4. Search through trie on find strings and return the integer value associated with the last character.
+4. Search through trie on find instruction and return the integer value associated with the last character.
 
 ### Analysis
 Adding the Strings to The trie class should take N time where N is the length of the String that you're attempting to add to the trie.
@@ -114,6 +113,4 @@ Similarly the find function will take M time where M is the length of the substr
 Therefor, the time complexity of this will be O(N).
 
 ### Conclusion
-A Trie is a very useful data structure to learn. You can clearly see the advantages of the space efficiency of this data strucutre.  A real
-world example of where this data structure is used is in predictive text on your phones.  For other uses feel free to browse the wikipedia page
-linked above.
+A Trie is a very useful data structure to learn. You can clearly see the advantages of the space efficiency of this data structure.  A real world example of where this data structure is used is in predictive text on your phones.  For other uses feel free to browse the wikipedia page linked above.
