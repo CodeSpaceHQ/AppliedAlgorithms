@@ -56,11 +56,6 @@ the time complexity is O(n), even though the full formula is n + 2n + n + n => 5
 It follows this same basic algorithm, but it gets rid of most of the loops. Its full formula is 2n. It is also included in the solution file.  
 </p>
 
-<p>
-While this is O(n), there is a more efficient O(n) solution. It follows 
-this same basic algorithm, but it gets rid of most of the loops. Its full formula is 2n. It is also included in the solution file. 
-</p>
-
 ## Conclusion
 <p>
 Many computer science problems can be reduced to other problems that have already been solved
