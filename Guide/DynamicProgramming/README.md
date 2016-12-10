@@ -8,4 +8,5 @@ be stored in memory and used to solve the current problem.
 
 ## Additional Resources
 [wikipedia dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming)
+
 [topcoder dynamic programming](https://www.topcoder.com/community/data-science/data-science-tutorials/dynamic-programming-from-novice-to-advanced/)
