@@ -31,3 +31,7 @@ We live on Slack. Check us out at [ttucs.slack.com](ttucs.slack.com). Must have 
 
 ## How can I contribute to this repo?
 To contribute, please checkout our [Contributing guidelines](/CONTRIBUTING.md)
+
+
+# Acknowledgements
+This community would like to give a big thanks to [Dr. Susan Mengel, Ph.D.](http://www.depts.ttu.edu/coe/dean/faculty/faculty.php?name=Susan%20A.%20Mengel) for all of her guidance and input into this project. 
