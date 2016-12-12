@@ -32,6 +32,9 @@ We live on Slack. Check us out at [ttucs.slack.com](ttucs.slack.com). Must have 
 ## How can I contribute to this repo?
 To contribute, please checkout our [Contributing guidelines](/CONTRIBUTING.md)
 
+## What sites do you get your problems from?
+Currently, all the problems we've worked on have come from [HackerRank](https://www.hackerrank.com/domains). But we do intend to draw from other sites.
+
 
 # Acknowledgements
 This community would like to give a big thanks to [Dr. Susan Mengel, Ph.D.](http://www.depts.ttu.edu/coe/dean/faculty/faculty.php?name=Susan%20A.%20Mengel) for all of her guidance and input into this project.
