@@ -27,7 +27,7 @@ Here is what you can get out working on these types of problems:
 Are you a student at Texas Tech University? Yes? Cool! That's all it takes!
 
 ## How can I get involved in your community?
-We live on Slack. Check us out at [ttucs.slack.com](ttucs.slack.com). Must have a `@ttu.edu` email to register.
+We live on Slack. Check us out at [ttucs.slack.com](https://ttucs.slack.com). Must have a `@ttu.edu` email to register.
 
 ## How can I contribute to this repo?
 To contribute, please checkout our [Contributing guidelines](/CONTRIBUTING.md)
