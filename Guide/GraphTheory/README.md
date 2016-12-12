@@ -30,5 +30,8 @@ Once a dataset has been recognized as a graph, it is possible to use graph algor
 This section contains links to information about common graph algorithms.
 
 [Dijkstra's Algorithm] (http://www.geeksforgeeks.org/greedy-algorithms-set-6-dijkstras-shortest-path-algorithm/) -
-Dijkstra's Algorithm is used to find the shortest path between two vertices in a graph.
+Dijkstra's algorithm is used to find the shortest path between two vertices in a graph.
 Given a graph with airports as vertices and flights as edges (where edge length is flight price), it would be possible to find the cheapest way to get from one airport to another.
+
+[Kruskal's Algorithm] (http://www.geeksforgeeks.org/greedy-algorithms-set-2-kruskals-minimum-spanning-tree-mst/) -
+Kruskal's algorithm is used to find the [minimum spanning tree] (http://algs4.cs.princeton.edu/43mst/) of a given graph.
