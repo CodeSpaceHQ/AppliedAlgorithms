@@ -12,6 +12,7 @@ Here you can browse through the current problems we have solved and written solu
 | [New Year Chaos](/Guide/Constructive/New%20Year%20Chaos)            | Constructive        | Medium     | CPP      |
 | [Contacts](/Guide/Data%20Structures/Contacts)                       | Data Structures     | Medium     | Java     |
 | [Abbreviation](/Guide/DynamicProgramming/Abbreviation)              | Dynamic Programming | Medium     | Java     |
+| [Maximum Path Sum](/Guide/DynamicProgramming/Maximum%20Path%20Sum)  | Dynamic Programming | Easy       | Java     |
 | [Jack goes to Rapture](/Guide/GraphTheory/JackGoesToRapture)        | Graph Theory        | Medium     | Java     |
 | [Journey to the Moon](/Guide/GraphTheory/Journey%20to%20the%20Moon) | Graph Theory        | Medium     | CPP      |
 | [Algorithmic Crush](/Guide/Greedy/Algorithmic%20Crush)              | Greedy              | Hard       | CPP      |
