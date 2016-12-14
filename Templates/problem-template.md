@@ -7,8 +7,7 @@
 
 
 ## Problem
-### Statement
-[Restate the problem statement here]
+
 ### Overview
 [A tl;dr of the statement at the very least. Break out the meat from the problem]
 
