@@ -1,7 +1,7 @@
-# [Nikita And The Game]
-This problem comes from [HackerRank](https://www.hackerrank.com/challenges/array-splitting)
-Category: Dynamic Programming
-Difficulty: Medium
+# Nikita And The Game
+This problem comes from [HackerRank](https://www.hackerrank.com/challenges/array-splitting)  
+Category: Dynamic Programming  
+Difficulty: Medium  
 
 ## Problem
 
