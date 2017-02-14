@@ -21,8 +21,10 @@ So let's say you have a solution you would like to submit to this repo. Before g
 If you are a contributor to this repository it is your responsibility to make sure all issues are properly labeled.
 
 We use the following,
-- Green: For a coding problem or solution related issue.
-- Pink: For a discussion.
+- `coding problem`: For a coding problem or solution related issue.
+- `discussion`: For any discussion about the project/repository.
+- `guide`: For assigning and discussing the guide for a certain problem.
+- `call for submission`: For determining whose solution goes into the repository, with a written up guide.
 
 ## Code of Conduct
 Don't be rude to anyone.
