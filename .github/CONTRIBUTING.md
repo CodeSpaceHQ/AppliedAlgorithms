@@ -4,7 +4,7 @@ So you want to contribute to this repository?
 When contributing to this repository, please first discuss the change you wish to make via issue with the owners of this repository before making a change.
 
 ## Coding Standards
-Try to make it clean and easy to read with comments as necessary. A README.md is required for every problem solution. Please follow the standards put forth in the Templates folder.
+Try to make it clean and easy to read with comments as necessary. A `README.md` is required for every problem solution. Please follow the standards put forth in the Templates folder.
 
 Not all solution code will be clean. But make it as clean as possible within reason. The exact level of clean is up to the reviewers.
 
@@ -25,10 +25,11 @@ So let's say you have a solution you would like to submit to this repository.
 5. If you haven't already, [Fork](https://guides.github.com/activities/forking/) this repository.
 6. Create a folder for your solution in the appropriate spot (feel free to ask us if you are unsure where) and format the files in your folder appropriately. There should be 2 files (`README.md` and `solution.[EXTENSION]`)
   - Example: [New Year Chaos Folder](https://github.com/CodeSpaceHQ/AppliedAlgorithms/tree/master/Guide/Constructive/New%20Year%20Chaos)
-7. Once you have written up your solution, [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) into `master`.
-8. Once the PR has been created, the maintainers will go over your solution giving their thoughts & suggestions. **Do not expect that your solution and guide will be perfect on the first try.** Don't worry, the maintainers are mostly nice :)
-  - [New Year Chaos PR](https://github.com/CodeSpaceHQ/AppliedAlgorithms/pull/7)
-9. Once everything is polished up and the maintainers have given their last thoughts, one of them will merge your pull request and it will be done! Your solution and guide will finally be a part of this repository.
+7. Add your problem to the  [Problem Table](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/README.md)
+8. Once you have written up your solution, [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) into `master`.
+9. Once the PR has been created, the maintainers will go over your solution giving their thoughts & suggestions. **Do not expect that your solution and guide will be perfect on the first try.** Don't worry, the maintainers are mostly nice :)
+  - Example: [New Year Chaos PR](https://github.com/CodeSpaceHQ/AppliedAlgorithms/pull/7)
+10. Once everything is polished up and the maintainers have given their last thoughts, one of them will merge your pull request and it will be done! Your solution and guide will finally be a part of this repository.
 
 
 ## Pull Request Process
