@@ -9,7 +9,26 @@ Try to make it clean and easy to read with comments as necessary. A README.md is
 Not all solution code will be clean. But make it as clean as possible within reason. The exact level of clean is up to the reviewers.
 
 ## Getting Your Code Picked
-So let's say you have a solution you would like to submit to this repo. Before going through the pull request process, you will first need to submit your solution to be picked by the maintainers of this repo. Solutions will be submitted by [Gists](https://gist.github.com/). What will happen is that after a problem is released using the Issues of this repo, you can submit a link to your gist as a comment in that issue. If the maintainers like your solution, you will be contacted and asked to write up a solution guide to accompany your problem. A Pull Request will then be created so that the maintainers of this repo can give any final thoughts and suggestions before bring your solution into this repo.
+So let's say you have a solution you would like to submit to this repository.
+**These are the steps to take to getting your solution into this repository.**
+1. Before anything else, prepare your code for submission.
+  1. Double check that it passes **all** test cases.
+  2. Remove any unused code.
+  3. Comment anything that you did that is "weird" or "tricky". (not intuitive to the average reader)
+2. Create a [Gist](https://gist.github.com/) for your solution.
+  - Example: [New Year Chaos](https://gist.github.com/asclines/b68eca735d392123d0cde2b343100677)
+3. Once a Call for Submission issue is raised on that problem, you can submit your Gist by commenting a link to that Gist in the issue.
+  - Example: [New Year Chaos Call for Submission](https://github.com/CodeSpaceHQ/AppliedAlgorithms/issues/38)
+4. The maintainers will now determine which solutions (there may be 0, then may be multiple) that they believe belong in this repository. If yours is picked, an issue will be created and you will be notified.
+  - Example: [New Year Chaos Problem](https://github.com/CodeSpaceHQ/AppliedAlgorithms/issues/4)
+5. If you haven't already, [Fork](https://guides.github.com/activities/forking/) this repository.
+6. Create a folder for your solution in the appropriate spot (feel free to ask us if you are unsure where) and format the files in your folder appropriately. There should be 2 files (`README.md` and `solution.[EXTENSION]`)
+  - Example: [New Year Chaos Folder](https://github.com/CodeSpaceHQ/AppliedAlgorithms/tree/master/Guide/Constructive/New%20Year%20Chaos)
+7. Once you have written up your solution, [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) into `master`.
+8. Once the PR has been created, the maintainers will go over your solution giving their thoughts & suggestions. **Do not expect that your solution and guide will be perfect on the first try.** Don't worry, the maintainers are mostly nice :)
+  - [New Year Chaos PR](https://github.com/CodeSpaceHQ/AppliedAlgorithms/pull/7)
+9. Once everything is polished up and the maintainers have given their last thoughts, one of them will merge your pull request and it will be done! Your solution and guide will finally be a part of this repository.
+
 
 ## Pull Request Process
 
