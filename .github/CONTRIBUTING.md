@@ -10,7 +10,8 @@ Not all solution code will be clean. But make it as clean as possible within rea
 
 ## Getting Your Code Picked
 So let's say you have a solution you would like to submit to this repository.
-**These are the steps to take to getting your solution into this repository.**
+**These are the steps to take to getting your solution into this repository.**  
+
 1. Before anything else, prepare your code for submission.
   1. Double check that it passes **all** test cases.
   2. Remove any unused code.
