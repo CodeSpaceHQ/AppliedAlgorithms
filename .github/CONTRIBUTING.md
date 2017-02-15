@@ -9,9 +9,9 @@ Before you can make any changes to this repository, you must first have approval
 
 
 ## Coding Standards
-Try to make it clean and easy to read with comments as necessary. A `README.md` is required for every problem solution. Please follow the standards put forth in the Templates folder.
+Try to make your code clean and easy to read with comments as necessary. A `README.md` is required for every problem solution. Please follow the standards put forth in the Templates folder.
+We understand that not all solutions are the very clear at first, but please make the code as clean as possible (within reason). If the reviewers think there can be improvements they will let you know.
 
-Not all solution code will be clean. But make it as clean as possible within reason. The exact level of clean is up to the reviewers.
 
 ## Getting Your Code Picked
 So let's say you have a solution you would like to submit to this repository.
