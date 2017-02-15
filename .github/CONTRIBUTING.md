@@ -1,7 +1,12 @@
 # Contributing
 So you want to contribute to this repository?
+To do that you need to be a TTU student who is participating in SDC's Applied Algorithms Team.
 
-When contributing to this repository, please first discuss the change you wish to make via issue with the owners of this repository before making a change.
+**Are you a TTU student who wants to be a part of this but isn't?**
+Check us out on Slack at [ttucs.slack.com](ttucs.slack.com) in the #AppliedAlgorithms channel.
+
+Before you can make any changes to this repository, you must first have approval from the maintainers.
+
 
 ## Coding Standards
 Try to make it clean and easy to read with comments as necessary. A `README.md` is required for every problem solution. Please follow the standards put forth in the Templates folder.
