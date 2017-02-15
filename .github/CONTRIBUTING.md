@@ -9,7 +9,7 @@ Before you can make any changes to this repository, you must first have approval
 
 
 ## Coding Standards
-Try to make your code clean and easy to read with comments as necessary. A `README.md` is required for every problem solution. Please follow the standards put forth in the Templates folder.
+Try to make your code clean and easy to read with comments as necessary. A `README.md` is required for every problem solution. Please follow the standards put forth in the [Templates](/Templates) folder.
 We understand that not all solutions are the very clear at first, but please make the code as clean as possible (within reason). If the reviewers think there can be improvements they will let you know.
 
 
@@ -29,8 +29,8 @@ So let's say you have a solution you would like to submit to this repository.
   - Example: [New Year Chaos Problem](https://github.com/CodeSpaceHQ/AppliedAlgorithms/issues/4)
 5. If you haven't already, [Fork](https://guides.github.com/activities/forking/) this repository.
 6. Create a folder for your solution in the appropriate spot (feel free to ask us if you are unsure where) and format the files in your folder appropriately. There should be 2 files (`README.md` and `solution.[EXTENSION]`)
-  - Example: [New Year Chaos Folder](https://github.com/CodeSpaceHQ/AppliedAlgorithms/tree/master/Guide/Constructive/New%20Year%20Chaos)
-7. Add your problem to the  [Problem Table](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/README.md)
+  - Example: [New Year Chaos Folder](/Guide/Constructive/New%20Year%20Chaos)
+7. Add your problem to the  [Problem Table](/Guide/README.md)
 8. Once you have written up your solution, [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) into `master`.
 9. Once the PR has been created, the maintainers will go over your solution giving their thoughts & suggestions. **Do not expect that your solution and guide will be perfect on the first try.** Don't worry, the maintainers are mostly nice :)
   - Example: [New Year Chaos PR](https://github.com/CodeSpaceHQ/AppliedAlgorithms/pull/7)
