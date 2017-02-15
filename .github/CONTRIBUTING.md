@@ -3,7 +3,7 @@ So you want to contribute to this repository?
 To do that you need to be a TTU student who is participating in SDC's Applied Algorithms Team.
 
 **Are you a TTU student who wants to be a part of this but isn't?**
-Check us out on Slack at [ttucs.slack.com](ttucs.slack.com) in the #AppliedAlgorithms channel.
+Check us out on Slack at [ttucs.slack.com](https://ttucs.slack.com) in the #AppliedAlgorithms channel.
 
 Before you can make any changes to this repository, you must first have approval from the maintainers.
 
