@@ -15,10 +15,11 @@ _From Wikipedia:_
 > preferences for each element. A matching is a mapping from
 > the elements of one set to the elements of the other set. A > matching is not stable if:
 
->   a. There is an element A of the first matched set which prefers
+> a. There is an element A of the first matched set which prefers
 > some given element B of the second matched set over the
 > element to which A is already matched, and
->   b. B also prefers A over the element to which B is already
+
+> b. B also prefers A over the element to which B is already
 > matched.
 
 i.e. a _matching_ is stable when there is no match **(A,B) and (C,D)**  where **A** prefers **D** and **D** prefers **A** or any other combination where both **A** and **B** would be individually better off than they are with the element they are currently matched with.
@@ -36,7 +37,11 @@ We will use the Gale-Shapely algorithm, discovered in 1962 by David Gale and Llo
 
 We will use sets of men _m_ and women _w_, and find a one-to-one correspondence between them using the preferences of each man in _m_ and woman in _w_ such that each pairing is considered _stable_.
 
-Each element of each set will have a list of preferences mapping to each element of the other set, i.e. male M<sub>1</sub> in set _m_ will have a list [W<sub>1</sub>, W<sub>5</sub>m...W<sub>N</sub>] of preferred women in _w_ in decreasing order, as well as a state (single, engaged):
+Each element of each set will have a list of preferences mapping to each element of the other set, i.e. male M<sub>1</sub> in set _m_ will have a list [W<sub>1</sub>, W<sub>5</sub>m...W<sub>N</sub>] of preferred women in _w_ in decreasing order, as well as a status (single, engaged). The initial sets would look something like:
+
+<table>
+<tr><th> Set of Men </th><th> Set of Women </th></tr>
+<tr><td>
 
 | m  | Status | Preferences  |  
 |----|--------|--------------|
@@ -45,6 +50,19 @@ Each element of each set will have a list of preferences mapping to each element
 | m<sub>3</sub> | Single | [w<sub>3</sub>, w<sub>1</sub>,w<sub>4</sub>,w<sub>2</sub>] |
 | m<sub>4</sub> | Single | [w<sub>4</sub>, w<sub>3</sub>,w<sub>2</sub>,w<sub>1</sub>] | 
 
+</td><td>
+
+| w  | Status | Preferences  |  
+|----|--------|--------------|
+| w<sub>1</sub> | Single | [m<sub>2</sub>, m<sub>4</sub>,m<sub>1</sub>,m<sub>3</sub>] |
+| w<sub>2</sub> | Single | [m<sub>3</sub>, m<sub>1</sub>,m<sub>2</sub>,m<sub>4</sub>] |
+| w<sub>3</sub> | Single | [m<sub>3</sub>, m<sub>2</sub>,m<sub>4</sub>,m<sub>1</sub>] |
+| w<sub>4</sub> | Single | [m<sub>1</sub>, m<sub>2</sub>,m<sub>4</sub>,m<sub>3</sub>] |
+
+</td></tr>
+</table>
+
+Where m<sub>2</sub> prefers w<sub>2</sub> first, w<sub>1</sub> second, and so on. This is the same for the womens set _w_, where  w<sub>3</sub> prefers m<sub>3</sub> first, m<sub>2</sub> second, and so on.
 
 ### Pseudo Code
 [The algorithm]
