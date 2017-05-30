@@ -35,9 +35,9 @@ i.e. a _matching_ is stable when there is no match **(A,B) and (C,D)**  where **
 ### Overview
 We will use the Gale-Shapely algorithm, discovered in 1962 by David Gale and Lloyd Shapely. This algorithm proves that for any equal number of men and women it is always possible to solve the stable marriage problem.  
 
-We will use sets of men _m_ and women _w_, and find a one-to-one correspondence between them using the preferences of each man in _m_ and woman in _w_ such that each pairing is considered _stable_.
+Find a one-to-one correspondance between the set of men _m_ and women _w_ using the preferences of each man in _m_ and woman in _w_ such that each pairing is considered _stable_.
 
-Each element of each set will have a list of preferences mapping to each element of the other set, i.e. male M<sub>1</sub> in set _m_ will have a list [W<sub>1</sub>, W<sub>5</sub>m...W<sub>N</sub>] of preferred women in _w_ in decreasing order, as well as a status (single, engaged). The initial sets would look something like:
+Each element in each set will have a list of preferences mapping to each element in the other set, i.e. male M<sub>1</sub> in set _m_ will have a list [W<sub>1</sub>, W<sub>5</sub>m...W<sub>N</sub>] of preferred women in _w_ in decreasing order, as well as a status (single, engaged). The initial sets would look something like:
 
 <table>
 <tr><th> Set of Men </th><th> Set of Women </th></tr>
@@ -64,10 +64,28 @@ Each element of each set will have a list of preferences mapping to each element
 
 Where m<sub>2</sub> prefers w<sub>2</sub> first, w<sub>1</sub> second, and so on. This is the same for the womens set _w_, where  w<sub>3</sub> prefers m<sub>3</sub> first, m<sub>2</sub> second, and so on.
 
+**To solve the stable marriage problem**, we will iterate through the set of males while there exists a free male _m_ who has not yet "prposed" to every woman in set _w_. This _m_ will then propose to his highest ranked woman _w_ who he has not yet proposed to. If _w_ is single, she will accept and the two will become "engaged", otherwise _w_ is already engaged to _m<sub>x</sub>_ and she will only leave her current engagement if she prefers _m_ over _m<sub>x</sub>_.
+
 ### Pseudo Code
-[The algorithm]
+``` Python
+def match(set M: men, set W: women):
+
+    while there exists a single man (m) in M who has not yet proposed to every woman in W:
+    
+        1. let m propose to highest-ranked woman (w) he has not yet proposed to
+        2. if w is free let her accept (m,w) become "engaged"
+        3. if w prefers m to her current m<sub>x</sub>, let her break the engagment with m<sub>x</sub> and accept m's proposal.
+        
+    return the set of all engaged pairs
+```
+
 ### Analysis
-[Analyze the algorithm, here's where things such as complexity can be discussed]
+The Gale-Shapely algorithm finds a stable matching in O(n<sup>2</sup>) time.
+
+For each woman, we can create **inverse** of preference list of men. This would mean that n would end up proposing to n women (where n is the size of the set of men and women).
+
+[proof]
 
 ## Conclusion
-[Any final thoughts here, maybe discuss other ways to solve the problem that would be equally efficient]
+**Man Optimality and Woman Pessimality**:
+In this version of the Gale-Shapely Algorithm, each man will recieve his best partner, and each women recieves her worst valid partner.
