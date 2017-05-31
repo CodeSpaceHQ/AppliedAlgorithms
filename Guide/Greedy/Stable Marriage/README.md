@@ -74,18 +74,13 @@ def match(set M: men, set W: women):
     
         1. let m propose to highest-ranked woman (w) he has not yet proposed to
         2. if w is free let her accept (m,w) become "engaged"
-        3. if w prefers m to her current m<sub>x</sub>, let her break the engagment with m<sub>x</sub> and accept m's proposal.
+        3. if w prefers m to her current m<sub>x</sub>, let her break the engagment
+           with m<sub>x</sub> and accept m's proposal.
         
     return the set of all engaged pairs
 ```
 
-### Analysis
-The Gale-Shapely algorithm finds a stable matching in O(n<sup>2</sup>) time.
+## Analysis
+The Gale-Shapely algorithm finds a stable matching in O(n<sup>2</sup>) time. For each woman, we can create **inverse** of preference list of men. This would mean that n would end up proposing to n women (where n is the size of the set of men and women).
 
-For each woman, we can create **inverse** of preference list of men. This would mean that n would end up proposing to n women (where n is the size of the set of men and women).
-
-[proof]
-
-## Conclusion
-**Man Optimality and Woman Pessimality**:
-In this version of the Gale-Shapely Algorithm, each man will recieve his best partner, and each women recieves her worst valid partner.
+Upon termination - due to the fact that a single man prooposes to a woman he has not yet proposed to - every man is engaged. This is due to the fact that once a woman is engaged, she remains engaged, and only switches engagements to men she prefers more. Thus at the end every woman is engaged to some man.
