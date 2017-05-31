@@ -87,4 +87,5 @@ Upon termination - due to the fact that a single man prooposes to a woman he has
 
 ## References
 [Dr. Gelfond Applied Algorithms](http://redwood.cs.ttu.edu/~mgelfond/FALL-2012/slides.pdf)
+
 [Stable Marriage Problem Wikipedia](https://en.wikipedia.org/wiki/Stable_marriage_problem)
