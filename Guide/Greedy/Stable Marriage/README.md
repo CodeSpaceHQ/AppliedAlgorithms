@@ -1,5 +1,4 @@
 # Stable Marriage
-https://en.wikipedia.org/wiki/Stable_marriage_problem
 
 Category: Greedy
 
@@ -84,3 +83,8 @@ def match(set M: men, set W: women):
 The Gale-Shapely algorithm finds a stable matching in O(n<sup>2</sup>) time. For each woman, we can create **inverse** of preference list of men. This would mean that n would end up proposing to n women (where n is the size of the set of men and women).
 
 Upon termination - due to the fact that a single man prooposes to a woman he has not yet proposed to - every man is engaged. This is due to the fact that once a woman is engaged, she remains engaged, and only switches engagements to men she prefers more. Thus at the end every woman is engaged to some man.
+
+
+## References
+[Dr. Gelfond Applied Algorithms](http://redwood.cs.ttu.edu/~mgelfond/FALL-2012/slides.pdf)
+[Stable Marriage Problem Wikipedia](https://en.wikipedia.org/wiki/Stable_marriage_problem)
