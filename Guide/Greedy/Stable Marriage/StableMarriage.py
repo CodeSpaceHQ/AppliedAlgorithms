@@ -48,7 +48,7 @@ def main():
     }
 
     pairs = stable_marriage(men, women)
-    print('(M, W) = Engagement')
+    print('(W, M) = Engagement')
     for engagement in pairs.items():
         print(engagement)
 
