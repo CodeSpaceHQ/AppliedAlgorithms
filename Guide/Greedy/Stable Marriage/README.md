@@ -80,6 +80,102 @@ def match(set M: men, set W: women):
 ```
 
 ## Analysis
+
+**1<sup>st</sup> iteration**
+1. Man = m<sub>1</sub>
+2. m<sub>1</sub> proposes to w (w<sub>2</sub>) and she is single, so she accepts
+
+| Engagements (M, W) |
+|:------------------:|
+|(m<sub>1</sub>, w<sub>2</sub>)|
+----
+**2<sup>nd</sup> iteration**
+1. Man = m<sub>2</sub>
+2. m<sub>2</sub> proposes to w (w<sub>2</sub>) and she is taken...
+3. w<sub>2</sub> ranks m<sub>1</sub> higher than m<sub>2</sub>, so m<sub>2</sub> stays single
+
+| Engagements (M, W) |
+|:------------------:|
+|(m<sub>1</sub>, w<sub>2</sub>)|
+
+
+**Note**: Here we could either move on to m<sub>3</sub>, or we could try m<sub>2</sub> again with his next preffered woman, here we will
+do the latter.
+
+----       
+**3<sup>rd</sup> iteration**
+1. Man = m<sub>2</sub> (again)
+2. m<sub>2</sub> proposes to w (w<sub>1</sub>) and she is single, so she accepts
+
+| Engagements (M, W) |
+|:------------------:|
+|(m<sub>1</sub>, w<sub>2</sub>)|
+|(m<sub>2</sub>, w<sub>1</sub>)|
+----
+**4<sup>th</sup> iteration**
+1. Man = m<sub>3</sub> 
+2. m<sub>3</sub> proposes to w (w<sub>1</sub>) and she is taken...
+3. w<sub>1</sub> ranks m<sub>2</sub> higher than m<sub>3</sub>, so m<sub>3</sub> stays single
+
+| Engagements (M, W) |
+|:------------------:|
+|(m<sub>1</sub>, w<sub>2</sub>)|
+|(m<sub>2</sub>, w<sub>1</sub>)|
+----
+**5<sup>th</sup> iteration**
+1. Man = m<sub>3</sub> (again)
+2. m<sub>3</sub> proposes to w (w<sub>3</sub>) and she is single, so she accepts
+
+| Engagements (M, W) |
+|:------------------:|
+|(m<sub>1</sub>, w<sub>2</sub>)|
+|(m<sub>2</sub>, w<sub>1</sub>)|
+|(m<sub>3</sub>, w<sub>3</sub>)|
+----
+**6<sup>th</sup> iteration**
+1. Man = m<sub>4</sub>
+2. m<sub>4</sub> proposes to w (w<sub>1</sub>) and she is taken...
+3. w<sub>1</sub> ranks m<sub>2</sub> higher than m<sub>4</sub>, so m<sub>4</sub> stays single
+
+| Engagements (M, W) |
+|:------------------:|
+|(m<sub>1</sub>, w<sub>2</sub>)|
+|(m<sub>2</sub>, w<sub>1</sub>)|
+|(m<sub>3</sub>, w<sub>3</sub>)|
+----
+**7<sup>th</sup> iteration**
+1. Man = m<sub>4</sub> (again)
+2. m<sub>4</sub> proposes to w (w<sub>2</sub>) and she is taken...
+3. w<sub>2</sub> ranks m<sub>1</sub> higher than m<sub>4</sub>, so m<sub>4</sub> stays single
+
+| Engagements (M, W) |
+|:------------------:|
+|(m<sub>1</sub>, w<sub>2</sub>)|
+|(m<sub>2</sub>, w<sub>1</sub>)|
+|(m<sub>3</sub>, w<sub>3</sub>)|
+----
+**8<sup>th</sup> iteration**
+1. Man = m<sub>4</sub> (again)
+2. m<sub>4</sub> proposes to w (w<sub>3</sub>) and she is taken...
+3. w<sub>3</sub> ranks m<sub>4</sub> higher than m<sub>3</sub>, so m<sub>3</sub> is now single and m<sub>4</sub> becomes engaged
+
+| Engagements (M, W) |
+|:------------------:|
+|(m<sub>1</sub>, w<sub>2</sub>)|
+|(m<sub>2</sub>, w<sub>1</sub>)|
+|(m<sub>4</sub>, w<sub>3</sub>)|
+----
+**9<sup>th</sup> iteration**
+1. Man = m<sub>3</sub> (again)
+2. m<sub>3</sub> proposes to w (w<sub>4</sub>) and she is single, so she accepts
+
+| Engagements (M, W) |
+|:------------------:|
+|(m<sub>1</sub>, w<sub>2</sub>)|
+|(m<sub>2</sub>, w<sub>1</sub>)|
+|(m<sub>4</sub>, w<sub>3</sub>)|
+|(m<sub>3</sub>, w<sub>4</sub>)|
+----
 The Gale-Shapely algorithm finds a stable matching in O(n<sup>2</sup>) time. For each woman, we can create **inverse** of preference list of men. This would mean that n would end up proposing to n women (where n is the size of the set of men and women).
 
 Upon termination - due to the fact that a single man prooposes to a woman he has not yet proposed to - every man is engaged. This is due to the fact that once a woman is engaged, she remains engaged, and only switches engagements to men she prefers more. Thus at the end every woman is engaged to some man.
