@@ -175,6 +175,8 @@ do the latter.
 |(m<sub>2</sub>, w<sub>1</sub>)|
 |(m<sub>4</sub>, w<sub>3</sub>)|
 |(m<sub>3</sub>, w<sub>4</sub>)|
+
+No more single men, done.
 ----
 The Gale-Shapely algorithm finds a stable matching in O(n<sup>2</sup>) time. For each woman, we can create **inverse** of preference list of men. This would mean that n would end up proposing to n women (where n is the size of the set of men and women).
 
