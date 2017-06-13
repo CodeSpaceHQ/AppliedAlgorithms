@@ -42,8 +42,8 @@ Each element in each set will have a list of preferences mapping to each element
 <tr><th> Set of Men </th><th> Set of Women </th></tr>
 <tr><td>
 
-| m  | Status | Preferences  |  
-|----|--------|--------------|
+| m  | Preferences  |  
+|----|--------------|
 | m<sub>1</sub> | [w<sub>1</sub>, w<sub>2</sub>,w<sub>3</sub>,w<sub>4</sub>] |
 | m<sub>2</sub> | [w<sub>2</sub>, w<sub>1</sub>,w<sub>3</sub>,w<sub>4</sub>] |
 | m<sub>3</sub> | [w<sub>3</sub>, w<sub>1</sub>,w<sub>4</sub>,w<sub>2</sub>] |
@@ -51,8 +51,8 @@ Each element in each set will have a list of preferences mapping to each element
 
 </td><td>
 
-| w  | Status | Preferences  |  
-|----|--------|--------------|
+| w  | Preferences  |  
+|----|--------------|
 | w<sub>1</sub> | [m<sub>2</sub>, m<sub>4</sub>,m<sub>1</sub>,m<sub>3</sub>] |
 | w<sub>2</sub> | [m<sub>3</sub>, m<sub>1</sub>,m<sub>2</sub>,m<sub>4</sub>] |
 | w<sub>3</sub> | [m<sub>3</sub>, m<sub>2</sub>,m<sub>4</sub>,m<sub>1</sub>] |
