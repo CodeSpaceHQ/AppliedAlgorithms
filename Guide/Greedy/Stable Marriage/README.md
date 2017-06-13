@@ -44,10 +44,10 @@ Each element in each set will have a list of preferences mapping to each element
 
 | m  | Preferences  |  
 |----|--------------|
-| m<sub>1</sub> | [w<sub>1</sub>, w<sub>2</sub>,w<sub>3</sub>,w<sub>4</sub>] |
+| m<sub>1</sub> | [w<sub>2</sub>, w<sub>3</sub>,w<sub>4</sub>,w<sub>1</sub>] |
 | m<sub>2</sub> | [w<sub>2</sub>, w<sub>1</sub>,w<sub>3</sub>,w<sub>4</sub>] |
-| m<sub>3</sub> | [w<sub>3</sub>, w<sub>1</sub>,w<sub>4</sub>,w<sub>2</sub>] |
-| m<sub>4</sub> | [w<sub>4</sub>, w<sub>3</sub>,w<sub>2</sub>,w<sub>1</sub>] | 
+| m<sub>3</sub> | [w<sub>1</sub>, w<sub>3</sub>,w<sub>4</sub>,w<sub>2</sub>] |
+| m<sub>4</sub> | [w<sub>1</sub>, w<sub>2</sub>,w<sub>3</sub>,w<sub>4</sub>] | 
 
 </td><td>
 
@@ -55,7 +55,7 @@ Each element in each set will have a list of preferences mapping to each element
 |----|--------------|
 | w<sub>1</sub> | [m<sub>2</sub>, m<sub>4</sub>,m<sub>1</sub>,m<sub>3</sub>] |
 | w<sub>2</sub> | [m<sub>3</sub>, m<sub>1</sub>,m<sub>2</sub>,m<sub>4</sub>] |
-| w<sub>3</sub> | [m<sub>3</sub>, m<sub>2</sub>,m<sub>4</sub>,m<sub>1</sub>] |
+| w<sub>3</sub> | [m<sub>1</sub>, m<sub>2</sub>,m<sub>4</sub>,m<sub>3</sub>] |
 | w<sub>4</sub> | [m<sub>1</sub>, m<sub>2</sub>,m<sub>4</sub>,m<sub>3</sub>] |
 
 </td></tr>
