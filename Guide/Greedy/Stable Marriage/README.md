@@ -3,7 +3,7 @@
 Category: Greedy
 
 ## Problem
-Given _n_ men and _n_ women, where each person has ranked all members of the opposite sex in order of preference, marry the men and the women together such that there are no two people of opposite sex who would both rather have ach other than their current partners. When there are no such pairs of people, the set of marriages is deemed stable.
+Given _n_ men and _n_ women, where each person has ranked all members of the opposite sex in order of preference, marry the men and the women together such that there are no two people of opposite sex who would both rather have each other than their current partners. When there are no such pairs of people, the set of marriages is deemed stable.
 
 
 ### Overview
@@ -63,7 +63,7 @@ Each element in each set will have a list of preferences mapping to each element
 
 Where m<sub>2</sub> prefers w<sub>2</sub> first, w<sub>1</sub> second, and so on. This is the same for the womens set _w_, where  w<sub>3</sub> prefers m<sub>3</sub> first, m<sub>2</sub> second, and so on.
 
-**To solve the stable marriage problem**, we will iterate through the set of males while there exists a free male _m_ who has not yet "prposed" to every woman in set _w_. This _m_ will then propose to his highest ranked woman _w_ who he has not yet proposed to. If _w_ is single, she will accept and the two will become "engaged", otherwise _w_ is already engaged to _m<sub>x</sub>_ and she will only leave her current engagement if she prefers _m_ over _m<sub>x</sub>_.
+**To solve the stable marriage problem**, we will iterate through the set of males while there exists a free male _m_ who has not yet "proposed" to every woman in set _w_. This _m_ will then propose to his highest ranked woman _w_ who he has not yet proposed to. If _w_ is single, she will accept and the two will become "engaged", otherwise _w_ is already engaged to _m<sub>x</sub>_ and she will only leave her current engagement if she prefers _m_ over _m<sub>x</sub>_.
 
 ### Pseudo Code
 ``` Python
