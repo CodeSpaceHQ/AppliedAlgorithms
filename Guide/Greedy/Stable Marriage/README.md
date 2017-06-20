@@ -1,30 +1,34 @@
 # Stable Marriage
-[Dr. Gelfond Applied Algorithms](http://redwood.cs.ttu.edu/~mgelfond/FALL-2012/slides.pdf)
 
-[Stable Marriage Problem Wikipedia](https://en.wikipedia.org/wiki/Stable_marriage_problem)
+This problem is introduced in [Dr. Gelfond Applied Algorithms](http://redwood.cs.ttu.edu/~mgelfond/FALL-2012/slides.pdf) and is further discussed in [Stable Marriage Problem Wikipedia](https://en.wikipedia.org/wiki/Stable_marriage_problem)
 
 Category: Greedy
+Difficulty: N/A
 
 ## Problem
-Given _n_ men and _n_ women, where each person has ranked all members of the opposite sex in order of preference, marry the men and the women together such that there are no two people of opposite sex who would both rather have each other than their current partners. When there are no such pairs of people, the set of marriages is deemed stable.
-
 
 ### Overview
+
+Given _n_ men and _n_ women, where each person has ranked all members of the opposite sex in order of preference, marry the men and the women together such that there are no two people of opposite sex who would both rather have each other than their current partners. When there are no such pairs of people, the set of marriages is deemed stable.
+
 _From Wikipedia:_
-> Stable marriage problem (also stable matching problem or SMP) is the problem of finding a stable matching between two equally sized sets of elements given an ordering of preferences for each element. A matching is a mapping from the elements of one set to the elements of the other set. A matching is not stable if:
+Stable marriage problem (also stable matching problem or SMP) is the problem of finding a stable matching between two equally sized sets of elements given an ordering of preferences for each element. A matching is a mapping from the elements of one set to the elements of the other set. A matching is not stable if:
 
-> 1. There is an element A of the first matched set which prefers some given element B of the second matched set over the element to which A is already matched, and
+- There is an element A of the first matched set which prefers some given element B of the second matched set over the element to which A is already matched, and
 
-> 2. B also prefers A over the element to which B is already matched.
+- B also prefers A over the element to which B is already matched.
 
 i.e. a _matching_ is stable when there is no match **(A,B) and (C,D)**  where **A** prefers **D** and **D** prefers **A** or any other combination where both **A** and **B** would be individually better off than they are with the element they are currently matched with.
 
-### Applications
-* Assigning users to servers in a large distributed internet service
-* Assigning graduating medical students to their first hospital appointments
-* Preferences problems
+### Input Format
+- The first line is a set of key-value pairs of n men (k, v) where k is an integer greater than zero and v is a list of integers greater than zero of size n.
+- The second line is a set of key-value pairs of n women (k, v) where k is an integer greater than zero and v is a list of integers greater than zero of size n.
 
+### Constraints
+- Stable marriage will find a solution in O(n<sup>2</sup>) time, but it is not reccomended that the input sizes become greater than 100 for demonstration purposes.
 
+### Output FOrmat
+- n rows of the form (M, W) where M is a male in input 1 who is engaged to woman W in input 2.
 
 ## Algorithm
 ### Overview
@@ -173,7 +177,8 @@ do the latter.
 |(m<sub>3</sub>, w<sub>4</sub>)|
 
 No more single men, done.
-----
+
+## Conclusion
 The Gale-Shapely algorithm finds a stable matching in O(n<sup>2</sup>) time. For each woman, we can create **inverse** of preference list of men. This would mean that n would end up proposing to n women (where n is the size of the set of men and women). The best case would be if each man only had to propose once, or n times, and the worst case would be if each man had to propose n times, or n<sup>2</sup>.
 
 Upon termination - due to the fact that a single man prooposes to a woman he has not yet proposed to - every man is engaged. This is due to the fact that once a woman is engaged, she remains engaged, and only switches engagements to men she prefers more. Thus at the end every woman is engaged to some man.
