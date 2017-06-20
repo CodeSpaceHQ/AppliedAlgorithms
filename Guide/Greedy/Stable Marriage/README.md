@@ -26,7 +26,9 @@ i.e. a _matching_ is stable when there is no match **(A,B) and (C,D)**  where **
 - The second line is a set of key-value pairs of n women (k, v) where k is an integer greater than zero and v is a list of integers greater than zero of size n.
 
 ### Constraints
-- Stable marriage will find a solution in O(n<sup>2</sup>) time, but it is not reccomended that the input sizes become greater than 100 for demonstration purposes.
+- Set of men and set of women must be equal in size.
+- Each match must be stable.
+- Each man must be engaged to a single woman and each woman to a single man.
 
 ### Output Format
 - n rows of the form (M, W) where M is a male in input 1 who is engaged to woman W in input 2.
