@@ -3,6 +3,7 @@
 This problem is introduced in [Dr. Gelfond Applied Algorithms](http://redwood.cs.ttu.edu/~mgelfond/FALL-2012/slides.pdf) and is further discussed in [Stable Marriage Problem Wikipedia](https://en.wikipedia.org/wiki/Stable_marriage_problem)
 
 Category: Greedy
+
 Difficulty: N/A
 
 ## Problem
