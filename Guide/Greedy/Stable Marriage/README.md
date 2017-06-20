@@ -27,7 +27,7 @@ i.e. a _matching_ is stable when there is no match **(A,B) and (C,D)**  where **
 ### Constraints
 - Stable marriage will find a solution in O(n<sup>2</sup>) time, but it is not reccomended that the input sizes become greater than 100 for demonstration purposes.
 
-### Output FOrmat
+### Output Format
 - n rows of the form (M, W) where M is a male in input 1 who is engaged to woman W in input 2.
 
 ## Algorithm
