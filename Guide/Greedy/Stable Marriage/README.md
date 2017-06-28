@@ -89,9 +89,21 @@ The while loop in the stable marriage algorithm goes through each individual mal
 1. Man = m<sub>1</sub>
 2. m<sub>1</sub> proposes to w (w<sub>2</sub>) and she is single, so she accepts
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
+
+</td>
+<td>
+
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Assets/step1.PNG "Man 1 proposes to woman 2")
+
+</td>
+</table>
+
 ----
 **2<sup>nd</sup> iteration**
 1. Man = m<sub>2</sub>
