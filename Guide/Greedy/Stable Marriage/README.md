@@ -110,12 +110,22 @@ The while loop in the stable marriage algorithm goes through each individual mal
 2. m<sub>2</sub> proposes to w (w<sub>2</sub>) and she is taken...
 3. w<sub>2</sub> ranks m<sub>1</sub> higher than m<sub>2</sub>, so m<sub>2</sub> stays single
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 
+</td>
+<td>
 
-**Note**: Here we could either move on to m<sub>3</sub>, or we could try m<sub>2</sub> again with his next preffered woman, here we will
+![Step 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step2.PNG "Man 2 proposes to woman 2")
+
+</td>
+</table>
+
+**Note**: We could either move on to m<sub>3</sub>, or we could try m<sub>2</sub> again with his next preffered woman, here we will
 do the latter.
 
 ----       
@@ -123,67 +133,142 @@ do the latter.
 1. Man = m<sub>2</sub> (again)
 2. m<sub>2</sub> proposes to w (w<sub>1</sub>) and she is single, so she accepts
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
+
+</td>
+<td>
+
+![Step 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step3.PNG "Man 2 proposes to woman 1")
+
+</td>
+</table>
+
 ----
 **4<sup>th</sup> iteration**
 1. Man = m<sub>3</sub> 
 2. m<sub>3</sub> proposes to w (w<sub>1</sub>) and she is taken...
 3. w<sub>1</sub> ranks m<sub>2</sub> higher than m<sub>3</sub>, so m<sub>3</sub> stays single
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
+
+</td>
+<td>
+
+![Step 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step4.PNG "Man 3 proposes to woman 1")
+
+</td>
+</table>
+
 ----
 **5<sup>th</sup> iteration**
 1. Man = m<sub>3</sub> (again)
 2. m<sub>3</sub> proposes to w (w<sub>3</sub>) and she is single, so she accepts
+
+<table>
+<td>
 
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
 |(m<sub>3</sub>, w<sub>3</sub>)|
+
+</td>
+<td>
+
+![Step 5](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step5.PNG "Man 3 proposes to woman 3")
+
+</td>
+</table>
+
 ----
 **6<sup>th</sup> iteration**
 1. Man = m<sub>4</sub>
 2. m<sub>4</sub> proposes to w (w<sub>1</sub>) and she is taken...
 3. w<sub>1</sub> ranks m<sub>2</sub> higher than m<sub>4</sub>, so m<sub>4</sub> stays single
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
 |(m<sub>3</sub>, w<sub>3</sub>)|
+
+</td>
+<td>
+
+![Step 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step6.PNG "Man 4 proposes to woman 1")
+
+</td>
+</table>
+
 ----
 **7<sup>th</sup> iteration**
 1. Man = m<sub>4</sub> (again)
 2. m<sub>4</sub> proposes to w (w<sub>2</sub>) and she is taken...
 3. w<sub>2</sub> ranks m<sub>1</sub> higher than m<sub>4</sub>, so m<sub>4</sub> stays single
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
 |(m<sub>3</sub>, w<sub>3</sub>)|
+
+</td>
+<td>
+
+![Step 7](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step7.PNG "Man 4 proposes to woman 2")
+
+</td>
+</table>
+
 ----
 **8<sup>th</sup> iteration**
 1. Man = m<sub>4</sub> (again)
 2. m<sub>4</sub> proposes to w (w<sub>3</sub>) and she is taken...
 3. w<sub>3</sub> ranks m<sub>4</sub> higher than m<sub>3</sub>, so m<sub>3</sub> is now single and m<sub>4</sub> becomes engaged
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
 |(m<sub>4</sub>, w<sub>3</sub>)|
+
+</td>
+<td>
+
+![Step 8](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step8.PNG "Man 4 proposes to woman 3")
+
+</td>
+</table>
+
 ----
 **9<sup>th</sup> iteration**
 1. Man = m<sub>3</sub> (again)
 2. m<sub>3</sub> proposes to w (w<sub>4</sub>) and she is single, so she accepts
+
+<table>
+<td>
 
 | Engagements (M, W) |
 |:------------------:|
@@ -191,6 +276,15 @@ do the latter.
 |(m<sub>2</sub>, w<sub>1</sub>)|
 |(m<sub>4</sub>, w<sub>3</sub>)|
 |(m<sub>3</sub>, w<sub>4</sub>)|
+
+</td>
+<td>
+
+![Step 9](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step9.PNG "Man 3 proposes to woman 4")
+
+</td>
+</table>
+
 
 No more single men, done.
 
