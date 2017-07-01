@@ -99,7 +99,7 @@ The while loop in the stable marriage algorithm goes through each individual mal
 </td>
 <td>
 
-![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Assets/step1.PNG "Man 1 proposes to woman 2")
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step1.PNG "Man 1 proposes to woman 2")
 
 </td>
 </table>
