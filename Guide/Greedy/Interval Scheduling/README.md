@@ -35,7 +35,37 @@ For our interval scheduling algorithm we will re-state the problem in a more pre
 
 
 ### Pseudo Code
-[The algorithm]
+
+The first version of the pseudo code assumes that the set of intervals is already sorted by earliest finish time first.
+This version also has to loop over the entire set of intervals and remove the incompatible intervals each time.
+
+```python
+
+    def interval_scheduling(set_of_intervals):
+      1. While set_of_intervals is not empty
+        a. select a request _i_ from set_of_intervals with earliest finish time
+        b. add _i_ it to the solution set
+        c. remove all all sets incompatible with _i_ from set_of_intervals including _i_
+      2. return the solution set
+```
+
+The second version has to sort the set of intervals before the solution set is built up. This version also loops over the entire
+set of intervals only once, and instead of removing incompatible intervals it finds more compatible ones as it traverses.
+
+```python
+
+    1. Sort set_of_intervals in order of finishing time.
+    2. i = 0
+    3. f := − 1
+    4. while k < n do [Linear Time]
+        a. if set_of_intervals[i]'s finish time is greater than or equal to f:
+            1. append the interval to the solution set
+            2. f = the intervals finish time
+        b. i = i + 1
+    5. return the solution set
+
+```
+
 ### Analysis
 [Analyze the algorithm, here's where things such as complexity can be discussed]
 
