@@ -55,9 +55,9 @@ set of intervals only once, and instead of removing incompatible intervals it fi
 ```python
 
     1. Sort set_of_intervals in order of finishing time.
-    2. i = 0
+    2. i = 0, n = len(set_of_intervals)
     3. f := − 1
-    4. while k < n do [Linear Time]
+    4. while i < n:
         a. if set_of_intervals[i]'s finish time is greater than or equal to f:
             1. append the interval to the solution set
             2. f = the intervals finish time
