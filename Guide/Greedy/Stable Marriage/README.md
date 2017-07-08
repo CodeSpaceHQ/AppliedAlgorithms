@@ -12,7 +12,7 @@ Difficulty: N/A
 
 Given _n_ men and _n_ women, where each person has ranked all members of the opposite sex in order of preference, marry the men and the women together such that there are no two people of opposite sex who would both rather have each other than their current partners. When there are no such pairs of people, the set of marriages is deemed stable.
 
-_From Wikipedia:_
+From Wikipedia:
 >Stable marriage problem (also stable matching problem or SMP) is the problem of finding a stable matching between two equally sized sets of elements given an ordering of preferences for each element. A matching is a mapping from the elements of one set to the elements of the other set. A matching is not stable if:
 
 >- There is an element A of the first matched set which prefers some given element B of the second matched set over the element to which A is already matched, and
