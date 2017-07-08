@@ -15,10 +15,10 @@ _From Wikipedia:_
 > Interval schedluing is a class of problems in computer science, particularly in the area of algorithm design. THe problems consider a set of tasks. Each task is represented by an _interval_ describing the time in which it needs to be executed. For instance, task A might run from 2:00 to 5:00, task B might run from 4:00 to 10:00, and task C might run from 9:00 to 11:00. A subset of intervals is _compatible_ if no two intervals overlap. For example, the subset {A, C} is compatible, as is the subset {B}; but neither {A, B} or {B, C} are compatible subsets, because the intervals within each subset overlap.
 
 ### Input Format
-- A set S containing n rquests in the form of (s, f) where s is the start time and f is the finish time of a request.
+- A set _S_ containing n rquests in the form of _(s, f)_ where _s_ is the start time and _f_ is the finish time of a request.
 
 ### Constraints
-- No two intervals (s, f) may overlap within a solution, and the solution must be the most optimal soltuion of S, i.e. maximum number of requests in the solution.
+- No two intervals _(s, f)_ may overlap within a solution, and the solution must be the most optimal soltuion of _S_, i.e. maximum number of requests in the solution.
 
 ### Output Format
 - a list of the intervals existing in the optimal solution.
@@ -27,11 +27,11 @@ _From Wikipedia:_
 ### Overview
 For our interval scheduling algorithm we will re-state the problem in a more precise way:
 
-> Given a set *R* = {i<sub>1</sub>...,i<sub>n</sub>} of requests where each request _i_ is associated witha n interval [s(i), f(i)), find a best schedule, i.e. a subset *A* of requests from *R* such that: 
+> Given a set _R_ = {i<sub>1</sub>...,i<sub>n</sub>} of requests where each request _i_ is associated witha n interval [s(i), f(i)), find a best schedule, i.e. a subset _A_ of requests from _R_ such that: 
 
-> 1. *A* is _compatible_, i.e. *A* contains no overlapping requests and 
+> 1. _A_ is _compatible_, i.e. _A_ contains no overlapping requests and 
 
-> 2. *A* is _optimal_, i.e. there is no compativle subset of *R* which has more requests than *A*.
+> 2. _A_ is _optimal_, i.e. there is no compativle subset of _R_ which has more requests than _A_.
 
 
 ### Pseudo Code
