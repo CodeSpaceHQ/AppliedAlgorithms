@@ -1,6 +1,8 @@
 
 def partition(s, begin, end):
     # Lomuto partition scheme worst case O(n^2)
+    # this version of partition may not be the most efficient in
+    # terms of edge cases - but will do for our purpose of demonstration.
     pivot = end
     pivot_holder_index = begin
     for i in range(begin, end):
@@ -26,12 +28,20 @@ def schedule(set_of_intervals):
     # Order the intervals by finish time
     set_of_intervals = quick_sort(set_of_intervals, 0, len(set_of_intervals) - 1)
 
+    # n elements in the array
     n = len(set_of_intervals)
+    # initial "finish" time
     f = -1
+    # solution array
     solution = []
+    # loop through intervals one time
     for i in range(0, n):
+        # if the request does not conflict with the previous' request
+        # (by comparison of start and finish time)
         if set_of_intervals[i][0] >= f:
+            # add it to the solution set
             solution.append(set_of_intervals[i])
+            # reassign to the new finish time
             f = set_of_intervals[i][1]
     return solution
 
