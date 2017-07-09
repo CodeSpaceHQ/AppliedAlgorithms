@@ -1,30 +1,46 @@
 
-def sort_by_finish(set_of_intervals):
-    pass #do quicksort here
+def partition(s, begin, end):
+    # Lomuto partition scheme worst case O(n^2)
+    pivot = end
+    pivot_holder_index = begin
+    for i in range(begin, end):
+        if s[i][1] < s[pivot][1]:
+            s[i], s[pivot_holder_index] = s[pivot_holder_index], s[i]
+            pivot_holder_index += 1
+    s[pivot_holder_index], s[end] = s[end], s[pivot_holder_index]
+    return pivot_holder_index
+
+
+def quick_sort(s, begin, end):
+    # quicksort
+    if begin < end:
+        pivot = partition(s, begin, end)
+        # sort sub array on the left
+        quick_sort(s, begin, pivot - 1)
+        # sort sub array on the right
+        quick_sort(s, pivot + 1, end)
+    return s
+
 
 def schedule(set_of_intervals):
-
     # Order the intervals by finish time
-    set_of_intervals = sort_by_finish(set_of_intervals)
+    set_of_intervals = quick_sort(set_of_intervals, 0, len(set_of_intervals) - 1)
 
-    # begin algorithm
-    solution = set()
-    while set_of_intervals:
+    n = len(set_of_intervals)
+    f = -1
+    solution = []
+    for i in range(0, n):
+        if set_of_intervals[i][0] >= f:
+            solution.append(set_of_intervals[i])
+            f = set_of_intervals[i][1]
+    return solution
 
-        # get interval with earliest finish time
-        request = set_of_intervals[0]
-
-        # add it to solution
-        solution.add(request)
-
-        # remove all conflicting intervals
-        for interval in set_of_intervals.ITEMS():
-            if interval[0] >= request[0] or interval[1] <= request[1]:
-                del interval
 
 
 def main():
-    set_of_intervals = {(2, 3), (4, 5),
-                        (6, 9), (1, 10)}
+    set_of_intervals = [(1, 3),(2, 3), (4, 5), (1, 4), (6, 9)]
+    print(schedule(set_of_intervals))
 
-    optimal_solution = schedule(set_of_intervals)
+
+if __name__ == '__main__':
+    main()
