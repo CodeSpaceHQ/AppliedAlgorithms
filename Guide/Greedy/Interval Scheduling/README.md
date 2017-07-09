@@ -36,8 +36,7 @@ For our interval scheduling algorithm we will re-state the problem in a more pre
 
 ### Pseudo Code
 
-The first version of the pseudo code assumes that the set of intervals is already sorted by earliest finish time first.
-This version also has to loop over the entire set of intervals and remove the incompatible intervals each time.
+## Version 1
 
 ```python
 
@@ -49,8 +48,7 @@ This version also has to loop over the entire set of intervals and remove the in
       2. return the solution set
 ```
 
-The second version has to sort the set of intervals before the solution set is built up. This version also loops over the entire
-set of intervals only once, and instead of removing incompatible intervals it finds more compatible ones as it traverses.
+## Version 2
 
 ```python
 
