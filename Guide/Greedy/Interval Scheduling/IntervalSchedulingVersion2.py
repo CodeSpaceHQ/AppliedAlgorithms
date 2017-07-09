@@ -46,8 +46,8 @@ def schedule(set_of_intervals):
     return solution
 
 
-
 def main():
+
     set_of_intervals = [(1, 3),(2, 3), (4, 5), (1, 4), (6, 9)]
     print(schedule(set_of_intervals))
 
