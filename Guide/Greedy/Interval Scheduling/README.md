@@ -65,7 +65,14 @@ For our interval scheduling algorithm we will re-state the problem in a more pre
 ```
 
 ### Analysis
-[Analyze the algorithm, here's where things such as complexity can be discussed]
+
+## Version 1
+
+## Version 2
+
+Version 2 of the solution has a time complexity of O(n log n) due to the sorting of the set of request before finding the optimal solution.
+The time complexity of the algorithm when the entire set of request is sorted by finish time is simply n, and the time complexity of sorting
+the un-sorted set of requests is O(n log n), which means T(n) = (n log n) * (n) wherein the extra multiplication of n can be dropped.
 
 ## Conclusion
 [Any final thoughts here, maybe discuss other ways to solve the problem that would be equally efficient]
