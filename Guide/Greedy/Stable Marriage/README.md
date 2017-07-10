@@ -76,8 +76,8 @@ def match(set M: men, set W: women):
     
         1. let m propose to highest-ranked woman (w) he has not yet proposed to
         2. if w is free let her accept (m,w) become "engaged"
-        3. if w prefers m to her current m<sub>x</sub>, let her break the engagment
-           with m<sub>x</sub> and accept m's proposal.
+        3. if w prefers m to her current m1, let her break the engagment
+           with m1 and accept m's proposal.
         
     return the set of all engaged pairs
 ```
