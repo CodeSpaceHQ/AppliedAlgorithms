@@ -27,7 +27,7 @@ _From Wikipedia:_
 ### Overview
 For our interval scheduling algorithm we will re-state the problem in a more precise way:
 
-> Given a set _R_ = {i<sub>1</sub>...,i<sub>n</sub>} of requests where each request _i_ is associated witha n interval [s(i), f(i)), find a best schedule, i.e. a subset _A_ of requests from _R_ such that: 
+> Given a set _R_ = {i<sub>1</sub>...,i<sub>n</sub>} of requests where each request _i_ is associated with an interval [s(i), f(i)), find a best schedule, i.e. a subset _A_ of requests from _R_ such that:
 
 > 1. _A_ is _compatible_, i.e. _A_ contains no overlapping requests and 
 
@@ -40,27 +40,27 @@ For our interval scheduling algorithm we will re-state the problem in a more pre
 
 ```python
 
-    def interval_scheduling(set_of_intervals):
-      1. While set_of_intervals is not empty
-        a. select a request _i_ from set_of_intervals with earliest finish time
+    def interval_scheduling(set_of_requests):
+      1. While set_of_requests is not empty
+        a. select a request _i_ from set_of_requests with earliest finish time
         b. add _i_ it to the solution set
-        c. remove all all sets incompatible with _i_ from set_of_intervals including _i_
+        c. remove all all sets incompatible with _i_ from set_of_requests including _i_
       2. return the solution set
 ```
 
 ## Version 2
 
 ```python
-
-    1. Sort set_of_intervals in order of finishing time.
-    2. i = 0, n = len(set_of_intervals)
-    3. f := − 1
-    4. while i <= n:
-        a. if set_of_intervals[i]'s finish time is greater than or equal to f:
-            1. append the interval to the solution set
-            2. f = the intervals finish time
-        b. i = i + 1
-    5. return the solution set
+    def interval_scheduling(set_of_requests):
+        1. Sort set_of_requests in order of finishing time.
+        2. i = 0, n = len(set_of_requests)
+        3. f := − 1
+        4. while i <= n:
+            a. if set_of_requests[i]'s finish time is greater than or equal to f:
+                1. append the request to the solution set
+                2. f = the requests finish time
+            b. i = i + 1
+        5. return the solution set
 
 ```
 
@@ -78,4 +78,11 @@ The time complexity of the algorithm when the entire set of request is sorted by
 the un-sorted set of requests is O(n log n), which means T(n) = O(n log n) + O(n) wherein the extra addition of n can be dropped.
 
 ## Conclusion
-[Any final thoughts here, maybe discuss other ways to solve the problem that would be equally efficient]
+
+For the conclusion we will view a short piece from the Wiki on Interval Scheduling (discussing version 1 of the algorithm):
+
+> Whenever we select an interval at step 1, we may have to remove many intervals in step 2.
+> However, all these intervals necessarily cross the finishing time of x, and thus they all cross each other.
+> Hence, at most 1 of these intervals can be in the optimal solution.
+> Hence, for every interval in the optimal solution, there is an interval in the greedy solution.
+> This proves that the greedy algorithm indeed finds an optimal solution.
