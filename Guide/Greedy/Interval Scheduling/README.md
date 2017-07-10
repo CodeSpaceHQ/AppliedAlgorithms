@@ -42,9 +42,9 @@ For our interval scheduling algorithm we will re-state the problem in a more pre
 
     def interval_scheduling(set_of_requests):
       1. While set_of_requests is not empty
-        a. select a request _i_ from set_of_requests with earliest finish time
-        b. add _i_ it to the solution set
-        c. remove all all sets incompatible with _i_ from set_of_requests including _i_
+        a. select a request x from set_of_requests with earliest finish time
+        b. add x it to the solution set
+        c. remove all all sets incompatible with x from set_of_requests including x
       2. return the solution set
 ```
 
@@ -82,7 +82,7 @@ the un-sorted set of requests is O(n log n), which means T(n) = O(n log n) + O(n
 For the conclusion we will view a short piece from the Wiki (modified slightly) on Interval Scheduling (discussing version 1 of the algorithm):
 
 > Whenever we select an interval at step a, we may have to remove many intervals in step c.
-> However, all these intervals necessarily cross the finishing time of i, and thus they all cross each other.
+> However, all these intervals necessarily cross the finishing time of x, and thus they all cross each other.
 > Hence, at most 1 of these intervals can be in the optimal solution.
 > Hence, for every interval in the optimal solution, there is an interval in the greedy solution.
 > This proves that the greedy algorithm indeed finds an optimal solution.
