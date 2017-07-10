@@ -79,10 +79,10 @@ the un-sorted set of requests is O(n log n), which means T(n) = O(n log n) + O(n
 
 ## Conclusion
 
-For the conclusion we will view a short piece from the Wiki on Interval Scheduling (discussing version 1 of the algorithm):
+For the conclusion we will view a short piece from the Wiki (modified slightly) on Interval Scheduling (discussing version 1 of the algorithm):
 
-> Whenever we select an interval at step 1, we may have to remove many intervals in step 2.
-> However, all these intervals necessarily cross the finishing time of x, and thus they all cross each other.
+> Whenever we select an interval at step a, we may have to remove many intervals in step c.
+> However, all these intervals necessarily cross the finishing time of i, and thus they all cross each other.
 > Hence, at most 1 of these intervals can be in the optimal solution.
 > Hence, for every interval in the optimal solution, there is an interval in the greedy solution.
 > This proves that the greedy algorithm indeed finds an optimal solution.
