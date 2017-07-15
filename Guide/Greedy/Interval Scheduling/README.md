@@ -71,11 +71,19 @@ For our interval scheduling algorithm we will re-state the problem in a more pre
 Version 1 of the solution has a worst case time complexity of O(n<sup>2</sup>) and a best case of O(n). Since the list of requests is not sorted
 the algorithm must loop over the list of requests n times for the outer while loop, and n more times for finding the minimal finish time.
 
+## Example
+
+Requests = [(), (), (), ()]
+
 ## Version 2
 
 Version 2 of the solution has a worst case time complexity of O(n<sup>2</sup>) and an average time complexity of O(n log n) due to the sorting of the set of request before finding the optimal solution.
 The time complexity of the algorithm when the entire set of requests is sorted by finish time is simply n, and the time complexity of sorting
 the un-sorted set of requests is O(n log n), which means T(n) = O(n log n) + O(n) wherein the extra addition of n can be dropped.
+
+## Example
+
+
 
 ## Conclusion
 
