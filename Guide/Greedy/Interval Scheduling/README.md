@@ -73,7 +73,25 @@ the algorithm must loop over the list of requests n times for the outer while lo
 
 ## Example
 
-Requests = [(), (), (), ()]
+Requests = [(6, 9), (2, 3), (1, 4), (1, 3), (4, 5)]
+Solution = []
+
+Step 1:
+    a. first request with minimum finish time is (2, 3)
+    b. Solution = [(2, 3)]
+    c. Requests = [(6, 9), (4, 5)]
+
+Step 2:
+    a. request with minimum finish time is (4, 5)
+    b. Solution = [(2, 3), (4, 5)]
+    c. Requests = [(6, 9)]
+
+Step 3:
+    a. request with minimum finsih time is (6, 9)
+    b. Solution = [(2, 3), (4, 5), (6, 9)]
+    c. Request = []
+
+Done. Solution set = [(2, 3), (4, 5), (6, 9)]
 
 ## Version 2
 
