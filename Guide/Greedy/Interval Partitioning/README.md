@@ -43,10 +43,11 @@ we would like to select our resource from released.
 
 ```Python
 
-    def interval_partitioning(set J: jobs, set R: resources):
-        released = 0
-        occupied = 0
-        m = resource
+    def interval_partitioning(set J: jobs):
+        released = []
+        occupied = []
+        R = [] # set of jobs being served by resource m where m is the index
+        m = 0 # resource pointer
         1. Sort J by starting time
         2. For every j in J:
             a. move all resources in occupied that finished before the start of j into released
@@ -55,9 +56,8 @@ we would like to select our resource from released.
             c. else
                 i. m = next resource in R
             d. move m into occupied
-            e. put j into m????
-
-
+            e. put j into R[m]
+        3. return R
 
 ```
 
