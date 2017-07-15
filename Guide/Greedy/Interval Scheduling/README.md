@@ -31,7 +31,7 @@ For our interval scheduling algorithm we will re-state the problem in a more pre
 
 > 1. _A_ is _compatible_, i.e. _A_ contains no overlapping requests and 
 
-> 2. _A_ is _optimal_, i.e. there is no compativle subset of _R_ which has more requests than _A_.
+> 2. _A_ is _optimal_, i.e. there is no compatible subset of _R_ which has more requests than _A_.
 
 
 ### Pseudo Code
@@ -74,7 +74,7 @@ the algorithm must loop over the list of requests n times for the outer while lo
 ## Version 2
 
 Version 2 of the solution has a worst case time complexity of O(n<sup>2</sup>) and an average time complexity of O(n log n) due to the sorting of the set of request before finding the optimal solution.
-The time complexity of the algorithm when the entire set of request is sorted by finish time is simply n, and the time complexity of sorting
+The time complexity of the algorithm when the entire set of requests is sorted by finish time is simply n, and the time complexity of sorting
 the un-sorted set of requests is O(n log n), which means T(n) = O(n log n) + O(n) wherein the extra addition of n can be dropped.
 
 ## Conclusion
