@@ -80,6 +80,34 @@ cases where each job overlaps it's preceding job - our interval partitioning tim
 
 ![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step2.PNG "Jobs to be scheduled")
 
+**3. First job scheduled**
+
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step3.PNG "First job scheduled")
+
+**4. Second job scheduled**
+
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step4.PNG "Second job scheduled")
+
+**4. Third job scheduled**
+
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step5.PNG "Third job scheduled")
+
+**5. First resource released**
+
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step6.PNG "First resource released")
+
+**6. Fourth job scheduled**
+
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step7.PNG "Fourth job scheduled")
+
+
+**7. Second resource released**
+
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step8.PNG "Second resource released")
+
+**6. Fifth job scheduled**
+
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step9.PNG "Fifth job scheduled")
 
 ## Conclusion
 [Any final thoughts here, maybe discuss other ways to solve the problem that would be equally efficient]
