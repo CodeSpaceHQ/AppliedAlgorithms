@@ -23,38 +23,57 @@ def quick_sort(s, begin, end):
     return s
 
 
-def adjust(start, released, occupied, R):
-    if not R:
-        return released, occupied
-    else:
+def adjust(start, released, occupied, r):
+    # if there are/have been resources in use
+    if r:
+        # go through the occupied resources
         for i in occupied:
-            if R[i][-1][-1] < start:
+            # check if any are done with their job
+            if r[i][-1][-1] < start:
+                # move them from occupied to released
                 released.append(i)
                 occupied.remove(i)
+        return released, occupied
+    else:
+        # no resources have been used
         return released, occupied
 
 
 def interval_partition(set_of_jobs):
-    released = []
-    occupied = []
-    R = []
+    released = []  # holds index of resources in r that are free
+    occupied = []  # holds index of resources in r that are occupied
+    r = []  # holds all resources as lists of jobs that they have
+
+    # sort the jobs by start time
     set_of_jobs = quick_sort(set_of_jobs, 0, len(set_of_jobs) -1)
 
     for j in set_of_jobs:
-        released, occupied = adjust(j[0], released, occupied, R)
+        # move all free resources in occupied to released
+        released, occupied = adjust(j[0], released, occupied, r)
         if released:
+            # if there is a resource that has been previously used but is
+            # now free, use it
             m = released[0]
         else:
-            m = len(R)
-            R.append([])
+            # create/use a new resource in r
+            m = len(r)
+            r.append([])
+        # move the resource into occupied
         occupied.append(m)
-        R[m].append(j)
-    return R
+        # append the job to the resources list of jobs it has in r
+        r[m].append(j)
+    return r
 
 
 def main():
-    jobs = [(1, 3), (2, 4), (4, 5)]
-    print(interval_partition(jobs))
+    jobs = [(1, 3), (4, 5), (2, 4),]
+    schedule = interval_partition(jobs)
+
+    # pretty print
+    for resource, jobs in enumerate(schedule):
+        print('Resource {}:'.format(resource))
+        for job in jobs:
+            print('\tJob {}'.format(job))
 
 if __name__ == '__main__':
     main()
