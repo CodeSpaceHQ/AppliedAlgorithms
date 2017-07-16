@@ -54,6 +54,7 @@ def interval_partition(set_of_jobs):
             # if there is a resource that has been previously used but is
             # now free, use it
             m = released[0]
+            released.remove(m)
         else:
             # create/use a new resource in r
             m = len(r)
@@ -66,7 +67,7 @@ def interval_partition(set_of_jobs):
 
 
 def main():
-    jobs = [(1, 3), (4, 5), (2, 4),]
+    jobs = [(1, 4), (2, 6), (3, 8), (5, 7), (7, 9)]
     schedule = interval_partition(jobs)
 
     # pretty print

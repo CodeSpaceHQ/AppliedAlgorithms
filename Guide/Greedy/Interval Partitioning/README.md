@@ -46,7 +46,7 @@ we would like to select our resource from released.
     def interval_partitioning(set J: jobs):
         released = []
         occupied = []
-        R = [] # set of jobs being served by resource m where m is the index
+        r = [] # jobs being served by resource m where m is the index
         m = 0 # resource pointer
         1. Sort J by starting time
         2. For every j in J:
@@ -67,10 +67,12 @@ we would like to select our resource from released.
 
 Interval partitioning - much like interval scheduling - will have a time complexity dependent on the sorting algorithm used within it. In our implementation,
 quicksort has a best and average time complexity of O(n log n) and a worst case of O(n<sup>2</sup>). All that is done in interval partitioning after
-the pre-sort is a loop n times through the set of jobs, placing each job in the list R at index of what resource it is assigned to. This means that our
-interval partitioning time complexity is equivalent to that of the sorting algorithm used.
+the pre-sort is a loop n times through the set of jobs, placing each job in the list R at index of what resource it is assigned to. This means that - even in edge
+cases where each job overlaps it's preceding job - our interval partitioning time complexity is equivalent to that of the sorting algorithm used.
 
 ## Example
+
+Jobs to be scheduled:
 
 ## Conclusion
 [Any final thoughts here, maybe discuss other ways to solve the problem that would be equally efficient]
