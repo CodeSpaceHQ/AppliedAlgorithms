@@ -72,7 +72,14 @@ cases where each job overlaps it's preceding job - our interval partitioning tim
 
 ## Example
 
-Jobs to be scheduled:
+**1. Jobs to be scheduled**
+
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step1.PNG "Jobs to be scheduled")
+
+**2. Jobs sorted by start time**
+
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step2.PNG "Jobs to be scheduled")
+
 
 ## Conclusion
 [Any final thoughts here, maybe discuss other ways to solve the problem that would be equally efficient]
