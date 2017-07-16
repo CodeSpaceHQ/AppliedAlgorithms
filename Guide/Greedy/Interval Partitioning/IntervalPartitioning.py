@@ -28,7 +28,7 @@ def adjust(start, released, occupied, R):
         return released, occupied
     else:
         for i in occupied:
-            if i[1] < start[0]:
+            if R[i][-1][-1] < start:
                 released.append(i)
                 occupied.remove(i)
         return released, occupied
@@ -46,13 +46,15 @@ def interval_partition(set_of_jobs):
             m = released[0]
         else:
             m = len(R)
-        if not R[m]:
             R.append([])
+        occupied.append(m)
         R[m].append(j)
+    return R
 
 
 def main():
-    jobs = []
+    jobs = [(1, 3), (2, 4), (4, 5)]
+    print(interval_partition(jobs))
 
 if __name__ == '__main__':
     main()
