@@ -67,7 +67,7 @@ def interval_partition(set_of_jobs):
 
 
 def main():
-    jobs = [(1, 4), (2, 6), (3, 8), (5, 7), (7, 9)]
+    jobs = [(1, 4), (3, 8), (5, 7), (7, 9), (2, 6)]
     schedule = interval_partition(jobs)
 
     # pretty print
