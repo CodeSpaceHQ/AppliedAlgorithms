@@ -128,7 +128,7 @@ The fifth job is scheduled on the newly released resource 2.
 
 ![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step9.PNG "Fifth job scheduled")
 
-**Done*
+**Done**
 
 ## Conclusion
 [Any final thoughts here, maybe discuss other ways to solve the problem that would be equally efficient]
