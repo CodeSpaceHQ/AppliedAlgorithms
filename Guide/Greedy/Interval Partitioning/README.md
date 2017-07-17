@@ -68,7 +68,7 @@ we would like to select our resource from released.
 Interval partitioning - much like interval scheduling - will have a time complexity dependent on the sorting algorithm used within it. In our implementation,
 quicksort has a best and average time complexity of O(n log n) and a worst case of O(n<sup>2</sup>). All that is done in interval partitioning after
 the pre-sort is a loop n times through the set of jobs, placing each job in the list R at index of what resource it is assigned to. This means that - even in edge
-cases where each job overlaps it's preceding job - our interval partitioning time complexity is equivalent to that of the sorting algorithm used.
+cases where each job overlaps all preceding jobs - our interval partitioning time complexity is equivalent to that of the sorting algorithm used.
 
 ## Example
 
@@ -131,4 +131,4 @@ The fifth job is scheduled on the newly released resource 2.
 **Done**
 
 ## Conclusion
-[Any final thoughts here, maybe discuss other ways to solve the problem that would be equally efficient]
+The interval partitioning algorithm is greedy and yet yields an optimal solution by pre-sorting jobs by their start time.
