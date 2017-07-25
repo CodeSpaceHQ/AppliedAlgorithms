@@ -74,6 +74,7 @@ the algorithm must loop over the list of requests n times for the outer while lo
 ## Example
 
 Requests = [(6, 9), (2, 3), (1, 4), (1, 3), (4, 5)]
+
 Solution = []
 
 Step 1:
