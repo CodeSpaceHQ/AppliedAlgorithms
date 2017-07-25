@@ -28,7 +28,7 @@ Likewise, if we have a set of jobs:
     J = [ (12PM, 3PM), (2PM, 5PM), (4PM, 6PM) ],
 
 we would then need to use at least 3 resources because all three jobs overlap.
-From this can draw the conclusion that the amount of resources we need will be equal to the amount of jobs in _J_ that overlap.
+From this we can draw the conclusion that the amount of resources we need will be equal to the amount of jobs in _J_ that overlap.
 
 ## Algorithm
 ### Overview
