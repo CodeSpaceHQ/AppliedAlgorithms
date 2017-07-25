@@ -100,7 +100,7 @@ Step 3:
     
     c. Request = []
 
-Done. Solution set = [(2, 3), (4, 5), (6, 9)]
+Solution set = [(2, 3), (4, 5), (6, 9)]
 
 ## Version 2
 
@@ -110,6 +110,58 @@ the un-sorted set of requests is O(n log n), which means T(n) = O(n log n) + O(n
 
 ## Example
 
+Requests = [(6, 9), (2, 3), (1, 4), (1, 3), (4, 5)]
+Solution = []
+
+1. Sort requests by finish time. Requests = [(1, 3), (2, 3), (1, 4), (4, 5), (6, 9)]
+
+First Iteration:
+
+    request = (1, 3)
+    
+    Since the previous finish time (-1) is greater than this requests start time (1), 
+    the request is added to the solution set and the new finsh time is 3.
+    
+    solution set = [(1, 3)]
+
+Second Iteration:
+
+    request = (2, 3)
+    
+    Since the previous finsh time (3) is greater than this requests start time (2),
+    the request is not added to the solution set and the finish time is still 3.
+    
+    solution set = [(1, 3)]
+    
+Third Iteration:
+
+     request = (1, 4)
+     
+     Since the previous request finish time (3) is greater than this requests start time (1),
+     the request is not added to the solution set and the finish time is still 3.
+     
+     soltion set = [(1, 3)]
+     
+Fourth Iteration:
+
+     request = (4, 5)
+     
+     Since the previous request finish time (3) is less than this requests start time (4),
+     the request is added to the solution set and the finish time is now 5.
+     
+     solution set = [(1, 3), (4, 5)]
+     
+Fifth Iteration:
+
+     request = (6, 9)
+     
+     Since the previous request finish time (5) is less than this requests start time (6),
+     the request is added to the solution set and the finish time is now 9.
+
+     solution set = [(1, 3), (4, 5), (6, 9)]
+     
+ We have completed looping over the entire sorted set of requests and placed compatible ones in the solution set.
+ Final Solution Set = [(1, 3), (4, 5), (6, 9)]
 
 
 ## Conclusion
