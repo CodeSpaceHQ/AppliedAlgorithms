@@ -69,6 +69,8 @@ Interval partitioning - much like interval scheduling - will have a time complex
 quicksort has a best and average time complexity of O(n log n) and a worst case of O(n<sup>2</sup>). All that is done in interval partitioning after
 the pre-sort is a loop n times through the set of jobs, placing each job in the list R at index of what resource it is assigned to. This means that - even in edge
 cases where each job overlaps all preceding jobs - our interval partitioning time complexity is equivalent to that of the sorting algorithm used.
+A faster sorting algorithm such as Radix sort which has a time complexity of O(kn) where k is the number of requests to be sorted, or
+counting sort which is O(N + k) where k is the range of the requests to be sorted, would both cause Version 2 to have a time complexity of O(n).
 
 ## Example
 
