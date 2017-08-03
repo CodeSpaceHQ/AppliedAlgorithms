@@ -2,7 +2,6 @@
 
 This problem is discussed in [Dr. Gelfond Applied Algorithms](http://redwood.cs.ttu.edu/~mgelfond/FALL-2012/slides.pdf)
 
-
 Category: Greedy
 
 Difficulty: N/A
@@ -55,6 +54,57 @@ This will give our scheduling an average time complexity of O(nlogn).
 
 ### Example
 
+    Initial set of requests: (3, 10), (4, 5), (1, 6), (6, 2), (1, 11)
+
+    Step 1 - Sort Requests by deadline
+        Sorted Requests = (6, 2), (4, 5), (1, 6), (3, 10), (1, 11)
+
+    Step 2 - Initialize variable to hold last finish time
+        f = 0
+
+    Step 2 - Loop through sorted requests and calculate start and finish time
+
+    Iteration 1, request (6, 2):
+        * start<sub>i</sub> = 0
+        * finish<sub>i</sub> = start<sub>i</sub> + 6
+        * f = f + 6
+        * schedule for this request: [(0, 6)]
+
+    Iteration 2, request (4, 5):
+        * start<sub>i</sub> = 6
+        * finish<sub>i</sub> = start<sub>i</sub> + 4
+        * f = f + 4
+        * schedule for this request: [(6, 10)]
+
+    Iteration 3, request (1, 6):
+        * start<sub>i</sub> = 10
+        * finish<sub>i</sub> = start<sub>i</sub> + 1
+        * f = f + 1
+        * schedule for this request: [(10, 11)]
+
+    Iteration 4, request (3, 10):
+        * start<sub>i</sub> = 11
+        * finish<sub>i</sub> = start<sub>i</sub> + 3
+        * f = f + 3
+        * schedule for this request: [(11, 14)]
+
+    Iteration 5, request (1, 11):
+        * start<sub>i</sub> = 14
+        * finish<sub>i</sub> = start<sub>i</sub> + 1
+        * f = f + 1
+        * schedule for this request: [(14, 15)]
+
+    Done. The completed schedule is:
+
+| Request (t<sub>i</sub>, d<sub>i</sub>)  | (Start, Finish)  |
+|----|--------------|
+| (6, 2) | (0, 6) |
+| (4, 5) | (6, 10) |
+| (1, 6) | (10, 11) |
+| (3, 10) | (11, 14) |
+| (1, 11) | (14, 15) |
+
 
 ## Conclusion
+The schedules are now sorted and each have a start and finish time that will minimize their lateness (finish time - deadline).
 
