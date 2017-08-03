@@ -28,7 +28,7 @@ def min_max_lateness(set_of_requests):
     sorted_requests = quick_sort(set_of_requests, 0, len(set_of_requests)-1)
     last_finish_time = 0
     schedule = []
-    for i in set_of_requests:
+    for i in sorted_requests:
         # start time of this request is the last finish time.
         start_time = last_finish_time
         # finish time of this request is the start time plus the request's
