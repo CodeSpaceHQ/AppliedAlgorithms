@@ -112,6 +112,21 @@ If we use counting sort or radix sort to sort our edges by weight in linear time
 ## Example
 This excellent example is a slightly modified version from the Wikipedia page on Kruskal's algorithm. The images are unmodified.
 
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter1.png "Examining the first edge")
+
+
+![Step 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter2.png "Examining the second edge")
+
+
+![Step 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter3.png "Examining the third edge")
+
+![Step 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter4.png "Examining the fourth edge")
+
+
+![Step 5](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter5.png "Examining the fifth edge")
+
+
+![Step 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter6.png "Examining the sixth edge")
 
 
 ## Conclusion
