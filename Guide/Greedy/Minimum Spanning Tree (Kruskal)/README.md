@@ -13,7 +13,7 @@ Given a graph G = (V, E) with positive cost c<sub>e</sub> associated with every 
 * _Spanning tree_ of G is a set T of edges such that (V, T) is a tree,
 * _Cost_ of T is the sum of costs of its edges,
 * _Minimum spanning tree_ of G is a spanning tree of G with minimal cost,
-Find a minimum spanning tree of G.
+find a minimum spanning tree of G.
 
 ### Overview
 There are many algorithms to find the minimum spanning tree of a graph G. The one we will be using is [Kruskal's Algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm#Pseudocode).
@@ -43,8 +43,8 @@ Our input format will a graph G = [V, E] such that:
 Due to our disjoint-set data structure being a crucial part to solving this problem, each vertex existing anywhere in our input graph G
 must have three members/properties:
     1. id - this is an identifier for the visual name of the vertex, i.e. 'a', or 'b', or 'c', etc.
-    2. rank - the rank will be used in the Union() function when bringing two disjoint sets together, initially it is 0
-    3. parent - the parent node in the vertices disjoint-set. Initially the parent is the vertex itself, until Union() is called on the vertices disjoint-set
+    2. rank - the rank will be used in the Union() function when bringing two disjoint sets together, initially it is set to 0
+    3. parent - the 'root' node in the vertices disjoint-set. This is exactly like the 'Head' node of a linked list. Initially a vertex's parent is set to point at itself.
 
 This is the format we will follow for our disjoint-set data structure, an example input graph to our algorithm might look like this:
 
@@ -67,7 +67,7 @@ Each edge that is included in the minimum spanning tree of our graph separated b
 The basic idea to create a minimum spanning tree using Kruskal's algorithm is to sort all edges in increasing weight, and then
 loop through each edge checking to see if adding it to the solution would cause a cycle.
 
-By pre-sorting all edges, we garuntee that we are looking at the minimum weight paths first, and by checking to see if the edge would create a cycle
+By pre-sorting all edges, we guarantee that we are looking at the minimum weight paths first, and by checking to see if the edge would create a cycle
 before adding it to our minimum spanning tree, we are avoiding creating just another graph.
 
 ### Pseudo Code
@@ -112,7 +112,7 @@ If we use counting sort or radix sort to sort our edges by weight in linear time
 ## Example
 This excellent example is a slightly modified version from the Wikipedia page on Kruskal's algorithm. The images are unmodified.
 
-1. Eedge (A, 5, D):
+1. Edge (A, 5, D):
 * Disjoint sets: [(A) (B) (C) (D) (E) (F) (G)]
 * Find(A) will return A, and Find(D) will return D, because initially all vertices are disjoint sets. A != D so,
 * The edge (A, 5, D) will be added to the solution set
@@ -123,7 +123,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 ----
 
  
- 2. Eedge (C, 5, E):
+ 2. Edge (C, 5, E):
 * Disjoint sets: [(A, D) (B) (C) (E) (F) (G)]
 * Find(C) will return C, and Find(E) will return E, and C != E so,
 * The edge (C, 5, E) will be added to the solution set
@@ -133,7 +133,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 
 ----
 
-3. Eedge (D, 6, F):
+3. Edge (D, 6, F):
 * Disjoint sets: [(A, D) (B) (C, E) (F) (G)]
 * Find(D) will return A because it is the parent of the set D is in, and Find(F) will return F, and A != F so,
 * The edge (D, 6, F) will be added to the solution set
@@ -143,7 +143,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 
 ----
 
-4. Eedge (A, 7, B):
+4. Edge (A, 7, B):
 * Disjoint sets: [(A, D, F) (B) (C, E) (G)]
 * Find(A) will return A, and Find(B) will return B, and A != B so,
 * The edge (A, 7, B) will be added to the solution set
@@ -153,23 +153,23 @@ This excellent example is a slightly modified version from the Wikipedia page on
 
 ----
 
-5. Eedge (B, 7, E):
+5. Edge (B, 7, E):
 * Disjoint sets: [(A, D, F, B) (C, E) (G)]
 * Find(B) will return A, and Find(E) will return E, and A != E so,
 * The edge (B, 7, E) will be added to the solution set
 * The disjoint-set containing vertex A will be unioned with the disjoint set containing vertex E
 
-5a. Eedge (B, 8, C):
+5a. Edge (B, 8, C):
 * Disjoint sets: [(A, D, F, B, C, E, C, E) (G)]
 * Find(B) will return A, and Find(E) will return A, and A == A, so
 * go to next edge
 
-5a. Eedge (F, 8, E):
+5a. Edge (F, 8, E):
 * Disjoint sets: [(A, D, F, B, C, E, C, E) (G)]
 * Find(F) will return A, and Find(E) will return A, and A == A, so
 * go to next edge
 
-5b. Eedge (B, 8, C):
+5b. Edge (B, 8, C):
 * Disjoint sets: [(A, D, F, B, C, E, C, E) (G)]
 * Find(B) will return A, and Find(E) will return A, and A == A, so
 * go to next edge
@@ -179,7 +179,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 ----
 
 
-6. Eedge (E, 9, G):
+6. Edge (E, 9, G):
 * Disjoint sets: [(A, D, F, B, C, E) (G)]
 * Find(E) will return A, and Find(G) will return G, and A != G so,
 * The edge (E, 9, G) will be added to the solution set
