@@ -63,7 +63,7 @@ def minimum_spanning_tree(graph):
     solution = set()  # set of edges for MST
     quick_sort(graph[1], 0, len(graph[1])-1)  # sort by weight
     for e in graph[1]:
-        # if the two vertex are not apart of the same disjoint-set
+        # if the two vertices are not apart of the same disjoint-set
         # and therefore won't make a cycle
         if find(e[0]) != find(e[2]):
             # make them apart of the same disjoint-set
@@ -80,11 +80,15 @@ def main():
     c = Vertex('c')
     d = Vertex('d')
     e = Vertex('e')
+    f = Vertex('f')
+    g = Vertex('g')
 
-    # Represent our graph G as a pair of vertecies and edges with weights.
+    # Represent our graph G as a pair of vertices and edges with weights.
     G = [
-        [a, b, c, d, e],  # vertecies
-        [(a, 10, b), (b, 1, c), (c, 2, d), (d, 3, e), (d, 1, a)]  # edges
+        [a, b, c, d, e, f, g],  # vertices
+        [(a, 7, b), (b, 8, c), (b, 9, d), (d, 5, a),
+         (b, 7, e), (c, 5, e), (e, 15, d), (d, 6, f),
+         (f, 11, g), (g, 9, e), (f, 8, e)]  # edges
     ]
 
     # find the min spanning tree
