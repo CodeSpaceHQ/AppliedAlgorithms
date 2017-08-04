@@ -112,24 +112,26 @@ If we use counting sort or radix sort to sort our edges by weight in linear time
 ## Example
 This excellent example is a slightly modified version from the Wikipedia page on Kruskal's algorithm. The images are unmodified.
 
-![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter1.png "Examining the first edge")
-
 1. Eedge (A, 5, D):
 * Disjoint sets: [(A) (B) (C) (D) (E) (F) (G)]
 * Find(A) will return A, and Find(D) will return D, because initially all vertices are disjoint sets. A != D so,
 * The edge (A, 5, D) will be added to the solution set
 * The disjoint-set containing vertex A in it will be unioned with the disjoint set containing vertex D
-    
 
-![Step 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter2.png "Examining the second edge")
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter1.png "Examining the first edge")
 
-2. Eedge (C, 5, E):
+----
+
+ 
+ 2. Eedge (C, 5, E):
 * Disjoint sets: [(A, D) (B) (C) (E) (F) (G)]
 * Find(C) will return C, and Find(E) will return E, and C != E so,
 * The edge (C, 5, E) will be added to the solution set
 * The disjoint-set containing vertex C in it will be unioned with the disjoint set containing vertex E
 
-![Step 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter3.png "Examining the third edge")
+![Step 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter2.png "Examining the second edge")
+
+----
 
 3. Eedge (D, 6, F):
 * Disjoint sets: [(A, D) (B) (C, E) (F) (G)]
@@ -137,7 +139,9 @@ This excellent example is a slightly modified version from the Wikipedia page on
 * The edge (D, 6, F) will be added to the solution set
 * The disjoint-set containing vertex D will be unioned with the disjoint set containing vertex F
 
-![Step 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter4.png "Examining the fourth edge")
+![Step 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter3.png "Examining the third edge")
+
+----
 
 4. Eedge (A, 7, B):
 * Disjoint sets: [(A, D, F) (B) (C, E) (G)]
@@ -145,7 +149,9 @@ This excellent example is a slightly modified version from the Wikipedia page on
 * The edge (A, 7, B) will be added to the solution set
 * The disjoint-set containing vertex A will be unioned with the disjoint set containing vertex B
 
-![Step 5](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter5.png "Examining the fifth edge")
+![Step 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter4.png "Examining the fourth edge")
+
+----
 
 5. Eedge (B, 7, E):
 * Disjoint sets: [(A, D, F, B) (C, E) (G)]
@@ -168,7 +174,10 @@ This excellent example is a slightly modified version from the Wikipedia page on
 * Find(B) will return A, and Find(E) will return A, and A == A, so
 * go to next edge
 
-![Step 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter6.png "Examining the sixth edge")
+![Step 5](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter5.png "Examining the fifth edge")
+
+----
+
 
 6. Eedge (E, 9, G):
 * Disjoint sets: [(A, D, F, B, C, E) (G)]
@@ -176,8 +185,12 @@ This excellent example is a slightly modified version from the Wikipedia page on
 * The edge (E, 9, G) will be added to the solution set
 * The disjoint-set containing vertex E will be unioned with the disjoint set containing vertex G
 
+![Step 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter6.png "Examining the sixth edge")
+
+
 NOTE: All edges after this point would only create a cycle if added to the solution, our Minimum Spanning tree is found.
 
+----
 
 ## Conclusion
 
