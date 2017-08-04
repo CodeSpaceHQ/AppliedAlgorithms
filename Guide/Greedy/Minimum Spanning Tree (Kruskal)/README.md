@@ -193,4 +193,4 @@ NOTE: All edges after this point would only create a cycle if added to the solut
 ----
 
 ## Conclusion
-
+Our minimum spanning tree is found, and it is of minimal weight. For a further in-depth proof of Kruskal's algorithm, see [Proof of correctness](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm#Proof_of_correctness)
