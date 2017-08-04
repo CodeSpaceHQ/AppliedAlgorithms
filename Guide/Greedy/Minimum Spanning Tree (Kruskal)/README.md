@@ -23,12 +23,12 @@ We will implement the most-optimized version of the algorithm in Dr. Gelfond's l
 
 Here is a disjoint-set of 8 elements taken from the above Wikipedia page:
 
-![Initial Disjoint Set](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step1.PNG "8 individual disjoint sets")
+![Initial Disjoint Set](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/disjoint_set_individual.png "8 individual disjoint sets")
 
 As we add edges (comprised of vertices) to our minimum spanning tree, we will also Union() the two vertices in the edge together. After numerous iterations of this, the
 above initial disjoint set would now look something like this:
 
-![Disjoint Set Grouped](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/interval-partitioning/Guide/Greedy/Interval%20Partitioning/Assets/step1.PNG "8 overlapping / partially grouped disjoint sets")
+![Disjoint Set Grouped](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/disjoint_set_group.png "8 overlapping / partially grouped disjoint sets")
 
 The reason for doing this will be discussed further in the Analysis section of this guide. For a more in-depth discussion of disjoint-set data types and
 related topics, please visit the [Disjoint-set](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#MakeSet) Wikipedia page.
@@ -71,8 +71,6 @@ By pre-sorting all edges, we garuntee that we are looking at the minimum weight 
 before adding it to our minimum spanning tree, we are avoiding creating just another graph.
 
 ### Pseudo Code
-
-## Version 1
 
 ```python
 
