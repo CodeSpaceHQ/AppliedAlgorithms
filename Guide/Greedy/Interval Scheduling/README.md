@@ -44,7 +44,7 @@ For our interval scheduling algorithm we will re-state the problem in a more pre
       1. While set_of_requests is not empty
         a. select a request x from set_of_requests with earliest finish time
         b. add x to the solution set
-        c. remove all all sets incompatible with x from set_of_requests including x
+        c. remove all sets incompatible with x from set_of_requests including x
       2. return the solution set
 ```
 
