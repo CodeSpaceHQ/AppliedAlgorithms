@@ -12,7 +12,7 @@ Difficulty: N/A
 There is one resource which can be used by at most one person at a time. Multiple people request the use of this resource with a start time _s_ and a finish time _f_. Maximize the number of accepted requests so that no request (s, f) overlap, and the set of accepted requests are optimal, i.e. there is no other compatible set of requests with more requests.
 
 _From Wikipedia:_
-> Interval schedluing is a class of problems in computer science, particularly in the area of algorithm design. THe problems consider a set of tasks. Each task is represented by an _interval_ describing the time in which it needs to be executed. For instance, task A might run from 2:00 to 5:00, task B might run from 4:00 to 10:00, and task C might run from 9:00 to 11:00. A subset of intervals is _compatible_ if no two intervals overlap. For example, the subset {A, C} is compatible, as is the subset {B}; but neither {A, B} or {B, C} are compatible subsets, because the intervals within each subset overlap.
+> Interval schedluing is a class of problems in computer science, particularly in the area of algorithm design. The problems consider a set of tasks. Each task is represented by an _interval_ describing the time in which it needs to be executed. For instance, task A might run from 2:00 to 5:00, task B might run from 4:00 to 10:00, and task C might run from 9:00 to 11:00. A subset of intervals is _compatible_ if no two intervals overlap. For example, the subset {A, C} is compatible, as is the subset {B}; but neither {A, B} or {B, C} are compatible subsets, because the intervals within each subset overlap.
 
 ### Input Format
 - A set _S_ containing n rquests in the form of _(s, f)_ where _s_ is the start time and _f_ is the finish time of a request.
