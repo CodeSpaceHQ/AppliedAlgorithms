@@ -42,24 +42,30 @@ def dijkstra_shortest_paths(graph, source):
 
 def main():
     g = Graph([
-        ('A', 'B', 5),
-        ('A', 'C', 2),
-        ('B', 'C', 1),
-        ('A', 'D', 5),
-        ('D', 'C', 1),
-        ('C', 'E', 1)
+        ('A', 'B', 14),
+        ('A', 'C', 7),
+        ('A', 'D', 9),
+        ('C', 'D', 10),
+        ('D', 'B', 2),
+        ('E', 'D', 11),
+        ('C', 'E', 15),
+        ('E', 'F', 6),
+        ('B', 'F', 9)
     ], directed=True)
 
     dist, path = dijkstra_shortest_paths(g, 'A')
     print('Directed Graph:\n\tDistances: {}\n\t Path: {}'.format(dist, path))
 
     g = Graph([
-        ('A', 'B', 5),
-        ('A', 'C', 2),
-        ('B', 'C', 1),
-        ('A', 'D', 5),
-        ('D', 'C', 1),
-        ('C', 'E', 1)
+        ('A', 'B', 14),
+        ('A', 'C', 7),
+        ('A', 'D', 9),
+        ('C', 'D', 10),
+        ('D', 'B', 2),
+        ('E', 'D', 11),
+        ('C', 'E', 15),
+        ('E', 'F', 6),
+        ('B', 'F', 9)
     ], directed=False)
 
     dist, path = dijkstra_shortest_paths(g, 'A')
