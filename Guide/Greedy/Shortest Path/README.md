@@ -12,6 +12,8 @@ Difficulty: Hard to implement, medium to understand.
 Given a directed graph G = [V, E] where each edge _e_ has a length _l<sub>e</sub>_, and a starting node _s_ in that graph, determine the length
 of the shortest path from _s_ to every other node.
 
+![Dijkstra's Visualization](lnkhere "Visualization of Dijkstra's Algorithm")
+
 ### Overview
 For this problem we will need to utilize two data structures:
 * [Min Priority Queue](https://en.wikipedia.org/wiki/Priority_queue)
@@ -110,6 +112,9 @@ Another interesting discovery discussed in the Wikipedia page of Fibonacci Heaps
 2. Also they are not as efficient in practice when compared with the theoretically less efficient forms of heaps, since in their simplest version they require storage and manipulation of four pointers per node, compared to the two or three pointers per node needed for other structures
 
 For a more detailed discussion on the Fibonacci Heap and it's time complexities, see [here](https://en.wikipedia.org/wiki/Fibonacci_heap#Summary_of_running_times).
+
+## Example
+
 
 ## Conclusion
 For this conclusion I will use a quote from the Wikipedia page on Dijkstra's Algorithm in the section _Practical optimizations and infinite graphs_.
