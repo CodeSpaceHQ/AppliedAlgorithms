@@ -43,7 +43,7 @@ For our interval scheduling algorithm we will re-state the problem in a more pre
     def interval_scheduling(set_of_requests):
       1. While set_of_requests is not empty
         a. select a request x from set_of_requests with earliest finish time
-        b. add x it to the solution set
+        b. add x to the solution set
         c. remove all all sets incompatible with x from set_of_requests including x
       2. return the solution set
 ```
