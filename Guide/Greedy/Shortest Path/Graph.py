@@ -43,6 +43,7 @@ class Graph(object):
     def get_distance(self, vertex1, vertex2):
         """
         get distance between two vertices in a graph
+        NOTE: for directed graphs, vertex 2 MUST be a neighbor of vertex 1.
         :param vertex1: first vertex
         :param vertex2: second vertex
         :return: integer distance
