@@ -42,11 +42,12 @@ def dijkstra_shortest_paths(graph, source):
 
 def main():
     g = Graph([
-        ('A', 'B', 1),
-        ('B', 'C', 2),
-        ('A', 'D', 1),
+        ('A', 'B', 5),
+        ('A', 'C', 2),
+        ('B', 'C', 1),
+        ('A', 'D', 5),
         ('D', 'C', 1),
-        ('C', 'E', 3)
+        ('C', 'E', 1)
     ])
 
     print(dijkstra_shortest_paths(g, 'A'))
