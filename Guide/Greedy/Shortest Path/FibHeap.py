@@ -31,9 +31,10 @@ class FibHeap(object):
             self.right = self  # right neighbor of node
             self.left = self  # left neighbor of node
 
-    root_list = None  # list containing the root node of min-heaps
-    min_node = None  # Node in top_list with minimum key value
-    total_nodes = 0  # Count of all nodes in root_list
+    # private member variables
+    __root_list = None  # list containing the root node of min-heaps
+    __min_node = None  # Node in top_list with minimum key value
+    __total_nodes = 0  # Count of all nodes in root_list
 
     @staticmethod
     def __iterate(start):
@@ -58,11 +59,11 @@ class FibHeap(object):
         Combine root nodes with equal depths to create a doubly-linked list
         of trees
         """
-        nodes_by_depth = [None] * self.total_nodes
+        nodes_by_depth = [None] * self.__total_nodes
         # Because we will be changing the nodes, we cannot iterate through
         # each node itself because the __iterate function will never come
         # across the same node again. Instead we iterate through by index.
-        original_root_list = [x for x in self.__iterate(self.root_list)]
+        original_root_list = [x for x in self.__iterate(self.__root_list)]
 
         for node_idx in range(0, len(original_root_list)):
             node = original_root_list[node_idx]
@@ -97,9 +98,9 @@ class FibHeap(object):
             nodes_by_depth[depth] = node  # add the new or unchanged node
 
         # find the new min node in the root list
-        for node in self.__iterate(self.root_list):
-            if node.priority <= self.min_node.priority:
-                self.min_node = node
+        for node in self.__iterate(self.__root_list):
+            if node.priority <= self.__min_node.priority:
+                self.__min_node = node
 
     def __merge_with_child_list(self, parent, node):
         """
@@ -146,23 +147,48 @@ class FibHeap(object):
         """
         node.parent = None  # the child will be root of it's heap
         node.mark = False
-        if not self.root_list:  # if the heap is completely empty
-            self.root_list = node
+        if not self.__root_list:  # if the heap is completely empty
+            self.__root_list = node
         else:  # the heap is not empty, insert as new node in doubly-linked list
-            node.right = self.root_list.right
-            node.left = self.root_list
-            self.root_list.right.left = node
-            self.root_list.right = node
+            node.right = self.__root_list.right
+            node.left = self.__root_list
+            self.__root_list.right.left = node
+            self.__root_list.right = node
 
     def __remove_from_root_list(self, node):
         """
         Helper function to remove a node from the doubly-linked root list
         :param node: 
         """
-        if node == self.root_list:  # if the node is the head of the root list
-            self.root_list = node.right
+        if node == self.__root_list:  # if the node is the head of the root list
+            self.__root_list = node.right
         node.left.right = node.right  # reconnect node to the left
         node.right.left = node.left  # reconnect node to the right
+        
+    def __cut(self, x, y):
+        self.__remove_from_child_list(x, y)
+        self.__merge_with_root_list(y)
+
+    def __recursive_cut(self, parent):
+        """
+        Recursively cut nodes who's priorities are less than their parents
+        until we reach root node or an unmarked node
+        :param parent: current parent node
+        """
+        grandparent = parent.parent
+        if grandparent:
+            if not parent.mark:
+                parent.mark = True
+            else:
+                self.__cut(grandparent, parent)
+                self.__recursive_cut(grandparent)
+
+    def is_empty(self):
+        """
+        Check to see if their are still nodes in root list
+        :return: True if root list is empty, False otherwise 
+        """
+        return self.__root_list is None
 
     def add_with_priority(self, node_id, priority):
         """
@@ -174,10 +200,11 @@ class FibHeap(object):
         new_node = self.Node(node_id, priority)
 
         # Set the new min node
-        if not self.min_node or new_node.priority < self.min_node.priority:
-            self.min_node = new_node
+        if not self.__min_node or new_node.priority < self.__min_node.priority:
+            self.__min_node = new_node
         self.__merge_with_root_list(new_node)  # put the node in root list
-        self.total_nodes += 1
+        self.__total_nodes += 1
+        return new_node
 
     def extract_min(self):
         """
@@ -185,7 +212,7 @@ class FibHeap(object):
         Re-attach all of it's children node (if any) to the root list
         :return: the node with the minimum priority value
         """
-        node = self.min_node
+        node = self.__min_node
         if node:
             if node.child:  # if the node has children we need to re-attach
                 # Because we will be changing the nodes, we cannot iterate
@@ -201,81 +228,52 @@ class FibHeap(object):
 
             # set a new min node in root list
             if node == node.right:
-                self.root_list = None
-                self.min_node = None
+                self.__root_list = None
+                self.__min_node = None
             else:
-                self.min_node = node.right
+                self.__min_node = node.right
                 self.__consolidate()
 
-            self.total_nodes -= 1
+            self.__total_nodes -= 1
         return node
 
     def decrease_priority(self, node, new_priority):
-
-        if new_priority > node.priority:
+        """
+        Decrease the priority of a node and restructure the fib heap accordingly
+        :param node: the targeted node
+        :param new_priority: the targeted node's new priority
+        :return: None if new_priority > current priority
+        """
+        if new_priority > node.priority:  # only allow decrease in priority
             return None
         node.priority = new_priority
+
         if node.parent and node.priority < node.parent.priority:
-            # restructure
+            # restructure if new priority violates min heap property
             self.__cut(node.parent, node)
-            self.__cascading_cut(node.parent)
-            pass
-        if node.priority < self.min_node.priority:
-            self.min_node = node
-
-    def __cut(self, x, y):
-        self.__remove_from_child_list(x, y)
-        self.__merge_with_root_list(y)
-
-    def __cascading_cut(self, parent):
-        """
-        Recursively cut nodes who's priorities are less than their parents
-        until we reach root node or an unmarked node
-        :param y:
-        :return:
-        """
-        grandparent = parent.parent
-        if grandparent:
-            if not parent.mark:
-                parent.mark = True
-            else:
-                self.__cut(grandparent, parent)
-                self.__cascading_cut(grandparent)
-
+            self.__recursive_cut(node.parent)
+        if node.priority < self.__min_node.priority:
+            # set new min node
+            self.__min_node = node
 
 
 def main():
+
     f = FibHeap()
 
-    f.add_with_priority('a', 6)
-    f.add_with_priority('b', 5)
-    f.add_with_priority('c', 4)
-    f.add_with_priority('d', 2)
-    f.add_with_priority('e', 2)
-    f.add_with_priority('t', 2)
+    f.add_with_priority('a', 1)
+    f.add_with_priority('b', 2)
+    f.add_with_priority('c', 5)
+    f.add_with_priority('d', 10)
+    f.add_with_priority('e', 100)
+    f.add_with_priority('f', 3)
 
-
-    m = f.extract_min().priority
-    print(m)
-    m = f.extract_min().priority
-    print(m)
-    m = f.extract_min().priority
-    print(m)
-
-    f.decrease_priority(f.root_list.left, -1) # doesnt work quite yet
-
-    m = f.extract_min().priority
-    print(m)
-    m = f.extract_min().priority
-    print(m)
-    m = f.extract_min().priority
-    print(m)
-
-
-
-
-
-
+    print(f.extract_min().priority)
+    print(f.extract_min().priority)
+    print(f.extract_min().priority)
+    print(f.extract_min().priority)
+    print(f.extract_min().priority)
+    print(f.extract_min().priority)
 
 if __name__ == '__main__':
     main()
