@@ -144,6 +144,11 @@ The resulting dictionaries look like this:
 **Step 3 First Loop**
 
 ![Graph after loop 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_first_iter.png "Graph after loop 1")
+    dist = {'A':0, 'B': 14, 'C': 7, 'D': 9, 'E': 'inf', 'F': inf}
+    prev = {'A':None, 'B': 'A', 'C': 'A', 'D': 'A', 'E': None, 'F': None}
+
+
+**Step 4 Second Loop**
 
 ### Directed Graph
 
