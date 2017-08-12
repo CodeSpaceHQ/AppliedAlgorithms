@@ -125,16 +125,18 @@ Trace through dijkstra(graph, 'A')
 
 **Step 1: Initialization**
 
-dist = {'A':0}
-prev = {'A':None}
-nodes = {}
-queue = new FibHeap()
+    dist = {'A':0}
+    prev = {'A':None}
+    nodes = {}
+    queue = new FibHeap()
 
 **Step 2: More Initialization**
 
 For each vertex v in the graph, we place it in _dist_ and assign it a distance of infinity (inf). We also place each v in _prev_, and assign it a previous vertex of None.
 Lastly, we place a node representation of the vertex and its distance from source ('A') into the queue.
+
 The resulting dictionaries look like this:
+
     dist = {'A':0, 'B': inf, 'C': inf, 'D': inf, 'E': 'inf', 'F': inf}
     prev = {'A':None, 'B': None, 'C': None, 'D': None, 'E': None, 'F': None}
     nodes = {'A':('A',0), 'B': ('B',inf), 'C': ('C',inf), 'D': ('D',inf), 'E': ('E', inf), 'F': ('F', inf)}
