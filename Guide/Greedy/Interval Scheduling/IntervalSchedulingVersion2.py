@@ -2,7 +2,7 @@
 def partition(s, begin, end):
     # Lomuto partition scheme worst case O(n^2)
     # this version of partition may not be the most efficient in
-    # terms of edge cases - but will do for our purpose of demonstration.
+    # terms of edge cases - but will do for the purpose of demonstration.
     pivot = end
     pivot_holder_index = begin
     for i in range(begin, end):
