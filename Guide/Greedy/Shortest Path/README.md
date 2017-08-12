@@ -114,6 +114,40 @@ Another interesting discovery discussed in the Wikipedia page of Fibonacci Heaps
 For a more detailed discussion on the Fibonacci Heap and it's time complexities, see [here](https://en.wikipedia.org/wiki/Fibonacci_heap#Summary_of_running_times).
 
 ## Example
+For the examples we will avoid the details of the implementation of the priority queue and fibonacci heap. Keeping track of the fibonacci heap
+would make this example long and it is not the purpose of this guide to demonstrate the inner workings of the Fibonacci Heap.
+
+### Undirected Graph
+
+![Initial Undirected Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/initial_undirected_graph.png "Initial Undirected Graph")
+
+Trace through dijkstra(graph, 'A')
+
+**Step 1: Initialization**
+
+dist = {'A':0}
+prev = {'A':None}
+nodes = {}
+queue = new FibHeap()
+
+**Step 2: More Initialization**
+
+For each vertex v in the graph, we place it in _dist_ and assign it a distance of infinity (inf). We also place each v in _prev_, and assign it a previous vertex of None.
+Lastly, we place a node representation of the vertex and its distance from source ('A') into the queue.
+The resulting dictionaries look like this:
+    dist = {'A':0, 'B': inf, 'C': inf, 'D': inf, 'E': 'inf', 'F': inf}
+    prev = {'A':None, 'B': None, 'C': None, 'D': None, 'E': None, 'F': None}
+    nodes = {'A':('A',0), 'B': ('B',inf), 'C': ('C',inf), 'D': ('D',inf), 'E': ('E', inf), 'F': ('F', inf)}
+
+**Step 3 First Loop**
+
+
+
+
+
+### Directed Graph
+
+![Initial Directed Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/initial_directed_graph.png "Initial Directed Graph")
 
 
 ## Conclusion
