@@ -164,7 +164,7 @@ class FibHeap(object):
             self.__root_list = node.right
         node.left.right = node.right  # reconnect node to the left
         node.right.left = node.left  # reconnect node to the right
-        
+
     def __cut(self, x, y):
         self.__remove_from_child_list(x, y)
         self.__merge_with_root_list(y)

@@ -35,7 +35,7 @@ class Graph(object):
     def get_neighbors(self, vertex):
         """
         get all neighboring nodes of a vertex
-        :param node: 
+        :param vertex: the id of vertex to get neighbors from
         :return: list of neighboring vertices by id
         """
         return [x[0] for x in self.__graph[vertex]]
