@@ -12,7 +12,7 @@ Difficulty: Hard to implement, medium to understand.
 Given a directed graph G = [V, E] where each edge _e_ has a length _l<sub>e</sub>_, and a starting node _s_ in that graph, determine the length
 of the shortest path from _s_ to every other node.
 
-![Dijkstra's Visualization](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/Dijkstra_Animation.gif "Visualization of Dijkstra's Algorithm")
+![Dijkstra's Visualization](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/Dijkstra_Animation1.gif "Visualization of Dijkstra's Algorithm")
 
 ### Overview
 For this problem we will need to utilize two data structures:
