@@ -32,7 +32,7 @@ def dijkstra_shortest_paths(graph, source):
         u = queue.extract_min()  # extract the node with minimum distance
         for v in graph.get_neighbors(u.node_id):
             # for each neighbor, calculate the distance from u to it
-            alt = dist[u.node_id] + graph.get_distance(v, u.node_id)
+            alt = dist[u.node_id] + graph.get_distance(u.node_id, v)
             if alt < dist[v]:  # if the new distance is shorter than old
                 dist[v] = alt  # our distance to this node is shorter now
                 prev[v] = u.node_id  # the path we take is through this node
@@ -48,7 +48,7 @@ def main():
         ('A', 'D', 5),
         ('D', 'C', 1),
         ('C', 'E', 1)
-    ])
+    ], directed=True)
 
     print(dijkstra_shortest_paths(g, 'A'))
 

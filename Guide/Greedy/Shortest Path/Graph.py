@@ -26,10 +26,10 @@ class Graph(object):
         """
         for vertex1, vertex2, distance in connections:
             self.add_vertex(vertex1)
-            self.__graph[vertex1].append((vertex2, distance))
+            self.add_vertex(vertex2)
 
+            self.__graph[vertex1].append((vertex2, distance))
             if not self.__directed:
-                self.add_vertex(vertex2)
                 self.__graph[vertex2].append((vertex1, distance))
 
     def get_neighbors(self, vertex):
@@ -59,15 +59,16 @@ class Graph(object):
 
 def main():
     g = Graph([
-        ('A', 'B', 1),
-        ('B', 'C', 2),
-        ('A', 'D', 1),
+        ('A', 'B', 5),
+        ('A', 'C', 2),
+        ('B', 'C', 1),
+        ('A', 'D', 5),
         ('D', 'C', 1),
-        ('C', 'E', 3)
-    ])
+        ('C', 'E', 1)
+    ], directed=True)
 
     print(g.get_neighbors('A'))
-    print(g.get_distance('B', 'C'))
+    print(g.get_vertices())
 
 
 if __name__ == '__main__':
