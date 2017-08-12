@@ -165,6 +165,25 @@ class FibHeap(object):
         node.left.right = node.right  # reconnect node to the left
         node.right.left = node.left  # reconnect node to the right
 
+    def __cut(self, x, y):
+        self.__remove_from_child_list(x, y)
+        self.__merge_with_root_list(y)
+
+    def __recursive_cut(self, parent):
+        """
+        Recursively cut nodes who's priorities are less than their parents
+        until we reach root node or an unmarked node
+        :param parent: current parent node
+        """
+        if not parent:  # make sure this isn't already the root node of the heap
+            return
+        grandparent = parent.parent
+        if grandparent:
+            if not parent.mark:
+                parent.mark = True
+            else:
+                self.__cut(grandparent, parent)
+                self.__recursive_cut(grandparent)
 
     def is_empty(self):
         """
@@ -239,25 +258,6 @@ class FibHeap(object):
             # set new min node
             self.__min_node = node
 
-    def __cut(self, x, y):
-        self.__remove_from_child_list(x, y)
-        self.__merge_with_root_list(y)
-
-    def __recursive_cut(self, parent):
-        """
-        Recursively cut nodes who's priorities are less than their parents
-        until we reach root node or an unmarked node
-        :param parent: current parent node
-        """
-        if not parent:  # make sure this isn't already the root node of the heap
-            return
-        grandparent = parent.parent
-        if grandparent:
-            if not parent.mark:
-                parent.mark = True
-            else:
-                self.__cut(grandparent, parent)
-                self.__recursive_cut(grandparent)
 
 def main():
 
