@@ -15,7 +15,7 @@ of the shortest path from _s_ to every other node.
 ### Overview
 For this problem we will need to utilize two data structures:
 * [Min Priority Queue](https://en.wikipedia.org/wiki/Priority_queue)
-* Graph
+* [Graph](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics))
 
 The implementation of priority queue we will use is the [Fibonacci Heap](https://en.wikipedia.org/wiki/Fibonacci_heap). We will not need to implement all of the functionality
 of a fibonacci heap, just those that will allow us to:
