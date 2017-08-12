@@ -50,7 +50,20 @@ def main():
         ('C', 'E', 1)
     ], directed=True)
 
-    print(dijkstra_shortest_paths(g, 'A'))
+    dist, path = dijkstra_shortest_paths(g, 'A')
+    print('Directed Graph:\n\tDistances: {}\n\t Path: {}'.format(dist, path))
+
+    g = Graph([
+        ('A', 'B', 5),
+        ('A', 'C', 2),
+        ('B', 'C', 1),
+        ('A', 'D', 5),
+        ('D', 'C', 1),
+        ('C', 'E', 1)
+    ], directed=False)
+
+    dist, path = dijkstra_shortest_paths(g, 'A')
+    print('Undirected Graph:\n\tDistances: {}\n\t Path: {}'.format(dist, path))
 
 
 if __name__ == '__main__':
