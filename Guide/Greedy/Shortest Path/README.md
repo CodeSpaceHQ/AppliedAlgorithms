@@ -143,9 +143,7 @@ The resulting dictionaries look like this:
 
 **Step 3 First Loop**
 
-
-
-
+![Graph after loop 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_first_iter.png "Graph after loop 1")
 
 ### Directed Graph
 
