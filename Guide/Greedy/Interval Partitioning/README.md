@@ -4,7 +4,7 @@ This problem is introduced in [Dr. Gelfond Applied Algorithms](http://redwood.cs
 
 Category: Greedy
 
-Difficulty: N/A
+Difficulty: Medium
 
 
 ## Problem
