@@ -3,6 +3,8 @@ class FibHeap(object):
     Fibonacci Heap
     A data structure for priority queue operations made up of a collection
     of heap-ordered trees (in this case min-heap).
+    NOTE: not all methods are implemented. Only those necessary for 
+          priority queue
     https://en.wikipedia.org/wiki/Fibonacci_heap
     """
 
