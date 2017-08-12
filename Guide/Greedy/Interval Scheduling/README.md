@@ -105,7 +105,7 @@ Solution set = [(2, 3), (4, 5), (6, 9)]
 
 ## Version 2
 
-Version 2 of the solution has a worst case time complexity of O(n<sup>2</sup>) and an average time complexity of O(n log n) due to the sorting of the set of request before finding the optimal solution.
+Version 2 of the solution has a worst case time complexity of O(n<sup>2</sup>) and an average time complexity of O(n log n) from quick sorting the set of requests before finding the optimal solution.
 The time complexity of the algorithm when the entire set of requests is sorted by finish time is simply n, and the time complexity of sorting
 the un-sorted set of requests is O(n log n), which means T(n) = O(n log n) + O(n) wherein the extra addition of n can be dropped.
 A faster sorting algorithm such as Radix sort which has a time complexity of O(kn) where k is the number of requests to be sorted, or
