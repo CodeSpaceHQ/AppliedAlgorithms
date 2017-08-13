@@ -211,7 +211,7 @@ And the visualized graph looks like this:
 
 ### Directed Graph
 
-![Initial Directed Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/initial_directed_graph.png "Initial Directed Graph")
+![Initial Directed Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/initial_directed_graph1.png "Initial Directed Graph")
 
 
 ## Conclusion
