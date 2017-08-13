@@ -219,8 +219,8 @@ that the minimal path from source node 'A' to node 'E' would have to be through 
 
 ![Directed Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/idg_complete.png "Directed Graph")
 
-        dist = {'A': 0, 'B': 11, 'C': 7, 'D': 9, 'E': 20, 'F': 20}
-        prev = {'A': None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'D', 'F': 'B'}
+        dist = {'A': 0, 'B': 11, 'C': 7, 'D': 9, 'E': 22, 'F': 20}
+        prev = {'A': None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'C', 'F': 'B'}
 
 
 
