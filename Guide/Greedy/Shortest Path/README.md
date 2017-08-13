@@ -119,7 +119,7 @@ would make this example long and it is not the purpose of this guide to demonstr
 
 ### Undirected Graph
 
-![Initial Undirected Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/initial_undirected_graph.png "Initial Undirected Graph")
+![Initial Undirected Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/initial_undirected_graph1.png "Initial Undirected Graph")
 
 Trace through dijkstra(graph, 'A')
 
@@ -143,7 +143,7 @@ The resulting dictionaries look like this:
 
 And the visualized graph looks like this:
 
-![Graph after initialization](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_0.png "Graph after initialization")
+![Graph after initialization](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_01.png "Graph after initialization")
 
 **Step 3 First Loop**
 
