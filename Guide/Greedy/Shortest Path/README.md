@@ -141,15 +141,52 @@ The resulting dictionaries look like this:
     prev = {'A':None, 'B': None, 'C': None, 'D': None, 'E': None, 'F': None}
     nodes = {'A':('A',0), 'B': ('B',inf), 'C': ('C',inf), 'D': ('D',inf), 'E': ('E', inf), 'F': ('F', inf)}
 
+And the visualized graph looks like this:
+
+![Graph after initialization](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_0.png "Graph after initialization")
+
 **Step 3 First Loop**
 
-![Graph after loop 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_first_iter.png "Graph after loop 1")
+![Graph after loop 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_1.png "Graph after loop 1")
 
     dist = {'A':0, 'B': 14, 'C': 7, 'D': 9, 'E': 'inf', 'F': inf}
     prev = {'A':None, 'B': 'A', 'C': 'A', 'D': 'A', 'E': None, 'F': None}
 
-
 **Step 4 Second Loop**
+
+![Graph after loop 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_2.png "Graph after loop 2")
+
+    dist = {'A':0, 'B': 14, 'C': 7, 'D': 9, 'E': 22, 'F': inf}
+    prev = {'A':None, 'B': 'A', 'C': 'A', 'D': 'A', 'E': 'C', 'F': None}
+
+**Step 5 Third Loop**
+
+![Graph after loop 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_3.png "Graph after loop 3")
+
+    dist = {'A':0, 'B': 11, 'C': 7, 'D': 9, 'E': 20, 'F': inf}
+    prev = {'A':None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'D', 'F': None}
+
+**Step 6 Fourth Loop**
+
+![Graph after loop 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_4.png "Graph after loop 4")
+
+    dist = {'A':0, 'B': 11, 'C': 7, 'D': 9, 'E': 20, 'F': 20}
+    prev = {'A':None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'D', 'F': 'B'}
+
+**Step 7 Fifth Loop**
+
+![Graph after loop 5](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_5.png "Graph after loop 5")
+
+    dist = {'A':0, 'B': 11, 'C': 7, 'D': 9, 'E': 20, 'F': 20}
+    prev = {'A':None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'D', 'F': 'B'}
+
+**Step 8 Sixth Loop**
+
+![Graph after loop 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_6.png "Graph after loop 6")
+
+    dist = {'A':0, 'B': 11, 'C': 7, 'D': 9, 'E': 20, 'F': 20}
+    prev = {'A':None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'D', 'F': 'B'}
+
 
 ### Directed Graph
 
