@@ -35,29 +35,13 @@ related topics, please visit the [Disjoint-set](https://en.wikipedia.org/wiki/Di
 
 
 ### Input Format
-Our input format will a graph G = [V, E] such that:
-* V is a set of vertices and,
-* E is a set of edges with their corresponding weights in the form _(u, w, v)_ where _u_ and _v_ are vertices and _w_ is the weight of the edge
+Our input format will a graph G using our custom Graph class,
+
+The graph data structure will just be a simple representation of a directed or undirected graph using key-value pairs in dictionaries. A graph is represented by a single dictionary with entries in the form: v : [(u, d), (u1, d),..., (un, d)] where the key v is the id of a vertex in the graph (i.e., 'A'), and the value (a list of tuples) contain u: a connected node and d: the distance from v to u.
 
 ### Constraints
 Due to our disjoint-set data structure being a crucial part to solving this problem, each vertex existing anywhere in our input graph G
-must have three members/properties:
-    1. id - this is an identifier for the visual name of the vertex, i.e. 'a', or 'b', or 'c', etc.
-    2. rank - the rank will be used in the Union() function when bringing two disjoint sets together, initially it is set to 0
-    3. parent - the 'root' node in the vertices disjoint-set. This is exactly like the 'Head' node of a linked list. Initially a vertex's parent is set to point at itself.
-
-This is the format we will follow for our disjoint-set data structure, an example input graph to our algorithm might look like this:
-
-```Python
-    vertex_a = Vertex('a')  # 'a' is the id of vertex_a, and initially vertex_a is it's own parent
-    vertex_b = Vertex('b')
-
-    # our input graph G
-    G = [
-        [a, b],  # set of vertices
-        [(vertex_a, 4, vertex_b)]  # set of edges, with one edge from vertex_a to vertex_b with a weight of 4
-    ]
-```
+must also have a corresponding set in our DisjointSet data structure, so that we can perform `union()` and `find()` operations on them.
 
 ### Output Format
 Each edge that is included in the minimum spanning tree of our graph separated by a new line and shown in the form _u--w--v_ where _u_ and _v_ are vertices and w is the edge's weight.
@@ -115,7 +99,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 1. Edge (A, 5, D):
 * Disjoint sets: [(A) (B) (C) (D) (E) (F) (G)]
 * Find(A) will return A, and Find(D) will return D, because initially all vertices are disjoint sets. A != D so,
-* The edge (A, 5, D) will be added to the solution set
+* The edge (A, D, 5) will be added to the solution set
 * The disjoint-set containing vertex A in it will be unioned with the disjoint set containing vertex D
 
 ![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter1.png "Examining the first edge")
@@ -123,53 +107,53 @@ This excellent example is a slightly modified version from the Wikipedia page on
 ----
 
  
- 2. Edge (C, 5, E):
+ 2. Edge C, E, 5):
 * Disjoint sets: [(A, D) (B) (C) (E) (F) (G)]
 * Find(C) will return C, and Find(E) will return E, and C != E so,
-* The edge (C, 5, E) will be added to the solution set
+* The edge (C, E, 5) will be added to the solution set
 * The disjoint-set containing vertex C in it will be unioned with the disjoint set containing vertex E
 
 ![Step 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter2.png "Examining the second edge")
 
 ----
 
-3. Edge (D, 6, F):
+3. Edge (D, F, 6):
 * Disjoint sets: [(A, D) (B) (C, E) (F) (G)]
 * Find(D) will return A because it is the parent of the set D is in, and Find(F) will return F, and A != F so,
-* The edge (D, 6, F) will be added to the solution set
+* The edge (D, F, 6) will be added to the solution set
 * The disjoint-set containing vertex D will be unioned with the disjoint set containing vertex F
 
 ![Step 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter3.png "Examining the third edge")
 
 ----
 
-4. Edge (A, 7, B):
+4. Edge (A, B, 7):
 * Disjoint sets: [(A, D, F) (B) (C, E) (G)]
 * Find(A) will return A, and Find(B) will return B, and A != B so,
-* The edge (A, 7, B) will be added to the solution set
+* The edge (A, B, 7) will be added to the solution set
 * The disjoint-set containing vertex A will be unioned with the disjoint set containing vertex B
 
 ![Step 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter4.png "Examining the fourth edge")
 
 ----
 
-5. Edge (B, 7, E):
+5. Edge (B, E, 7):
 * Disjoint sets: [(A, D, F, B) (C, E) (G)]
 * Find(B) will return A, and Find(E) will return E, and A != E so,
-* The edge (B, 7, E) will be added to the solution set
+* The edge (B, E, 7) will be added to the solution set
 * The disjoint-set containing vertex A will be unioned with the disjoint set containing vertex E
 
-5a. Edge (B, 8, C):
+5a. Edge (B, C, 8):
 * Disjoint sets: [(A, D, F, B, C, E, C, E) (G)]
 * Find(B) will return A, and Find(E) will return A, and A == A, so
 * go to next edge
 
-5a. Edge (F, 8, E):
+5a. Edge (F, E, 8):
 * Disjoint sets: [(A, D, F, B, C, E, C, E) (G)]
 * Find(F) will return A, and Find(E) will return A, and A == A, so
 * go to next edge
 
-5b. Edge (B, 8, C):
+5b. Edge (B, C, 8):
 * Disjoint sets: [(A, D, F, B, C, E, C, E) (G)]
 * Find(B) will return A, and Find(E) will return A, and A == A, so
 * go to next edge
@@ -179,10 +163,10 @@ This excellent example is a slightly modified version from the Wikipedia page on
 ----
 
 
-6. Edge (E, 9, G):
+6. Edge (E, G, 9):
 * Disjoint sets: [(A, D, F, B, C, E) (G)]
 * Find(E) will return A, and Find(G) will return G, and A != G so,
-* The edge (E, 9, G) will be added to the solution set
+* The edge (E, G, 9) will be added to the solution set
 * The disjoint-set containing vertex E will be unioned with the disjoint set containing vertex G
 
 ![Step 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree%20(Kruskal)/assets/iter6.png "Examining the sixth edge")
