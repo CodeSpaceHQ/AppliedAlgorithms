@@ -149,7 +149,7 @@ And the visualized graph looks like this:
 
 ![Graph after loop 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_1.png "Graph after loop 1")
 
-*All paths found to neighboring nodes are less than infinity, so they are all accepted as minimal paths, shown in red.
+* All paths found to neighboring nodes are less than infinity, so they are all accepted as minimal paths, shown in red.
     dist = {'A':0, 'B': 14, 'C': 7, 'D': 9, 'E': 'inf', 'F': inf}
     prev = {'A':None, 'B': 'A', 'C': 'A', 'D': 'A', 'E': None, 'F': None}
 
@@ -157,9 +157,10 @@ And the visualized graph looks like this:
 
 ![Graph after loop 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_2.png "Graph after loop 2")
 
-*A second optional path to D (shown in blue) is found, but is not less than the path in dist['D'], so it is not accepted.
-*Additionally, a new path from 'C' to 'E' is found, and it's distance is less than infinity, so it is accepted as a minimal path.
-*Also the path from 'C' to 'A' is considered since the graph is undirected, but it's distance would be 7 + 7 = 14 (because the current path to 'C' is from 'A'). It is not accepted.
+* A second optional path to D (shown in blue) is found, but is not less than the path in dist['D'], so it is not accepted.
+* Additionally, a new path from 'C' to 'E' is found, and it's distance is less than infinity, so it is accepted as a minimal path.
+* Also the path from 'C' to 'A' is considered since the graph is undirected, but it's distance would be 7 + 7 = 14 (because the current path to 'C' is from 'A'). It is not accepted.
+
     dist = {'A':0, 'B': 14, 'C': 7, 'D': 9, 'E': 22, 'F': inf}
     prev = {'A':None, 'B': 'A', 'C': 'A', 'D': 'A', 'E': 'C', 'F': None}
 
@@ -167,9 +168,9 @@ And the visualized graph looks like this:
 
 ![Graph after loop 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_3.png "Graph after loop 3")
 
-*A shorter path to 'B' through 'D' is found, and is accepted (prev['B'] now equals 'D', dist['B'] is now 9 + 2 = 11).
-*A shorter path to 'E' through 'D' is found, and is accepted (prev['E'] now equald 'D', dist['E'] is now 9 + 11 = 20).
-*Another path to 'C' from 'D' is found, but it's distance is not shorter than the current distance in dist['C'], so it is not accepted.
+* A shorter path to 'B' through 'D' is found, and is accepted (prev['B'] now equals 'D', dist['B'] is now 9 + 2 = 11).
+* A shorter path to 'E' through 'D' is found, and is accepted (prev['E'] now equald 'D', dist['E'] is now 9 + 11 = 20).
+* Another path to 'C' from 'D' is found, but it's distance is not shorter than the current distance in dist['C'], so it is not accepted.
 
     dist = {'A':0, 'B': 11, 'C': 7, 'D': 9, 'E': 20, 'F': inf}
     prev = {'A':None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'D', 'F': None}
@@ -178,8 +179,8 @@ And the visualized graph looks like this:
 
 ![Graph after loop 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_4.png "Graph after loop 4")
 
-*A new path from 'B' to 'F' is found, it's distance is less than infinity so it is accepted as a minimal path.
-*A path from 'B' to 'A' is examined but is not accepted because it's distance (9 + 11 + 14 = 34) is not less than dist['B'].
+* A new path from 'B' to 'F' is found, it's distance is less than infinity so it is accepted as a minimal path.
+* A path from 'B' to 'A' is examined but is not accepted because it's distance (9 + 11 + 14 = 34) is not less than dist['B'].
 
     dist = {'A':0, 'B': 11, 'C': 7, 'D': 9, 'E': 20, 'F': 20}
     prev = {'A':None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'D', 'F': 'B'}
@@ -197,8 +198,8 @@ And the visualized graph looks like this:
 
 ![Graph after loop 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_6.png "Graph after loop 6")
 
-*A path from 'F' to 'E' is examined but is not accepted because it's distance is not less than dist['E'].
-*All nodes in the graph have been examined and the shortest spanning tree to each node in the graph has been found. The algorithm terminates.
+* A path from 'F' to 'E' is examined but is not accepted because it's distance is not less than dist['E'].
+* All nodes in the graph have been examined and the shortest spanning tree to each node in the graph has been found. The algorithm terminates.
 
     dist = {'A':0, 'B': 11, 'C': 7, 'D': 9, 'E': 20, 'F': 20}
     prev = {'A':None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'D', 'F': 'B'}
