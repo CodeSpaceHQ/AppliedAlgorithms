@@ -213,6 +213,16 @@ And the visualized graph looks like this:
 
 ![Initial Directed Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/initial_directed_graph1.png "Initial Directed Graph")
 
+The directed graph example is very similar to the undirected example in this case. WIth a directed graph, you cannot travel in the opposite direction
+of the direction of the arrows. A trace through would show that the only area this affects us is going from 'D' to 'E' would no longer be possible, meaning
+that the minimal path from source node 'A' to node 'E' would have to be through 'C'. The result:
+
+![Directed Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/idg_complete.png "Directed Graph")
+
+        dist = {'A': 0, 'B': 11, 'C': 7, 'D': 9, 'E': 20, 'F': 20}
+        prev = {'A': None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'D', 'F': 'B'}
+
+
 
 ## Conclusion
 For this conclusion I will use a quote from the Wikipedia page on Dijkstra's Algorithm in the section _Practical optimizations and infinite graphs_.

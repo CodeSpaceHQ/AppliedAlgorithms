@@ -51,7 +51,7 @@ def main():
         ('C', 'E', 15),
         ('E', 'F', 6),
         ('B', 'F', 9)
-    ], directed=False)
+    ], directed=True)
 
     dist, path = dijkstra_shortest_paths(g, 'A')
     print('Directed Graph:\n\tDistances: {}\n\t Path: {}'.format(dist, path))
