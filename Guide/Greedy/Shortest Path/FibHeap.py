@@ -74,15 +74,6 @@ class FibHeap(object):
             while nodes_by_depth[depth]:
                 node_eq_depth = nodes_by_depth[depth]  # node with equal depth
 
-
-                ## The below lines would assure that no heap where a child
-                ## had an equivalent priority as the parent would be made..
-                ## instead they would be separate. This however, violates
-                ## the min heap properties
-                # if node_eq_depth.priority == node.priority:
-                #     break
-
-
                 # Always make the node with greater priority the parent
                 if node.priority > node_eq_depth.priority:
                     node, node_eq_depth = node_eq_depth, node  # switch
@@ -90,12 +81,6 @@ class FibHeap(object):
 
                 nodes_by_depth[depth] = None  # node depth is no longer the same
                 depth += 1  # depth of combined trees =+1
-
-            ## The below lines would be used with the above commented out lines
-            ## in the while loop to find the new min_node without having to
-            ## loop through the root list again.
-            # if node.priority < self.min_node.priority:
-            #     self.min_node = node
 
             nodes_by_depth[depth] = node  # add the new or unchanged node
 
