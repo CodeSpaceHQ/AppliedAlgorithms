@@ -12,18 +12,18 @@ Difficulty: N/A
 
 Given _n_ men and _n_ women, where each person has ranked all members of the opposite sex in order of preference, marry the men and the women together such that there are no two people of opposite sex who would both rather have each other than their current partners. When there are no such pairs of people, the set of marriages is deemed stable.
 
-_From Wikipedia:_
-Stable marriage problem (also stable matching problem or SMP) is the problem of finding a stable matching between two equally sized sets of elements given an ordering of preferences for each element. A matching is a mapping from the elements of one set to the elements of the other set. A matching is not stable if:
+From Wikipedia:
+>Stable marriage problem (also stable matching problem or SMP) is the problem of finding a stable matching between two equally sized sets of elements given an ordering of preferences for each element. A matching is a mapping from the elements of one set to the elements of the other set. A matching is not stable if:
 
-- There is an element A of the first matched set which prefers some given element B of the second matched set over the element to which A is already matched, and
+>- There is an element A of the first matched set which prefers some given element B of the second matched set over the element to which A is already matched, and
 
-- B also prefers A over the element to which B is already matched.
+>- B also prefers A over the element to which B is already matched.
 
-i.e. a _matching_ is stable when there is no match **(A,B) and (C,D)**  where **A** prefers **D** and **D** prefers **A** or any other combination where both **A** and **B** would be individually better off than they are with the element they are currently matched with.
+i.e. a _matching_ is stable when there is no match _(A,B)_ and _(C,D)_  where _A_ prefers _D_ and _D_ prefers _A_ or any other combination where both _A_ and _B_ would be individually better off than they are with the element they are currently matched with.
 
 ### Input Format
-- The first line is a set of key-value pairs of n men (k, v) where k is an integer greater than zero and v is a list of integers greater than zero of size n.
-- The second line is a set of key-value pairs of n women (k, v) where k is an integer greater than zero and v is a list of integers greater than zero of size n.
+- The first line is a set of key-value pairs of n men _(k, v)_ where _k_ is an integer greater than zero and _v_ is a list of integers greater than zero of size n.
+- The second line is a set of key-value pairs of n women _(k, v)_ where _k_ is an integer greater than zero and _v_ is a list of integers greater than zero of size n.
 
 ### Constraints
 - Set of men and set of women must be equal in size.
@@ -31,7 +31,7 @@ i.e. a _matching_ is stable when there is no match **(A,B) and (C,D)**  where **
 - Each man must be engaged to a single woman and each woman to a single man.
 
 ### Output Format
-- n rows of the form (M, W) where M is a male in input 1 who is engaged to woman W in input 2.
+- n rows of the form _(M, W)_ where _M_ is a male in input 1 who is engaged to woman _W_ in input 2.
 
 ## Algorithm
 ### Overview
@@ -76,8 +76,8 @@ def match(set M: men, set W: women):
     
         1. let m propose to highest-ranked woman (w) he has not yet proposed to
         2. if w is free let her accept (m,w) become "engaged"
-        3. if w prefers m to her current m<sub>x</sub>, let her break the engagment
-           with m<sub>x</sub> and accept m's proposal.
+        3. if w prefers m to her current m1, let her break the engagment
+           with m1 and accept m's proposal.
         
     return the set of all engaged pairs
 ```
@@ -110,12 +110,22 @@ The while loop in the stable marriage algorithm goes through each individual mal
 2. m<sub>2</sub> proposes to w (w<sub>2</sub>) and she is taken...
 3. w<sub>2</sub> ranks m<sub>1</sub> higher than m<sub>2</sub>, so m<sub>2</sub> stays single
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 
+</td>
+<td>
 
-**Note**: Here we could either move on to m<sub>3</sub>, or we could try m<sub>2</sub> again with his next preffered woman, here we will
+![Step 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step2.PNG "Man 2 proposes to woman 2")
+
+</td>
+</table>
+
+**Note**: We could either move on to m<sub>3</sub>, or we could try m<sub>2</sub> again with his next preffered woman, here we will
 do the latter.
 
 ----       
@@ -123,67 +133,142 @@ do the latter.
 1. Man = m<sub>2</sub> (again)
 2. m<sub>2</sub> proposes to w (w<sub>1</sub>) and she is single, so she accepts
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
+
+</td>
+<td>
+
+![Step 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step3.PNG "Man 2 proposes to woman 1")
+
+</td>
+</table>
+
 ----
 **4<sup>th</sup> iteration**
 1. Man = m<sub>3</sub> 
 2. m<sub>3</sub> proposes to w (w<sub>1</sub>) and she is taken...
 3. w<sub>1</sub> ranks m<sub>2</sub> higher than m<sub>3</sub>, so m<sub>3</sub> stays single
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
+
+</td>
+<td>
+
+![Step 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step4.PNG "Man 3 proposes to woman 1")
+
+</td>
+</table>
+
 ----
 **5<sup>th</sup> iteration**
 1. Man = m<sub>3</sub> (again)
 2. m<sub>3</sub> proposes to w (w<sub>3</sub>) and she is single, so she accepts
+
+<table>
+<td>
 
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
 |(m<sub>3</sub>, w<sub>3</sub>)|
+
+</td>
+<td>
+
+![Step 5](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step5.PNG "Man 3 proposes to woman 3")
+
+</td>
+</table>
+
 ----
 **6<sup>th</sup> iteration**
 1. Man = m<sub>4</sub>
 2. m<sub>4</sub> proposes to w (w<sub>1</sub>) and she is taken...
 3. w<sub>1</sub> ranks m<sub>2</sub> higher than m<sub>4</sub>, so m<sub>4</sub> stays single
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
 |(m<sub>3</sub>, w<sub>3</sub>)|
+
+</td>
+<td>
+
+![Step 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step6.PNG "Man 4 proposes to woman 1")
+
+</td>
+</table>
+
 ----
 **7<sup>th</sup> iteration**
 1. Man = m<sub>4</sub> (again)
 2. m<sub>4</sub> proposes to w (w<sub>2</sub>) and she is taken...
 3. w<sub>2</sub> ranks m<sub>1</sub> higher than m<sub>4</sub>, so m<sub>4</sub> stays single
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
 |(m<sub>3</sub>, w<sub>3</sub>)|
+
+</td>
+<td>
+
+![Step 7](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step7.PNG "Man 4 proposes to woman 2")
+
+</td>
+</table>
+
 ----
 **8<sup>th</sup> iteration**
 1. Man = m<sub>4</sub> (again)
 2. m<sub>4</sub> proposes to w (w<sub>3</sub>) and she is taken...
 3. w<sub>3</sub> ranks m<sub>4</sub> higher than m<sub>3</sub>, so m<sub>3</sub> is now single and m<sub>4</sub> becomes engaged
 
+<table>
+<td>
+
 | Engagements (M, W) |
 |:------------------:|
 |(m<sub>1</sub>, w<sub>2</sub>)|
 |(m<sub>2</sub>, w<sub>1</sub>)|
 |(m<sub>4</sub>, w<sub>3</sub>)|
+
+</td>
+<td>
+
+![Step 8](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step8.PNG "Man 4 proposes to woman 3")
+
+</td>
+</table>
+
 ----
 **9<sup>th</sup> iteration**
 1. Man = m<sub>3</sub> (again)
 2. m<sub>3</sub> proposes to w (w<sub>4</sub>) and she is single, so she accepts
+
+<table>
+<td>
 
 | Engagements (M, W) |
 |:------------------:|
@@ -192,9 +277,18 @@ do the latter.
 |(m<sub>4</sub>, w<sub>3</sub>)|
 |(m<sub>3</sub>, w<sub>4</sub>)|
 
+</td>
+<td>
+
+![Step 9](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step9.PNG "Man 3 proposes to woman 4")
+
+</td>
+</table>
+
+
 No more single men, done.
 
 ## Conclusion
 For each woman, we can create **inverse** of preference list of men. This would mean that n would end up proposing to n women (where n is the size of the set of men and women). The best case would be if each man only had to propose once, or n times, and the worst case would be if each man had to propose n times, or n<sup>2</sup>.
 
-Upon termination - due to the fact that a single man prooposes to a woman he has not yet proposed to - every man is engaged. This is due to the fact that once a woman is engaged, she remains engaged, and only switches engagements to men she prefers more. Thus at the end every woman is engaged to some man.
+Upon termination - due to the fact that a single man proposes to a woman he has not yet proposed to - every man is engaged. This is due to the fact that once a woman is engaged, she remains engaged, and only switches engagements to men she prefers more. Thus at the end every woman is engaged to some man.
