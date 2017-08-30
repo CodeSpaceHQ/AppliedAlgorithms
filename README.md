@@ -30,7 +30,7 @@ Are you a student at Texas Tech University? Yes? Cool! That's all it takes!
 We live on Slack. Check us out at [ttucs.slack.com](https://ttucs.slack.com). Must have a `@ttu.edu` email to register.
 
 ## How can I contribute to this repo?
-To contribute, please checkout our [Contributing guidelines](/CONTRIBUTING.md)
+To contribute, please checkout our [Contributing guidelines](/.github/CONTRIBUTING.md)
 
 ## What sites do you get your problems from?
 Currently, all the problems we've worked on have come from [HackerRank](https://www.hackerrank.com/domains). But we do intend to draw from other sites.
