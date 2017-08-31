@@ -22,7 +22,7 @@ def count_inversions(preference_set):
 
 def merge(a, b):
     """
-    Merge two lists togethert and count any inversions during the process
+    Merge two lists together and count any inversions during the process
     :param a: the first sequence to be merged
     :param b: the second sequence to be merged
     :return: the result of merging a and b above, and the count of inversions
@@ -51,9 +51,11 @@ def merge(a, b):
 
 
 def main():
-    my_prefs = [1, 3, 4, 2, 5, 7, 6, 9, 8]
+
+    my_prefs = [1, 3, 4, 2, 5, 7, 6, 9, 8]  # create a preference list
     inversion_count, sorted_set = count_inversions(my_prefs)
-    print("{0} inversions, sorted set: {1}".format(inversion_count, sorted_set))
+    print("Original Set: {}\nInversions: {}\nSorted Set: {}"
+          .format(my_prefs, inversion_count, sorted_set))
 
 if __name__ == '__main__':
     main()
