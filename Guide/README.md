@@ -20,5 +20,5 @@ Here you can browse through the current problems we have solved and written solu
 | [Kindergarten Adventure](/Guide/Greedy/Kindergarten%20Adventure)              | Greedy              | Medium     | Java     |
 | [Stable Marriage](/Guide/Greedy/Stable%20Marriage)                            | Greedy              | N/A        | Python   |
 | [Shortest Paths in a Graph](/Guide/Greedy/Shortest%20Path)                    | Greedy              | Hard       | Python   |
-| [Interval Scheduling](/Guide/Greedy/Interval%Scheduling)                      | Greedy              | Medium     | Python     |
+| [Interval Scheduling](/Guide/Greedy/Interval%Scheduling)                      | Greedy              | Medium     | Python   |
 | [Interval Partitioning](/Guide/Greedy/Interval%20Partitioning)                | Greedy              | Medium     | Python   |
