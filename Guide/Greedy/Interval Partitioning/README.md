@@ -78,43 +78,43 @@ counting sort which is O(N + k) where k is the range of the requests to be sorte
 
 5 jobs are to be spread among as few resources as possible.
 
-![Step 1](Assets/step1.PNG "Jobs to be scheduled")
+![Step 1](assets/step1.PNG "Jobs to be scheduled")
 
 **2. Jobs sorted by start time**
 
 Jobs are sorted by start time using quicksort
 
-![Step 1](Assets/step2.PNG "Jobs to be scheduled")
+![Step 1](assets/step2.PNG "Jobs to be scheduled")
 
 **3. First job scheduled**
 
 The first job is assigned to resource 1 which is new.
 
-![Step 1](Assets/step3.PNG "First job scheduled")
+![Step 1](assets/step3.PNG "First job scheduled")
 
 **4. Second job scheduled**
 
 The second job is assigned to new resource 2, due to resource 1 being occupied.
 
-![Step 1](Assets/step4.PNG "Second job scheduled")
+![Step 1](assets/step4.PNG "Second job scheduled")
 
 **4. Third job scheduled**
 
 The third job is assigned to new resource 3, due to resources 1 and 2 being occupied.
 
-![Step 1](Assets/step5.PNG "Third job scheduled")
+![Step 1](assets/step5.PNG "Third job scheduled")
 
 **5. First resource released**
 
 Before the start time of job 4, job 1 finishes using resource 1, and resource 1 is now released.
 
-![Step 1](Assets/step6.PNG "First resource released")
+![Step 1](assets/step6.PNG "First resource released")
 
 **6. Fourth job scheduled**
 
 The fourth job is scheduled on the newly released resource 1.
 
-![Step 1](Assets/step7.PNG "Fourth job scheduled")
+![Step 1](assets/step7.PNG "Fourth job scheduled")
 
 
 **7. Second resource released**
@@ -122,13 +122,13 @@ The fourth job is scheduled on the newly released resource 1.
 Before the start time of job 5, job 2 finishes using resource 2, and resource 2 is now released.
 
 
-![Step 1](Assets/step8.PNG "Second resource released")
+![Step 1](assets/step8.PNG "Second resource released")
 
 **6. Fifth job scheduled**
 
 The fifth job is scheduled on the newly released resource 2.
 
-![Step 1](Assets/step9.PNG "Fifth job scheduled")
+![Step 1](assets/step9.PNG "Fifth job scheduled")
 
 **Done**
 
