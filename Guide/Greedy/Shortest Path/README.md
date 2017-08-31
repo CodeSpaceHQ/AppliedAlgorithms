@@ -12,7 +12,7 @@ Difficulty: Hard to implement, medium to understand.
 Given a directed graph G = [V, E] where each edge _e_ has a length _l<sub>e</sub>_, and a starting node _s_ in that graph, determine the length
 of the shortest path from _s_ to every other node.
 
-![Dijkstra's Visualization](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/DijkstraDemo.gif "Visualization of Dijkstra's Algorithm")
+![Dijkstra's Visualization](assets/DijkstraDemo.gif "Visualization of Dijkstra's Algorithm")
 
 ### Overview
 For this problem we will need to utilize two data structures:
@@ -119,7 +119,7 @@ would make this example long and it is not the purpose of this guide to demonstr
 
 ### Undirected Graph
 
-![Initial Undirected Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/initial_undirected_graph1.png "Initial Undirected Graph")
+![Initial Undirected Graph](assets/initial_undirected_graph1.png "Initial Undirected Graph")
 
 Trace through dijkstra(graph, 'A')
 
@@ -143,11 +143,11 @@ The resulting dictionaries look like this:
 
 And the visualized graph looks like this:
 
-![Graph after initialization](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_01.png "Graph after initialization")
+![Graph after initialization](assets/iug_01.png "Graph after initialization")
 
 **Step 3 First Loop**
 
-![Graph after loop 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_1.png "Graph after loop 1")
+![Graph after loop 1](assets/iug_1.png "Graph after loop 1")
 
 * All paths found to neighboring nodes are less than infinity, so they are all accepted as minimal paths, shown in red.
 
@@ -156,7 +156,7 @@ And the visualized graph looks like this:
 
 **Step 4 Second Loop**
 
-![Graph after loop 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_2.png "Graph after loop 2")
+![Graph after loop 2](assets/iug_2.png "Graph after loop 2")
 
 * A second optional path to D (shown in blue) is found, but is not less than the path in dist['D'], so it is not accepted.
 * Additionally, a new path from 'C' to 'E' is found, and it's distance is less than infinity, so it is accepted as a minimal path.
@@ -167,7 +167,7 @@ And the visualized graph looks like this:
 
 **Step 5 Third Loop**
 
-![Graph after loop 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_3.png "Graph after loop 3")
+![Graph after loop 3](assets/iug_3.png "Graph after loop 3")
 
 * A shorter path to 'B' through 'D' is found, and is accepted (prev['B'] now equals 'D', dist['B'] is now 9 + 2 = 11).
 * A shorter path to 'E' through 'D' is found, and is accepted (prev['E'] now equald 'D', dist['E'] is now 9 + 11 = 20).
@@ -178,7 +178,7 @@ And the visualized graph looks like this:
 
 **Step 6 Fourth Loop**
 
-![Graph after loop 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_4.png "Graph after loop 4")
+![Graph after loop 4](assets/iug_4.png "Graph after loop 4")
 
 * A new path from 'B' to 'F' is found, it's distance is less than infinity so it is accepted as a minimal path.
 * A path from 'B' to 'A' is examined but is not accepted because it's distance (9 + 11 + 14 = 34) is not less than dist['B'].
@@ -188,7 +188,7 @@ And the visualized graph looks like this:
 
 **Step 7 Fifth Loop**
 
-![Graph after loop 5](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_5.png "Graph after loop 5")
+![Graph after loop 5](assets/iug_5.png "Graph after loop 5")
 
 * Two paths from 'E' to 'F' and 'C' are found, but both's distances would not be less than their respective distances in dist['F'] and dist['C'], so they are not accepted.
 
@@ -197,7 +197,7 @@ And the visualized graph looks like this:
 
 **Step 8 Sixth Loop**
 
-![Graph after loop 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/iug_6.png "Graph after loop 6")
+![Graph after loop 6](assets/iug_6.png "Graph after loop 6")
 
 * A path from 'F' to 'E' is examined but is not accepted because it's distance is not less than dist['E'].
 * All nodes in the graph have been examined and the shortest spanning tree to each node in the graph has been found. The algorithm terminates.
@@ -211,13 +211,13 @@ And the visualized graph looks like this:
 
 ### Directed Graph
 
-![Initial Directed Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/initial_directed_graph1.png "Initial Directed Graph")
+![Initial Directed Graph](assets/initial_directed_graph1.png "Initial Directed Graph")
 
 The directed graph example is very similar to the undirected example in this case. WIth a directed graph, you cannot travel in the opposite direction
 of the direction of the arrows. A trace through would show that the only area this affects us is going from 'D' to 'E' would no longer be possible, meaning
 that the minimal path from source node 'A' to node 'E' would have to be through 'C'. The result:
 
-![Directed Graph](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/shortest-path/Guide/Greedy/Shortest%20Path/assets/idg_complete.png "Directed Graph")
+![Directed Graph](assets/idg_complete.png "Directed Graph")
 
         dist = {'A': 0, 'B': 11, 'C': 7, 'D': 9, 'E': 22, 'F': 20}
         prev = {'A': None, 'B': 'D', 'C': 'A', 'D': 'A', 'E': 'C', 'F': 'B'}
