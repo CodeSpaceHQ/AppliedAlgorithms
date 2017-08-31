@@ -23,12 +23,12 @@ We will implement the most-optimized version of the algorithm in Dr. Gelfond's l
 
 Here is a disjoint-set of 8 elements taken from the above Wikipedia page:
 
-![Initial Disjoint Set](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree/assets/disjoint_set_individual.png "8 individual disjoint sets")
+![Initial Disjoint Set](assets/disjoint_set_individual.png "8 individual disjoint sets")
 
 As we add edges (comprised of vertices) to our minimum spanning tree, we will also Union() the two vertices in the edge together. After numerous iterations of this, the
 above initial disjoint set would now look something like this:
 
-![Disjoint Set Grouped](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree/assets/disjoint_set_group.png "8 overlapping / partially grouped disjoint sets")
+![Disjoint Set Grouped](assets/disjoint_set_group.png "8 overlapping / partially grouped disjoint sets")
 
 The reason for doing this will be discussed further in the Analysis section of this guide. For a more in-depth discussion of disjoint-set data types and
 related topics, please visit the [Disjoint-set](https://en.wikipedia.org/wiki/Disjoint-set_data_structure#MakeSet) Wikipedia page.
@@ -102,7 +102,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 * The edge (A, D, 5) will be added to the solution set
 * The disjoint-set containing vertex A in it will be unioned with the disjoint set containing vertex D
 
-![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree/assets/iter1.png "Examining the first edge")
+![Step 1](assets/iter1.png "Examining the first edge")
 
 ----
 
@@ -113,7 +113,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 * The edge (C, E, 5) will be added to the solution set
 * The disjoint-set containing vertex C in it will be unioned with the disjoint set containing vertex E
 
-![Step 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree/assets/iter2.png "Examining the second edge")
+![Step 2](assets/iter2.png "Examining the second edge")
 
 ----
 
@@ -123,7 +123,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 * The edge (D, F, 6) will be added to the solution set
 * The disjoint-set containing vertex D will be unioned with the disjoint set containing vertex F
 
-![Step 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree/assets/iter3.png "Examining the third edge")
+![Step 3](assets/iter3.png "Examining the third edge")
 
 ----
 
@@ -133,7 +133,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 * The edge (A, B, 7) will be added to the solution set
 * The disjoint-set containing vertex A will be unioned with the disjoint set containing vertex B
 
-![Step 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree/assets/iter4.png "Examining the fourth edge")
+![Step 4](assets/iter4.png "Examining the fourth edge")
 
 ----
 
@@ -158,7 +158,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 * Find(B) will return A, and Find(E) will return A, and A == A, so
 * go to next edge
 
-![Step 5](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree/assets/iter5.png "Examining the fifth edge")
+![Step 5](assets/iter5.png "Examining the fifth edge")
 
 ----
 
@@ -169,7 +169,7 @@ This excellent example is a slightly modified version from the Wikipedia page on
 * The edge (E, G, 9) will be added to the solution set
 * The disjoint-set containing vertex E will be unioned with the disjoint set containing vertex G
 
-![Step 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/min-spanning-tree-kruskal/Guide/Greedy/Minimum%20Spanning%20Tree/assets/iter6.png "Examining the sixth edge")
+![Step 6](assets/iter6.png "Examining the sixth edge")
 
 
 NOTE: All edges after this point would only create a cycle if added to the solution, our Minimum Spanning tree is found.
