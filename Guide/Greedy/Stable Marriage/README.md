@@ -99,7 +99,7 @@ The while loop in the stable marriage algorithm goes through each individual mal
 </td>
 <td>
 
-![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step1.PNG "Man 1 proposes to woman 2")
+![Step 1](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/Greedy/Stable%20Marriage/Assets/step1.PNG "Man 1 proposes to woman 2")
 
 </td>
 </table>
@@ -120,7 +120,7 @@ The while loop in the stable marriage algorithm goes through each individual mal
 </td>
 <td>
 
-![Step 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step2.PNG "Man 2 proposes to woman 2")
+![Step 2](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/Greedy/Stable%20Marriage/Assets/step2.PNG "Man 2 proposes to woman 2")
 
 </td>
 </table>
@@ -144,7 +144,7 @@ do the latter.
 </td>
 <td>
 
-![Step 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step3.PNG "Man 2 proposes to woman 1")
+![Step 3](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/Greedy/Stable%20Marriage/Assets/step3.PNG "Man 2 proposes to woman 1")
 
 </td>
 </table>
@@ -166,7 +166,7 @@ do the latter.
 </td>
 <td>
 
-![Step 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step4.PNG "Man 3 proposes to woman 1")
+![Step 4](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/Greedy/Stable%20Marriage/Assets/step4.PNG "Man 3 proposes to woman 1")
 
 </td>
 </table>
@@ -188,7 +188,7 @@ do the latter.
 </td>
 <td>
 
-![Step 5](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step5.PNG "Man 3 proposes to woman 3")
+![Step 5](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/Greedy/Stable%20Marriage/Assets/step5.PNG "Man 3 proposes to woman 3")
 
 </td>
 </table>
@@ -211,7 +211,7 @@ do the latter.
 </td>
 <td>
 
-![Step 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step6.PNG "Man 4 proposes to woman 1")
+![Step 6](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/Greedy/Stable%20Marriage/Assets/step6.PNG "Man 4 proposes to woman 1")
 
 </td>
 </table>
@@ -234,7 +234,7 @@ do the latter.
 </td>
 <td>
 
-![Step 7](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step7.PNG "Man 4 proposes to woman 2")
+![Step 7](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/Greedy/Stable%20Marriage/Assets/step7.PNG "Man 4 proposes to woman 2")
 
 </td>
 </table>
@@ -257,7 +257,7 @@ do the latter.
 </td>
 <td>
 
-![Step 8](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step8.PNG "Man 4 proposes to woman 3")
+![Step 8](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/Greedy/Stable%20Marriage/Assets/step8.PNG "Man 4 proposes to woman 3")
 
 </td>
 </table>
@@ -280,7 +280,7 @@ do the latter.
 </td>
 <td>
 
-![Step 9](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/stable-marriage/Guide/Greedy/Stable%20Marriage/Assets/step9.PNG "Man 3 proposes to woman 4")
+![Step 9](https://github.com/CodeSpaceHQ/AppliedAlgorithms/blob/master/Guide/Greedy/Stable%20Marriage/Assets/step9.PNG "Man 3 proposes to woman 4")
 
 </td>
 </table>
