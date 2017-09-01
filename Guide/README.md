@@ -16,9 +16,11 @@ Here you can browse through the current problems we have solved and written solu
 | [Nikita And The Game](/Guide/DynamicProgramming/Nikita%20And%20The%20Game)    | Dynamic Programming | Medium     | Java     |
 | [Jack goes to Rapture](/Guide/GraphTheory/JackGoesToRapture)                  | Graph Theory        | Medium     | Java     |
 | [Journey to the Moon](/Guide/GraphTheory/Journey%20to%20the%20Moon)           | Graph Theory        | Medium     | CPP      |
-| [Algorithmic Crush](/Guide/Greedy/Algorithmic%20Crush)                        | Greedy              | Hard       | CPP      |
-| [Kindergarten Adventure](/Guide/Greedy/Kindergarten%20Adventure)              | Greedy              | Medium     | Java     |
-| [Stable Marriage](/Guide/Greedy/Stable%20Marriage)                            | Greedy              | N/A        | Python   |
-| [Shortest Paths in a Graph](/Guide/Greedy/Shortest%20Path)                    | Greedy              | Hard       | Python   |
-| [Interval Scheduling](/Guide/Greedy/Interval%Scheduling)                      | Greedy              | Medium     | Python   |
-| [Interval Partitioning](/Guide/Greedy/Interval%20Partitioning)                | Greedy              | Medium     | Python   |
+| [Algorithmic Crush](/Guide/Greedy/Practice/Algorithmic%20Crush)               | Greedy              | Hard       | CPP      |
+| [Kindergarten Adventure](/Guide/Greedy/Practice/Kindergarten%20Adventure)     | Greedy              | Medium     | Java     |
+| [Stable Marriage](/Guide/Greedy/Educational/Stable%20Marriage)                | Greedy              | N/A        | Python   |
+| [Interval Scheduling](/Guide/Greedy/Educational/Interval%Scheduling)          | Greedy              | Medium     | Python   |
+| [Interval Partitioning](/Guide/Greedy/Educational/Interval%20Partitioning)    | Greedy              | Medium     | Python   |
+| [Min Max Lateness](/Guide/Greedy/Educational/Minimizing%20Maximum%20Lateness%20Scheduling)  | Greedy              | Medium     | Python   |
+| [Shortest Paths in a Graph](/Guide/Greedy/Educational/Shortest%20Path)        | Greedy              | Hard       | Python   |
+| [Minimum Spanning Tree](/Guide/Greedy/Educational/Minimum%20Spanning%20Tree)  | Greedy              | Medium     | Python   |
