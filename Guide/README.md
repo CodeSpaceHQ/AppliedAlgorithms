@@ -22,5 +22,5 @@ Here you can browse through the current problems we have solved and written solu
 | [Interval Scheduling](/Guide/Greedy/Educational/Interval%Scheduling)          | Greedy              | Medium     | Python   |
 | [Interval Partitioning](/Guide/Greedy/Educational/Interval%20Partitioning)    | Greedy              | Medium     | Python   |
 | [Min Max Lateness](/Guide/Greedy/Educational/Minimizing%20Maximum%20Lateness%20Scheduling)  | Greedy              | Medium     | Python   |
-| [Shortest Paths in a Graph](/Guide/Educational/Greedy/Shortest%20Path)        | Greedy              | Hard       | Python   |
+| [Shortest Paths in a Graph](/Guide/Greedy/Educational/Shortest%20Path)        | Greedy              | Hard       | Python   |
 | [Minimum Spanning Tree](/Guide/Greedy/Educational/Minimum%20Spanning%20Tree)  | Greedy              | Medium     | Python   |
