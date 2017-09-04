@@ -44,6 +44,10 @@ The algorithm consists of two functions:
 2. merge: sort and count inversions in each sub list while combining them in sorted order.
 
 Count Inversions and Merge are almost identical to [merge sort](https://en.wikipedia.org/wiki/Merge_sort#Analysis), except for the extra part where we keep track of inversions we find.
+
+During the `Merge` function, whenever we find an element X<sub>i</sub> such that X<sub>i</sub> > Y<sub>j</sub> but _i_ < _j_, we will increase the inversion count by the number of elements in the list that X<sub>i</sub> is in.
+i.e. `merge([3,4], [2])` would return (2, [2, 3, 4]) because _2_ < _3_ and the size of [3, 4] is 2. 
+
 Below is a graphical model of a merge sort on a given sequence, this is exactly what our algorithm will do, as well as keep track of the inversions in the original list.
 
 ![Merge Sort](assets/merge_sort_pic.png "Walk through picture of merge sort")
