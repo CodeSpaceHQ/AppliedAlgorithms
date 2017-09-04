@@ -95,3 +95,10 @@ merge sort time complexity which is:
 ----
 
 ## Conclusion
+The number of inversions for two people who's preferences lists or 'rankings' get passed into our counting inversions
+algorithm can be compared to see how 'far apart' their preferences are. If not very far apart, we could assume that the two
+have a similar taste in the subject of which they were ranking.
+
+Counting inversions by using merge sort by default sorts the input array. If we only wanted
+to count inversions but keep the original array unsorted, we would need to create a copy of the original array and
+call `counting_inversions` on it.
