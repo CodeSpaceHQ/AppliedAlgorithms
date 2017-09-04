@@ -90,7 +90,7 @@ merge sort time complexity which is:
 
 ## Example
 
-![Merge Sort](assets/test.png "Walk through picture of merge sort")
+![Counting Inversions](assets/example.png "Walk through picture of counting inversions")
 
 ----
 

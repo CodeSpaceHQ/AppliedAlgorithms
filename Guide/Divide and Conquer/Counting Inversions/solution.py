@@ -52,7 +52,7 @@ def merge(a, b):
 
 def main():
 
-    my_prefs = [1, 3, 4, 2, 5, 7, 6, 9, 8]  # create a preference list
+    my_prefs = [4, 2, 3, 1]  # create a preference list
     inversion_count, sorted_set = count_inversions(my_prefs)
     print("Original Set: {}\nInversions: {}\nSorted Set: {}"
           .format(my_prefs, inversion_count, sorted_set))
