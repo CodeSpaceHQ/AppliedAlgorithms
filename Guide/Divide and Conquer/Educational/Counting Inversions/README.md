@@ -39,9 +39,12 @@ Every number in the input list must be unique, a person can not give two items e
 ## Algorithm
 ### Overview
 We will use a [Divide and Conquer](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm) algorithm. This type of algorithm is used in popular sorting algorithms like  quicksort and merge sort, as well as various other algorithms.
-The algorithm consists of two functions, one to separate the original list into sub lists and another to sort and count inversions in each sub list.
-It is almost identical to [merge sort](https://en.wikipedia.org/wiki/Merge_sort#Analysis), except for the extra part where we keep track of inversions we find.
-Below is a graphical model of merge sort, this is exactly what our algorithm will do, as well as keep track of the inversions in the original list.
+The algorithm consists of two functions:
+1. count_inversions: separate the original list into sub lists and,
+2. merge: sort and count inversions in each sub list while combining them in sorted order.
+
+Count Inversions and Merge are almost identical to [merge sort](https://en.wikipedia.org/wiki/Merge_sort#Analysis), except for the extra part where we keep track of inversions we find.
+Below is a graphical model of a merge sort on a given sequence, this is exactly what our algorithm will do, as well as keep track of the inversions in the original list.
 
 ![Merge Sort](assets/merge_sort_pic.png "Walk through picture of merge sort")
 
