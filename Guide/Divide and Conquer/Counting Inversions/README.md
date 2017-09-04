@@ -32,17 +32,50 @@ A list of rankings [0, 1, 2, 3, 4, ...n]
 Every number in the input list must be unique, a person can not give two items equal rankings.
 
 ### Output Format
-The original set
-The resulting count of inversions
-The newly sorted set
+- The original set
+- The resulting count of inversions
+- The newly sorted set
 
 ## Algorithm
 ### Overview
 We will use a [Divide and Conquer](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm) algorithm. This type of algorithm is used in popular sorting algorithms like  quicksort and merge sort, as well as various other algorithms.
-
+The algorithm consists of two functions, one to separate the original list into sub lists and another to sort and count inversions in each sub list.
+It is almost identical to merge sort, except for the extra part where we keep track of inversions we find.
 
 
 ### Pseudo Code
+
+```Python
+
+def count_inversions(list s of preferences):
+    """
+    :returns: the number of inversions in s as well as sorted s
+    """
+    if the size of s is 1 then
+        return 0 as the count of inversions and s as the set
+    Divide s into two halves, A and B
+    count_A, A = count_inversions(A)  # recursive call the first half
+    count_B, B = count_inversions(B)  # recursive call the second half
+    result, set = merge(A, B)  # count/merge the two halves together
+    return count_A + count_B + result, S
+
+def merge(list A, list B):
+    """
+    :returns: the number of pairs (X, Y) such that X is in A and
+              Y is in B and X > Y, with the sorted list C containing
+              elements of A and B.
+    """
+    int i, j = 0
+    int count
+    list C
+    while both A and B are not empty:
+        move the smaller of a[i] and b[j] to C
+        if b[j] was smaller, then increase count by the size of A
+        advance the pointer (i or j) of the smaller number's list
+    Put the remainder of the non-empty list in C
+    return count, C
+
+```
 
 
 ### Analysis
