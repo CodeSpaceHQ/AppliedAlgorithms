@@ -90,7 +90,7 @@ merge sort time complexity which is:
 
 ## Example
 
-![Counting Inversions](assets/example.png "Walk through picture of counting inversions")
+![Counting Inversions](assets/ci_example.png "Walk through picture of counting inversions")
 
 ----
 
