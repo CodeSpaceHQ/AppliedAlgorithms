@@ -1,0 +1,1 @@
+HackerRank and other problems which require divide and conquer algorithms go here.
