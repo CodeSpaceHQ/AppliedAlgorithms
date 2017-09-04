@@ -40,7 +40,10 @@ Every number in the input list must be unique, a person can not give two items e
 ### Overview
 We will use a [Divide and Conquer](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm) algorithm. This type of algorithm is used in popular sorting algorithms like  quicksort and merge sort, as well as various other algorithms.
 The algorithm consists of two functions, one to separate the original list into sub lists and another to sort and count inversions in each sub list.
-It is almost identical to merge sort, except for the extra part where we keep track of inversions we find.
+It is almost identical to [merge sort](https://en.wikipedia.org/wiki/Merge_sort#Analysis), except for the extra part where we keep track of inversions we find.
+Below is a graphical model of merge sort, this is exactly what our algorithm will do, as well as keep track of the inversions in the original list.
+
+![Merge Sort](assets/merge_sort_pic.png "Walk through picture of merge sort")
 
 
 ### Pseudo Code
@@ -79,8 +82,15 @@ def merge(list A, list B):
 
 
 ### Analysis
+Since the algorithm is only slightly different from the merge sort algorithm, it inherits the
+merge sort time complexity which is:
+
+- worst case: O(n log n)
+- avg case: O(n log n)
 
 ## Example
+
+![Merge Sort](assets/test.png "Walk through picture of merge sort")
 
 ----
 
