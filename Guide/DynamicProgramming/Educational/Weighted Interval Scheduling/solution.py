@@ -1,14 +1,11 @@
 class Request(object):
     """
-    Simple object to represent a request with a:
-        start time s
-        weight or value v
-        finish time f
+    Simple object to represent a request
     """
     def __init__(self, start, value, finish):
-        self.start = start
-        self.value = value
-        self.finish = finish
+        self.start = start  # start time of the request
+        self.value = value  # value/weight of the request
+        self.finish = finish  # finish time of the request
 
 
 def counting_sort(array):
