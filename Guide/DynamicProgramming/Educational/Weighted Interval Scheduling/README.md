@@ -69,6 +69,7 @@ its implementation and pseudo code.
 ```
 
 ## Analysis
+The time complexity of the algorithm in is O(n). Sorting the requests before finding the optimal solution is O(n log n), but each step after that (finding previous indices, finding the optimal values, and finding the requests) are O(n).
 
 ## Example
 
