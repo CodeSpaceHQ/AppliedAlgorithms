@@ -85,12 +85,33 @@ def opt(sorted_requests):
     return m
 
 
+def find_solution(scheduled_requests, m, i):
+    """
+    Computes the optimal schedule of weighted request where optimal
+    is the schedule where the sum of request values is the largest.
+    :param scheduled_requests: 
+    :param m: an array containing the optimal value of previously scheduled
+              requests at index i.
+    :param i: 
+    :return: the optimal solution for scheduling first i requests
+    """
+    if i == 0:
+        return 0
+
+    r = scheduled_requests[i]
+
+    if r.value + m[r.previous] >= m[i-1]:
+        return [find_solution(scheduled_requests, m, r.previous), i]
+    return find_solution(scheduled_requests, m , i - 1)
+
+
 def main():
     x = [Request(1, 2, 3), Request(4, 5, 7), Request(8, 5, 20)]
     x = quick_sort(x, 0, len(x)-1)
     x = compute_previous(x)
     m = opt(x)
-    print(m)
+    x = find_solution(x, m, len(x) - 1)
+    print(x)
 
 if __name__ == '__main__':
     main()
