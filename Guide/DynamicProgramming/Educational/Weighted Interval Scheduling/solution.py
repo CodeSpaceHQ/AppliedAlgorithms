@@ -64,23 +64,33 @@ def compute_previous(sorted_requests):
     for i in range(0, len(sorted_requests)):
         insert_idx = bisect.bisect_right(finish, start[i]) - 1  # index of p(i)
         # value of request p(i)
-        prev_val = 0 if insert_idx < 0 else sorted_requests[insert_idx].value
-        sorted_requests[i].previous = prev_val  # assign p(i) value to previous
-
+        prev_idx = 0 if insert_idx < 0 else insert_idx
+        sorted_requests[i].previous = prev_idx  # assign p(i) value to previous
 
     return sorted_requests
 
+
+def opt(sorted_requests):
+    """
+    Compute the result of the optimal combination of scheduled request that
+    are compatible together.
+    :param sorted_requests: requests sorted by finish time
+    :return: m[0...n] where m[i] is the weight of optimal scheduling of
+             first i requests
+    """
+    m = [0] * (len(sorted_requests))  # initialize  m
+    for i in range(1, len(sorted_requests)):
+        request = sorted_requests[i]  # get current request object
+        m[i] = max(request.value + m[request.previous], m[i-1])
+    return m
+
+
 def main():
     x = [Request(1, 2, 3), Request(4, 5, 7), Request(8, 5, 20)]
-    x = quick_sort(x, 0, 1)
-    for r in x:
-        print(r.start, r.value, r.finish)
-
-    compute_previous(x)
-
-    for r in x:
-        print(r.start, r.value, r.finish, r.previous)
-
+    x = quick_sort(x, 0, len(x)-1)
+    x = compute_previous(x)
+    m = opt(x)
+    print(m)
 
 if __name__ == '__main__':
     main()
