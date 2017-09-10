@@ -2,44 +2,56 @@ class Request(object):
     """
     Simple object to represent a request
     """
-    def __init__(self, start, value, finish):
+    def __init__(self, start, value, finish, previous=None):
         self.start = start  # start time of the request
         self.value = value  # value/weight of the request
         self.finish = finish  # finish time of the request
+        self.previous = previous  # previous compatible request
 
-
-def counting_sort(array):
+def partition(s, begin, end):
     """
-    Counting sort time complexity O(n+k)
-    In this case sorts a collection (A) of integers by incrementing a counter in
-    another collection (B) at the index corresponding to a value in in the first
-    collection A. Then loops through collection B from beginning to end and 
-    places the index into a result array however many times the value of B is at 
-    that index.
-    :param array: the array of integers to be sorted
+    Partially sort an array using a pivot value. Everything to the 
+    left of the pivot will be less than the pivot. Everything to the right
+    will be greater than the pivot.
+    :param s: the array to sort
+    :param begin: the beginning of the section of the array to sort
+    :param end: the end of the section of the array to sort
+    :return: the array with sorted section begin-end
+    """
+    pivot = end  # set the pivot to the end of the array
+    pivot_holder_index = begin  # place holder for where the pivot will end up
+    for i in range(begin, end):
+        if s[i].finish < s[pivot].finish:  # if s[i] finish < s[pivot] finish
+            # switch s[i] and pivot place holder
+            s[i], s[pivot_holder_index] = s[pivot_holder_index], s[i]
+            pivot_holder_index += 1  # increase pivot place holder
+
+    # finally, put pivot in its placeholder
+    s[pivot_holder_index], s[end] = s[end], s[pivot_holder_index]
+    return pivot_holder_index
+
+
+def quick_sort(s, begin, end):
+    """
+    Quick sort 
+    :param s: the array to sort
+    :param begin: the beginning of the array
+    :param end: the ending of the array
     :return: the sorted array
     """
-
-    # initialize array to hold the count of repeating values in original array
-    counter = [0] * (max(array) + 1)
-
-    # loop through and increase the value for each repeated value found
-    for i in array:
-        counter[i] += 1
-
-    array = []
-
-    # place indexes of count array in resulting array x times where x is the
-    # value found at count[i]
-    for i, count in enumerate(counter):
-        array += [i] * count
-    return array
+    # Quick sort
+    if begin < end:
+        pivot = partition(s, begin, end)  # find a pivot place
+        quick_sort(s, begin, pivot - 1)  # recursive sort sub array on the left
+        quick_sort(s, pivot + 1, end)  # recursive sort sub array on the right
+    return s
 
 
 def main():
-    my_list = [4, 3, 2, 1]
-    sorted = counting_sort(my_list)
-    print(sorted)
+    x = [Request(1, 2, 3), Request(4, 5, 2)]
+    x = quick_sort(x, 0, 1)
+    for r in x:
+        print(r.start, r.value, r.finish)
 
 
 if __name__ == '__main__':
