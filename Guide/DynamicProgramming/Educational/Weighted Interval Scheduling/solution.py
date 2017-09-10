@@ -95,14 +95,14 @@ def find_solution(scheduled_requests, m, i):
     :param i: 
     :return: the optimal solution for scheduling first i requests
     """
+
+    r = scheduled_requests[i]  # get the current request
     if i == 0:
-        return [0]
-
-    r = scheduled_requests[i]
-
-    if r.value + m[r.previous] >= m[i-1]:
-        return find_solution(scheduled_requests, m, r.previous) +  [i]
-    return [find_solution(scheduled_requests, m , i - 1)]
+        return [r]  # return a list containing the index of the single request
+    if r.value + m[r.previous] >= m[i-1]:  # if r should be in solution
+        # add its index and find the next
+        return find_solution(scheduled_requests, m, r.previous) + [r]
+    return [find_solution(scheduled_requests, m , i - 1)] # find next
 
 
 def main():
@@ -110,10 +110,9 @@ def main():
     x = quick_sort(x, 0, len(x)-1)
     x = compute_previous(x)
     m = opt(x)
-    for r in x:
-        print("[{}, {}, {}]".format(r.start, r.value, r.finish))
     x = find_solution(x, m, len(x) - 1)
-    print(x)
+    for r in x:
+        print("[{}, {}, {}]".format(r.start, r.value, r.finish), end=' ')
 
 if __name__ == '__main__':
     main()
