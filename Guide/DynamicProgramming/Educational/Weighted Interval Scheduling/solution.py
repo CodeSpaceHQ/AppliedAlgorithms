@@ -96,20 +96,22 @@ def find_solution(scheduled_requests, m, i):
     :return: the optimal solution for scheduling first i requests
     """
     if i == 0:
-        return 0
+        return [0]
 
     r = scheduled_requests[i]
 
     if r.value + m[r.previous] >= m[i-1]:
-        return [find_solution(scheduled_requests, m, r.previous), i]
-    return find_solution(scheduled_requests, m , i - 1)
+        return find_solution(scheduled_requests, m, r.previous) +  [i]
+    return [find_solution(scheduled_requests, m , i - 1)]
 
 
 def main():
-    x = [Request(1, 2, 3), Request(4, 5, 7), Request(8, 5, 20)]
+    x = [Request(1, 2, 3), Request(4, 5, 7), Request(8, 5, 20), Request(8, 10, 21)]
     x = quick_sort(x, 0, len(x)-1)
     x = compute_previous(x)
     m = opt(x)
+    for r in x:
+        print("[{}, {}, {}]".format(r.start, r.value, r.finish))
     x = find_solution(x, m, len(x) - 1)
     print(x)
 
