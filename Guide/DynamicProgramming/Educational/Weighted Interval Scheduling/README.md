@@ -154,7 +154,7 @@ list and recursively call `find_solution` behind it, i.e.:
 This will cause find_solution to go down a path of previously compatible requests that resulted in the maximum schedule value of 36.
 
 
-![Solution schedule](./assets/find_solution1.png)
+![Solution schedule](./assets/final.png)
 
 
 When index _i_ finally reaches 0, it will reach our base case and return all the way
