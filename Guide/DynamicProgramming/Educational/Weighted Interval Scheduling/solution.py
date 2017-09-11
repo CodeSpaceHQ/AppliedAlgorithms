@@ -62,58 +62,53 @@ def compute_previous(sorted_requests):
     finish = [i.finish for i in sorted_requests]
 
     for i in range(0, len(sorted_requests)):
-        insert_idx = bisect.bisect_right(finish, start[i]) - 1  # index of p(i)
+        insert_idx = bisect.bisect_right(finish, start[i])   # index of p(i)
         # value of request p(i)
-        prev_idx = 0 if insert_idx < 0 else insert_idx
-        sorted_requests[i].previous = prev_idx  # assign p(i) value to previous
-
+        sorted_requests[i].previous = insert_idx  # assign p(i) value to previous
     return sorted_requests
 
 
-def opt(sorted_requests):
-    """
-    Compute the result of the optimal combination of scheduled request that
-    are compatible together.
-    :param sorted_requests: requests sorted by finish time
-    :return: m[0...n] where m[i] is the weight of optimal scheduling of
-             first i requests
-    """
-    m = [0] * (len(sorted_requests))  # initialize  m
-    for i in range(1, len(sorted_requests)):
-        request = sorted_requests[i]  # get current request object
-        m[i] = max(request.value + m[request.previous], m[i-1])
-    return m
+def opt(scheduled_requests):
+    m = [0] * (len(scheduled_requests) + 1)
+    for i in range(1, len(scheduled_requests) + 1):
+        r = scheduled_requests[i-1]
+        m[i] = max(r.value + m[r.previous], m[i-1])
+    return (m)
 
 
 def find_solution(scheduled_requests, m, i):
-    """
-    Computes the optimal schedule of weighted request where optimal
-    is the schedule where the sum of request values is the largest.
-    :param scheduled_requests: 
-    :param m: an array containing the optimal value of previously scheduled
-              requests at index i.
-    :param i: 
-    :return: the optimal solution for scheduling first i requests
-    """
 
-    r = scheduled_requests[i]  # get the current request
+    r = scheduled_requests[i-1]
     if i == 0:
-        return [i]  # return a list containing the index of the single request
-    if r.value + m[r.previous] >= m[i-1]:  # if r should be in solution
-        # add its index and find the next
-        return find_solution(scheduled_requests, m, r.previous) + [i]
-    return [find_solution(scheduled_requests, m , i - 1)] # find next
+        return []
+    if m[i] > m[i-1]:
+        return find_solution(scheduled_requests, m, r.previous ) + [i-1]
+    return find_solution(scheduled_requests, m, i-1)
+
+
+
+
 
 
 def main():
-    x = [Request(1, 2, 3), Request(4, 5, 7), Request(8, 5, 20), Request(8, 10, 21)]
-    x = quick_sort(x, 0, len(x)-1)
+    x = [Request(2, 8, 7),
+         Request(0, 10, 2),
+         Request(1, 5, 4),
+         Request(12, 11, 17),
+         Request(5, 3, 10),
+         Request(3, 2, 8),
+         Request(11, 4, 15),
+         Request(7, 7, 11),
+         Request(0, 10, 5)
+         ]
+
+    x = quick_sort(x, 0, len(x) - 1)
     x = compute_previous(x)
     m = opt(x)
-    x = find_solution(x, m, len(x) - 1)
-    for r in x:
-        print(r, end = ', ')
-        # print("[{}, {}, {}]".format(r.start, r.value, r.finish), end=' ')
+    x = find_solution(x, m, len(m) -1)
+    print(x)
+
+
 
 if __name__ == '__main__':
     main()
