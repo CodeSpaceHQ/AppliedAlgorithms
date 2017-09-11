@@ -2,7 +2,7 @@
 
 This problem is introduced in [Dr. Gelfond Applied Algorithms](http://redwood.cs.ttu.edu/~mgelfond/FALL-2012/slides.pdf) and is further discussed by [Washington University](https://courses.cs.washington.edu/courses/cse521/13wi/slides/06dp-sched.pdf)
 
-This problem is a vriation of the simpler [Interval Scheduling](../../Greedy/Educational/Interval Scheduling) problem that can be solved using a greedy algorithm.
+This problem is a vriation of the simpler [Interval Scheduling](https://github.com/CodeSpaceHQ/AppliedAlgorithms/tree/master/Guide/Greedy/Educational/Interval%20Scheduling) problem that can be solved using a greedy algorithm.
 
 Category: Dynamic Programming
 
@@ -13,7 +13,7 @@ Given _n_ requests where each request _i_ has an associated interval _[s<sub>i</
 _v<sub>i</sub>_, and one server, select a subset of mutually compatible requests with maximum weight/value.
 
 ### Overview
-Ordering intervals by the earliest finishing time like we did in the [Interval Scheduling](../../Greedy/Educational/Interval Scheduling) solution does not work.
+Ordering intervals by the earliest finishing time like we did in the [Interval Scheduling](https://github.com/CodeSpaceHQ/AppliedAlgorithms/tree/master/Guide/Greedy/Educational/Interval%20Scheduling) solution does not work.
 Later intervals may not be compatible with the current one and may have much higher weights.
 
 First we must solve a simpler problem - finding the maximum sum of weights. To do this we will use a helper function `opt()` that will return
@@ -165,3 +165,10 @@ up the call stack, giving us the resulting list of indices `[0, 3, 6, 8]`.
 The `compute_previous` and `opt` steps of this algorithm can be a little confusing, especially in the implementation. This is due to the shift in index between the two functions, necessary
 because of the 0<sup>th</sup> index that is needed in _m[]_ for those requests who do not have previous compatible requests. However, the pseudocode is easy to follow and understand once you
 figure out and trace all of the _p(j)_ values and every index of _m[]_.
+
+The requests included in the final solutions can be printed out themselves by using the code snippet below:
+
+```Python
+   for r in x:
+      print('({} {} {})'.format(r.start, r.value, r.finish), end=' ')
+```
