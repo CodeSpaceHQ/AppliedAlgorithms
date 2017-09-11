@@ -56,7 +56,7 @@ def compute_previous(sorted_requests):
     """
     Computes the previous compatible request's value for each request
     :param sorted_requests: finish-time sorted requests
-    :return: requests sorted by finish time with previous information filled
+    :return: requests with p(j) filled
     """
     start = [i.start for i in sorted_requests]
     finish = [i.finish for i in sorted_requests]
@@ -72,29 +72,30 @@ def opt(sorted_requests):
     """
     Find a maximum value for a set of requests
     :param sorted_requests: requests sorted by finish time  
-    :return: a list size len(sorted_requests) + 1 containing optimum values
+    :return: opt[0...n] where opt[i] is value of optimal solution for jobs 1...j
     """
     m = [0] * (len(sorted_requests) + 1)
     for i in range(1, len(sorted_requests) + 1):
         r = sorted_requests[i-1]
         m[i] = max(r.value + m[r.previous], m[i-1])
-    return (m)
+    return m
 
 
 def find_solution(sorted_requests, m, i):
     """
     Find an optimal schedule with max sum of values
     :param sorted_requests: requests sorted by finish time    
-    :param m: array of optimum values for a schedule
+    :param m: array of optimum values for a schedule 1...j
     :param i: the index of the last item in sorted_requests
-    :return: a list of indexes
+    :return: a list of indices
     """
     r = sorted_requests[i-1]  # there is one less request than elements in m
     if i == 0:  # base case
         return []
-    if m[i] > m[i-1]:  # if this schedule is more optimal than the one before it
+    elif r.value + m[r.previous] > m[i-1]:  # follow max value result schedule
         return find_solution(sorted_requests, m, r.previous ) + [i-1]
-    return find_solution(sorted_requests, m, i-1)
+    else:
+        return find_solution(sorted_requests, m, i-1)
 
 
 def main():
@@ -109,13 +110,11 @@ def main():
          Request(0, 10, 5)
          ]
 
-    x = quick_sort(x, 0, len(x) - 1)
-    x = compute_previous(x)
-    m = opt(x)
-    x = find_solution(x, m, len(x))
+    x = quick_sort(x, 0, len(x) - 1)  # sort by finish time
+    x = compute_previous(x)  # compute p(j) for every request
+    m = opt(x)  # find max value for scheduling of 1...j
+    x = find_solution(x, m, len(x))  # find indices of solution schedule
     print(x)
-
-
 
 if __name__ == '__main__':
     main()
