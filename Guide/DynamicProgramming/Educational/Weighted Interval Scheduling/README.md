@@ -35,8 +35,8 @@ schedule is [C, D, F], our algorithm will return [1, 4, 6].
 ### Overview
 Finding an optimal schedule of weighted intervals has a few steps:
 1. Sort the requests by finish time
-2. Find p(j) for each request (p(j) is the largest index of the previous request compatible with j)
-3. Find the value of optimal solutions to the problem consisting of job requests 1, 2, ..., j if j were included in the schedule or not included.
+2. Find _p(j)_ for each request _j_ where _p(j)_ is a request _i < j_ that is compatible with _j_.
+3. Find the value of optimal schedules containing _j_ and not containing _j_ for every request _j_.
 4. Using the list from step #3, find the schedule with the max sum of request values.
 
 So the trickiest part here is step #3. Basically to accomplish this we loop through each request _r_ in the set of requests _R_ and see if _r_ plus its previous
@@ -72,6 +72,29 @@ its implementation and pseudo code.
 The time complexity of the algorithm in is O(n). Sorting the requests before finding the optimal solution is O(n log n), but each step after that (finding previous indices, finding the optimal values, and finding the requests) are O(n).
 
 ## Example
+![Initial Requests](./assets/initial.png)
+
+We start with 9 unsorted requests. To find an optimal schedule we will need to first
+sort them by finish time.
+
+![Sorted Requests](./assets/sorted.png)
+
+Now that they are sorted we can start parts of our algorithm. We need to find out _p(j)_ for every request _j_.
+Remember that _p(j)_ is the request _i < j_ that is compatible with _j_.
+
+Here is a table detailing each request _j_ and _p(j)_:
+
+| Request | j | p(j) |
+| ------- |---| ---- |
+| (0, 10, 2)      | 0  |      |
+| (1, 5, 4)      |  1 |      |
+| (0, 10, 5)      |  2 |      |
+| (2, 8, 7)      |  3 |      |
+| (3, 2, 8)      |  4 |      |
+| (5, 3, 10)      |  5 |      |
+| (7, 7, 11)      |  6 |      |
+| (11, 4, 15)      | 7  |      |
+| (12, 11, 17)      | 8  |      |
 
 
 ### Directed Graph
