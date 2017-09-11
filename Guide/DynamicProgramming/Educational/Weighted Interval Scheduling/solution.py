@@ -68,26 +68,33 @@ def compute_previous(sorted_requests):
     return sorted_requests
 
 
-def opt(scheduled_requests):
-    m = [0] * (len(scheduled_requests) + 1)
-    for i in range(1, len(scheduled_requests) + 1):
-        r = scheduled_requests[i-1]
+def opt(sorted_requests):
+    """
+    Find a maximum value for a set of requests
+    :param sorted_requests: requests sorted by finish time  
+    :return: a list size len(sorted_requests) + 1 containing optimum values
+    """
+    m = [0] * (len(sorted_requests) + 1)
+    for i in range(1, len(sorted_requests) + 1):
+        r = sorted_requests[i-1]
         m[i] = max(r.value + m[r.previous], m[i-1])
     return (m)
 
 
-def find_solution(scheduled_requests, m, i):
-
-    r = scheduled_requests[i-1]
-    if i == 0:
+def find_solution(sorted_requests, m, i):
+    """
+    Find an optimal schedule with max sum of values
+    :param sorted_requests: requests sorted by finish time    
+    :param m: array of optimum values for a schedule
+    :param i: the index of the last item in sorted_requests
+    :return: a list of indexes
+    """
+    r = sorted_requests[i-1]  # there is one less request than elements in m
+    if i == 0:  # base case
         return []
-    if m[i] > m[i-1]:
-        return find_solution(scheduled_requests, m, r.previous ) + [i-1]
-    return find_solution(scheduled_requests, m, i-1)
-
-
-
-
+    if m[i] > m[i-1]:  # if this schedule is more optimal than the one before it
+        return find_solution(sorted_requests, m, r.previous ) + [i-1]
+    return find_solution(sorted_requests, m, i-1)
 
 
 def main():
@@ -105,7 +112,7 @@ def main():
     x = quick_sort(x, 0, len(x) - 1)
     x = compute_previous(x)
     m = opt(x)
-    x = find_solution(x, m, len(m) -1)
+    x = find_solution(x, m, len(x))
     print(x)
 
 
