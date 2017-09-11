@@ -11,6 +11,7 @@ class Request(object):
 def counting_sort(array):
     """
     Counting sort time complexity O(n+k)
+    https://en.wikipedia.org/wiki/Counting_sort#The_algorithm
     In this case sorts a collection (A) of integers by incrementing a counter in
     another collection (B) at the index corresponding to a value in in the first
     collection A. Then loops through collection B from beginning to end and 
