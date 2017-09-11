@@ -72,12 +72,12 @@ its implementation and pseudo code.
 The time complexity of the algorithm in is O(n). Sorting the requests before finding the optimal solution is O(n log n), but each step after that (finding previous indices, finding the optimal values, and finding the requests) are O(n).
 
 ## Example
-![Initial Requests](./assets/initial.png)
+![Initial Requests](./assets/initial1.png)
 
 We start with 9 unsorted requests. To find an optimal schedule we will need to first
 sort them by finish time.
 
-![Sorted Requests](./assets/sorted.png)
+![Sorted Requests](./assets/sorted1.png)
 
 Now that they are sorted we can start parts of our algorithm. We need to find out _p(j)_ for every request _j_.
 Remember that _p(j)_ is the request _i < j_ that is compatible with _j_.
@@ -154,7 +154,7 @@ list and recursively call `find_solution` behind it, i.e.:
 This will cause find_solution to go down a path of previously compatible requests that resulted in the maximum schedule value of 36.
 
 
-![Solution schedule](./assets/find_solution1.png)
+![Solution schedule](./assets/final.png)
 
 
 When index _i_ finally reaches 0, it will reach our base case and return all the way
