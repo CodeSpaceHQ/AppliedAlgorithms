@@ -37,24 +37,22 @@ def quick_sort(s, begin, end):
     return s
 
 
-def compute_err(i, j, points):
-    n = j + 1  # count of points is index of last point + 1
-    x_cords = [points[p][0] for p in range(i, n)]
-    y_cords = [points[p][1] for p in range(i, n)]
-    xy = map(lambda x, y: x * y, x_cords, y_cords)
-    sum_x = sum(x_cords)
-    sum_y = sum(y_cords)
-    # calculate slope
+def compute_err(points):
+    n = len(points)  # number of points in segment
+    x_cords = [points[p][0] for p in range(0, n)] # all x values for segment
+    y_cords = [points[p][1] for p in range(0, n)] # all y values for segment
+    xy = map(lambda x, y: x * y, x_cords, y_cords) # xi*yi values for segment
+    sum_x = sum(x_cords)  # sum of all x values for segment
+    sum_y = sum(y_cords)  # sum of all y values for segment
+    # calculate slope of least squared error line
     a_numerator = n * (sum(xy)) - (sum_x * sum_y)
     a_denominator = n * (sum([x ** 2 for x in x_cords])) - (sum_x) ** 2
     a = a_numerator / a_denominator
-    print('a: {}'.format(a))
-    # calculate y-intercept
+    # calculate y-intercept of least squared error line
     b = (sum_y - (a*sum_x)) / n
-    print('b: {}'.format(b))
+    # calculate SEE using the least squared error line
     e = sum(map(lambda x, y: (y-a*x-b)**2, x_cords, y_cords))
     return e
-
 
 
 def segment_least_squares(points, multiplier):
@@ -62,15 +60,20 @@ def segment_least_squares(points, multiplier):
     sorted_points = quick_sort(points, 0, size - 1)
 
     squared_errors = dict()
-    for point_j in range(1, len(sorted_points)):
+    for point_j in range(1, size):
         # compute least square errors eij for p1..pj
         for point_i in range(0, point_j):
-            squared_errors[(point_i, point_j)] = compute_err(point_i, point_j,
-                                                             sorted_points)
+            # compute eij for segment pi...pj
+            e = compute_err(sorted_points[point_i:point_j + 1])
+            squared_errors[(point_i, point_j)] = e
+
     m = dict()
-    m[-1] = 0
-    for i in range(0, size):
-        m[i] = 1
+    m[0] = 0
+    for j in range(1, size):
+        for i in range(0, j):
+            m[j] = (squared_errors[(i, j)] + multiplier + m[j-1])
+
+    return m
 
 def main():
     coord_set = [
