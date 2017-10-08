@@ -75,19 +75,19 @@ def segment_least_squares(points, cost):
             e = compute_err(sorted_points[point_i:point_j + 1])
             squared_errors[(point_i, point_j)] = e
 
-    m = [0] * size
-    opt_seg = [0] * size
+    m = [0] * size  # array to keep track of error values
+    opt_seg = [0] * size  # array to keep track of segment start positions
     for j in range(1, size):  # for each point
         min_err = inf
-        opt_segment_end = None
+        segment_begin = None
         for i in range(0, j):  # for each point < the j_th point
             # get the error of the total segment
             err_of_segment = squared_errors[(i, j)] + cost + m[i - 1]
             if err_of_segment < min_err:  # get the segment with min error
-                min_err = err_of_segment
-                opt_segment_end = i  # save the point where segment starts
-        m[j] = min_err
-        opt_seg[j] = opt_segment_end
+                min_err = err_of_segment  # minimum error found
+                segment_begin = i  # save the point where segment starts
+        m[j] = min_err  # minimum error for a segment where j is the end
+        opt_seg[j] = segment_begin  # segment where j is the end
 
     return opt_seg, m
 
