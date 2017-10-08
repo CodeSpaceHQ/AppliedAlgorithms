@@ -57,7 +57,7 @@ def compute_err(points):
     # calculate slope of least squared error line
     a_numerator = n * (sum(xy)) - (sum_x * sum_y)
     a_denominator = n * (sum([x ** 2 for x in x_cords])) - (sum_x) ** 2
-    a = a_numerator / a_denominator
+    a = a_numerator / a_denominator if a_denominator > 0 else inf
     # calculate y-intercept of least squared error line
     b = (sum_y - (a * sum_x)) / n
     # calculate SEE using the least squared error line
@@ -65,7 +65,7 @@ def compute_err(points):
     return e
 
 
-def segment_least_squares(points, cost):
+def segment_least_squares(points, C):
     size = len(points)
     sorted_points = quick_sort(points, 0, size - 1)
 
@@ -80,10 +80,10 @@ def segment_least_squares(points, cost):
     opt_seg = [0] * size  # array to keep track of segment start positions
     for j in range(1, size):  # for each point
         min_err = inf
-        segment_begin = None
+        segment_begin = 0
         for i in range(0, j):  # for each point < the j_th point
             # get the error of the total segment
-            err_of_segment = squared_errors[(i, j)] + cost + m[i - 1]
+            err_of_segment = squared_errors[(i, j)] + C + m[i-1]
             if err_of_segment < min_err:  # get the segment with min error
                 min_err = err_of_segment  # minimum error found
                 segment_begin = i  # save the point where segment starts
@@ -124,7 +124,7 @@ def plot_on_graph(points, end_points):
     plot.show()
 
 def main():
-    coord_set = [  # make it out of order by x value
+    cords = [  # make it out of order by x value
         [5, 3],
         [6, 3],
         [7, 4],
@@ -137,11 +137,12 @@ def main():
         [3, 3],
         [4, 3]
     ]
-    s, m = segment_least_squares(coord_set, 0)  # find the segments, cost
-    print("Cost: {}".format(m[-1]))
-    end_points = find_solution(coord_set, s)
+
+    s, m = segment_least_squares(cords, 3)  # find the segments, cost
+    print("Cost (C*L where L is number of lines): {}".format(m[-1]))
+    end_points = find_solution(cords, s)
     print(end_points)  # begin/end points of line segments
-    plot_on_graph(coord_set, end_points)  # show on graph
+    plot_on_graph(cords, end_points)  # show on graph
 
 if __name__ == '__main__':
     main()
