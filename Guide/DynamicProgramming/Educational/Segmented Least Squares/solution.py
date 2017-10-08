@@ -62,45 +62,59 @@ def segment_least_squares(points, cost):
     sorted_points = quick_sort(points, 0, size - 1)
 
     squared_errors = dict()
-    for point_j in range(1, size):
-        # compute least square errors eij for p1..pj
-        for point_i in range(0, point_j):
-            # compute eij for segment pi...pj
+    for point_j in range(1, size):  # for each point
+        for point_i in range(0, point_j):  # for each point < the j_th point
+            # compute eij for segment pi...pj and save it
             e = compute_err(sorted_points[point_i:point_j + 1])
             squared_errors[(point_i, point_j)] = e
 
-    print(squared_errors)
     m = [0] * size
     opt_seg = [0] * size
-    for j in range(1, size): # for each point up to size-1
+    for j in range(1, size): # for each point
         min_err = inf
         opt_segment_end = None
-        for i in range(0, j): # for each segment in points i to j
+        for i in range(0, j): # for each point < the j_th point
+            # get the error of the total segment
             err_of_segment = squared_errors[(i, j)] + cost + m[i-1]
-            if err_of_segment < min_err:
+            if err_of_segment < min_err:  # get the segment with min error
                 min_err = err_of_segment
-                opt_segment_end = i
+                opt_segment_end = i  # save the point where segment starts
         m[j] = min_err
         opt_seg[j] = opt_segment_end
 
-    return opt_seg
+    return opt_seg, m
+
+
+def find_solution(points, s):
+    """
+    Find the line segments after calculating SSE
+    :param points: original point list
+    :param s: the starting point of each segment at s[i]
+    :return: a list of points that when connected make up line segments
+    """
+    if len(points) == 1:
+        return points
+    else:
+        return find_solution(points[:s[-1] + 1], s[:s[-1] + 1]) + [points[-1]]
+
 
 def main():
     coord_set = [
+        (5, 3),
+        (6, 3),
+        (7, 4),
+        (8, 5),
+        (9, 6),
+        (10, 7),
         (0,0),
         (1,1),
         (2,2),
         (3,3),
-        (4,3),
-        (5,3),
-        (6,3),
-        (7,4),
-        (8,5),
-        (9,6),
-        (10,7)
+        (4,3)
+
     ]
-    s = segment_least_squares(coord_set, 0)
-    print(s)
+    s, m = segment_least_squares(coord_set, 1)
+    print(find_solution(coord_set, s))
 
 
 if __name__ == '__main__':
