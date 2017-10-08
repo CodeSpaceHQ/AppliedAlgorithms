@@ -1,4 +1,5 @@
 from math import inf
+import matplotlib.pyplot as plot
 
 
 def partition(s, begin, end):
@@ -105,23 +106,42 @@ def find_solution(points, s):
         return find_solution(points[:s[-1] + 1], s[:s[-1] + 1]) + [points[-1]]
 
 
+def plot_on_graph(points, end_points):
+    """
+    Pretty print the points and line segments on a graph using matplotlib.pyplot
+    :param points: all of the points in a graph
+    :param end_points: the end points of line segments
+    :return: show a graph on screen
+    """
+    x_cords = [points[p][0] for p in range(0, len(points))]
+    y_cords = [points[p][1] for p in range(0, len(points))]
+    plot.ylabel('Y')
+    plot.xlabel('X')
+    plot.plot(x_cords, y_cords, 'ro')  # plot the points
+    x_cords = [end_points[p][0] for p in range(0, len(end_points))]
+    y_cords = [end_points[p][1] for p in range(0, len(end_points))]
+    plot.plot(x_cords, y_cords)  # plot the line segments
+    plot.show()
+
 def main():
     coord_set = [  # make it out of order by x value
-        (5, 3),
-        (6, 3),
-        (7, 4),
-        (8, 5),
-        (9, 6),
-        (10, 7),
-        (0, 0),
-        (1, 1),
-        (2, 2),
-        (3, 3),
-        (4, 3)
+        [5, 3],
+        [6, 3],
+        [7, 4],
+        [8, 5],
+        [9, 6],
+        [10, 7],
+        [0, 0],
+        [1, 1],
+        [2, 2],
+        [3, 3],
+        [4, 3]
     ]
-    s, m = segment_least_squares(coord_set, 1)  # find the segments, cost
-    print(find_solution(coord_set, s))  # print out points for ends of segment
-
+    s, m = segment_least_squares(coord_set, 0)  # find the segments, cost
+    print("Cost: {}".format(m[-1]))
+    end_points = find_solution(coord_set, s)
+    print(end_points)  # begin/end points of line segments
+    plot_on_graph(coord_set, end_points)  # show on graph
 
 if __name__ == '__main__':
     main()
