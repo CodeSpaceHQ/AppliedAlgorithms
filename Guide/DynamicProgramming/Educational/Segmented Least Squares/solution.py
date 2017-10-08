@@ -1,3 +1,5 @@
+from math import inf
+
 def partition(s, begin, end):
     """
     Partially sort an array using a pivot value. Everything to the 
@@ -55,7 +57,7 @@ def compute_err(points):
     return e
 
 
-def segment_least_squares(points, multiplier):
+def segment_least_squares(points, cost):
     size = len(points)
     sorted_points = quick_sort(points, 0, size - 1)
 
@@ -67,23 +69,38 @@ def segment_least_squares(points, multiplier):
             e = compute_err(sorted_points[point_i:point_j + 1])
             squared_errors[(point_i, point_j)] = e
 
-    m = dict()
-    m[0] = 0
-    for j in range(1, size):
-        for i in range(0, j):
-            m[j] = (squared_errors[(i, j)] + multiplier + m[j-1])
+    print(squared_errors)
+    m = [0] * size
+    opt_seg = [0] * size
+    for j in range(1, size): # for each point up to size-1
+        min_err = inf
+        opt_segment_end = None
+        for i in range(0, j): # for each segment in points i to j
+            err_of_segment = squared_errors[(i, j)] + cost + m[i-1]
+            if err_of_segment < min_err:
+                min_err = err_of_segment
+                opt_segment_end = i
+        m[j] = min_err
+        opt_seg[j] = opt_segment_end
 
-    return m
+    return opt_seg
 
 def main():
     coord_set = [
         (0,0),
         (1,1),
-        (2, 1)
+        (2,2),
+        (3,3),
+        (4,3),
+        (5,3),
+        (6,3),
+        (7,4),
+        (8,5),
+        (9,6),
+        (10,7)
     ]
-    print(segment_least_squares(coord_set, 0))
-
-    pass
+    s = segment_least_squares(coord_set, 0)
+    print(s)
 
 
 if __name__ == '__main__':
