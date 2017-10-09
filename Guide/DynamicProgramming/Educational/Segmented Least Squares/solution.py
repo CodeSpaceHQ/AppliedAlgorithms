@@ -49,8 +49,8 @@ def compute_err(points):
     :return: an error value for the line segment fitting the points
     """
     n = len(points)  # number of points in segment
-    x_cords = [points[p][0] for p in range(0, n)]  # all x values for segment
-    y_cords = [points[p][1] for p in range(0, n)]  # all y values for segment
+    x_cords = [p[0] for p in points]  # all x values for segment
+    y_cords = [p[1] for p in points]  # all y values for segment
     xy = map(lambda x, y: x * y, x_cords, y_cords)  # xi*yi values for segment
     sum_x = sum(x_cords)  # sum of all x values for segment
     sum_y = sum(y_cords)  # sum of all y values for segment
@@ -75,74 +75,43 @@ def segment_least_squares(points, C):
             # compute eij for segment pi...pj and save it
             e = compute_err(sorted_points[point_i:point_j + 1])
             squared_errors[(point_i, point_j)] = e
+    print(squared_errors)
 
     m = [0] * size  # array to keep track of error values
-    opt_seg = [0] * size  # array to keep track of segment start positions
     for j in range(1, size):  # for each point
         min_err = inf
-        segment_begin = 0
         for i in range(0, j):  # for each point < the j_th point
             # get the error of the total segment
-            err_of_segment = squared_errors[(i, j)] + C + m[i-1]
-            if err_of_segment < min_err:  # get the segment with min error
-                min_err = err_of_segment  # minimum error found
-                segment_begin = i  # save the point where segment starts
+            penalty = squared_errors[(i, j)] + C + m[i - 1]
+            if penalty < min_err:  # get the segment with min error
+                min_err = penalty  # minimum error found
+                seg = i
         m[j] = min_err  # minimum error for a segment where j is the end
-        opt_seg[j] = segment_begin  # segment where j is the end
 
-    return opt_seg, m
+    return m
 
 
-def find_solution(points, s):
+def plot_points(points):
     """
-    Find the line segments after calculating SSE
-    :param points: original point list
-    :param s: the starting point of each segment at s[i]
-    :return: a list of points that when connected make up line segments
+    Plot points on a graph
+    :param points: a list of points where each point is [x, y]
     """
-    if len(points) == 1:  # base case
-        return points
-    else:
-        return find_solution(points[:s[-1] + 1], s[:s[-1] + 1]) + [points[-1]]
-
-
-def plot_on_graph(points, end_points):
-    """
-    Pretty print the points and line segments on a graph using matplotlib.pyplot
-    :param points: all of the points in a graph
-    :param end_points: the end points of line segments
-    :return: show a graph on screen
-    """
-    x_cords = [points[p][0] for p in range(0, len(points))]
-    y_cords = [points[p][1] for p in range(0, len(points))]
-    plot.ylabel('Y')
-    plot.xlabel('X')
-    plot.plot(x_cords, y_cords, 'ro')  # plot the points
-    x_cords = [end_points[p][0] for p in range(0, len(end_points))]
-    y_cords = [end_points[p][1] for p in range(0, len(end_points))]
-    plot.plot(x_cords, y_cords)  # plot the line segments
+    xs = [p[0] for p in points]
+    ys = [p[1] for p in points]
+    plot.plot(xs, ys, 'ro')
     plot.show()
+
 
 def main():
     cords = [  # make it out of order by x value
-        [5, 3],
-        [6, 3],
-        [7, 4],
-        [8, 5],
-        [9, 6],
-        [10, 7],
-        [0, 0],
         [1, 1],
-        [2, 2],
-        [3, 3],
-        [4, 3]
+        [2, 3],
+        [4, 4],
     ]
 
-    s, m = segment_least_squares(cords, 3)  # find the segments, cost
-    print("Cost (C*L where L is number of lines): {}".format(m[-1]))
-    end_points = find_solution(cords, s)
-    print(end_points)  # begin/end points of line segments
-    plot_on_graph(cords, end_points)  # show on graph
+    m = segment_least_squares(cords, 0)  # find the segments, cost
+    print("Cost of optimal solution: {}".format(m[-1]))
+    plot_points(cords)
 
 if __name__ == '__main__':
     main()

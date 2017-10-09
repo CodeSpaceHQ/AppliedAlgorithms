@@ -33,7 +33,6 @@ We will denote the squared error for a segment _p<sub>i</sub>,...p<sub>j</sub>_ 
 
 ### Output Format
 Output will include the cost (the total squared error of the resulting line) and the endpoints for each line in the included segments.
-Graphical output of the plotted points and lines are also generated in the solution file.
 
 ## Algorithm
 ### Overview
@@ -67,8 +66,6 @@ _Penalty_ is defined as e<sub>ij</sub> + C
 
 ```
 
-For our implementation we will also keep track of the points where segments begin so that we can print and plot that data. The main algorithm
-will just print out the error of the best fit line(s).
 
 ## Analysis
 The time complexity of this algorithm is O(n<sup>3</sup>). Computing the least squared error e<sub>ij</sub> for each segment of points in S takes O(n<sup>3</sup>) time, and
@@ -81,7 +78,21 @@ The bottleneck exists when we are computing e<sub>ij</sub> for O(n<sup>2</sup>) 
 
 ## Example
 Due to the complex calculations that would be involved in a large example, this README's example will be kept to a short 3 points.
-However, the solution file has a current example consisting of 10 points and can be modified, and will plot the resulting points and graph for you.
+
+![Initial Graph](./assets/point_plot.png)
+
+Those three points will be:
+```
+    [1, 1],
+    [2, 3],
+    [4, 4],
+```
+
+The first step in our algorithm is to find _e<sub>ij</sub>_ for each segment _p<sub>i</sub>,...p<sub>j</sub>_ in _S_
+
+For the segment p<sub>0</sub>,...p<sub>1</sub>:
+
+
 
 
 ## Conclusion
