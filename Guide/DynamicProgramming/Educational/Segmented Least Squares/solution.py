@@ -75,7 +75,7 @@ def segment_least_squares(points, C):
             # compute eij for segment pi...pj and save it
             e = compute_err(sorted_points[point_i:point_j + 1])
             squared_errors[(point_i, point_j)] = e
-
+    print(squared_errors)
     m = [0] * size  # array to keep track of error values
     for j in range(1, size):  # for each point
         min_err = inf
@@ -84,7 +84,6 @@ def segment_least_squares(points, C):
             penalty = squared_errors[(i, j)] + C + m[i - 1]
             if penalty < min_err:  # get the segment with min error
                 min_err = penalty  # minimum error found
-                seg = i
         m[j] = min_err  # minimum error for a segment where j is the end
 
     return m
@@ -108,7 +107,7 @@ def main():
         [4, 4],
     ]
 
-    m = segment_least_squares(cords, 0)  # find the segments, cost
+    m = segment_least_squares(cords, 1)  # find the segments, cost
     print("Cost of optimal solution: {}".format(m[-1]))
     plot_points(cords)
 

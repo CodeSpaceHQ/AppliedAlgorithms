@@ -90,6 +90,10 @@ Those three points will be:
 
 The first step in our algorithm is to find _e<sub>ij</sub>_ for each segment _p<sub>i</sub>,...p<sub>j</sub>_ in _S_
 
+Recall that to do this we will have to calculate:
+![Sum of Squared Error Line](./assets/sse.png) using ![Sum of Squared Error Line](./assets/a_and_b.png)
+
+
 For the segment p<sub>0</sub>,...p<sub>1</sub>:
 
 
