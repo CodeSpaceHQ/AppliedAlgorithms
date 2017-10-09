@@ -75,7 +75,6 @@ def segment_least_squares(points, C):
             # compute eij for segment pi...pj and save it
             e = compute_err(sorted_points[point_i:point_j + 1])
             squared_errors[(point_i, point_j)] = e
-    print(squared_errors)
 
     m = [0] * size  # array to keep track of error values
     for j in range(1, size):  # for each point
