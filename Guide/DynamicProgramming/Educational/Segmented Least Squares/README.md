@@ -9,7 +9,7 @@ Difficulty: Hard
 ## Problem
 
 Given _n_ points in the plane: _(x<sub>1</sub>, y<sub>1</sub>),  (x<sub>2</sub>, y<sub>2</sub>),..., (x<sub>n</sub>, y<sub>n</sub>)_.
-Find *a sequence of lines* that minimizes _f(x) = E + cL_ where:
+Find **a sequence of lines** that minimizes _f(x) = E + cL_ where:
 - _E_ is the sum of the sum of squared errors for each segment
 - _L_ is the number of segments in the solution
 - _c_ > 0 is a given constant
@@ -23,7 +23,7 @@ The notes over these two problems are taken from Princeton's lecture slides on t
 #### Least Squares
 
 Given _n_ points in the plane: _(x<sub>1</sub>, y<sub>1</sub>),  (x<sub>2</sub>, y<sub>2</sub>),..., (x<sub>n</sub>, y<sub>n</sub>)_.
-Find *a line* _y = ax + b_ that minimizes the sum of the squared error given by the equation:
+Find **a line** _y = ax + b_ that minimizes the sum of the squared error given by the equation:
 
 ![Sum of squared errors formula](./assets/sse.png)
 
@@ -33,7 +33,7 @@ The SSE formula is minimized when the slope _a_ of the line and the y-intercept 
 
 A Least Squares solution would look like this:
 
-![Least squares solution example](./assets/least_squares/sol.png)
+![Least squares solution example](./assets/least_squares_sol.png)
 
 The red line from the point to the solution line is the error value for that point. The solution line minimizes the sum of all
 of the error values for each point.
@@ -41,7 +41,7 @@ of the error values for each point.
 #### Segmented Least Squares
 
 Given _n_ points in the plane: _(x<sub>1</sub>, y<sub>1</sub>),  (x<sub>2</sub>, y<sub>2</sub>),..., (x<sub>n</sub>, y<sub>n</sub>)_.
-Find *a sequence of lines* that minimizes _f(x) = E + cL_ where:
+Find **a sequence of lines** that minimizes _f(x) = E + cL_ where:
 - _E_ is the sum of the sum of squared errors for each segment
 - _L_ is the number of segments in the solution
 - _c_ > 0 is a given constant
@@ -140,13 +140,13 @@ As well as an input _c_ value of 1.
 
 As you can imagine, the desired number of segments _L_ would be 3, provided the given input _c_ allowed for that.
 
-*Step 1: sort the input*
+**Step 1: sort the input**
 
 Using quick sort, our resulting points look like:
 
 `[[1, 1], [2, 2], [3, 3], [4, 3], [5, 3], [6, 3], [7, 4], [8, 5], [9, 6]]`
 
-*Step 2: computing _e(i,j)_*
+**Step 2: computing _e(i,j)_**
 
 We can now go through each possible segment and compute _e(i,j)_ -- the sum of least squared error.
 This computation is rather lengthy so it will not be traced over here. The implementation of this computation can be found in
@@ -161,7 +161,7 @@ The resulting dictionary holding all _e(i,j)_ values looks like this:
 
 ```
 
-*Step 3: compute _OPT(j)_*
+**Step 3: compute _OPT(j)_**
 
 
 ## Conclusion
