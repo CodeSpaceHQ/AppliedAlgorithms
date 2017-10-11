@@ -55,7 +55,7 @@ A Segmented least squares solution could look like this:
 
 Another solution if the given _c_ value was really low could be:
 
-![]Segmented least squares solution 2(./assets/seg_least_squares_sol2.png)
+![Segmented least squares solution 2](./assets/seg_least_squares_sol2.png)
 
 As you can see, _c_ will control how many lines v.s. how accurate the fit is.
 
