@@ -90,7 +90,7 @@ def segment_least_squares(points, c):
             points_in_segment = sorted_points[start:end + 1]
             err = compute_err(points_in_segment)  # compute eij for segment
             squared_errors[(start, end)] = err
-
+    print(squared_errors)
     m = [0] * size  # track accumulated cost
     seg_starts = [0] * size  # track start and end points of segments
 
@@ -158,7 +158,7 @@ def main():
         [8, 5]
     ]
 
-    m, seg_points = segment_least_squares(points, 10)
+    m, seg_points = segment_least_squares(points, 1)
     total_cost = m[-1]
     print("Total cost of line(s) through points: {}".format(total_cost))
     segment_endpoints = find_segments(points, seg_points)
