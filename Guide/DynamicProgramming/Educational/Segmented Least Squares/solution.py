@@ -1,4 +1,3 @@
-from math import inf
 import matplotlib.pyplot as plot
 
 
@@ -96,7 +95,7 @@ def segment_least_squares(points, c):
     seg_starts = [0] * size  # track start and end points of segments
 
     for end in range(0, size):  # end of segment
-        min_cost = inf
+        min_cost = float('inf')
 
         for start in range(0, end):  # beginning of segment
 
