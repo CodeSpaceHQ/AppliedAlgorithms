@@ -43,26 +43,27 @@ def quick_sort(s, begin, end):
 
 def compute_err(points):
     """
-    Compute the sum of least squared errors line. The equation for this line can
-    be found online.
-    :param points: a list of points (x,y) that are sorted by x values
-    :return: an error value for the line segment fitting the points
+    Compute the minimum sum of the squared error of
+    a line through n given points.
+    :param points: a list of points [x,y] that are sorted by x values
+    :return: the minimum sum of squared error value for the
+             line passing through the points
     """
-    n = len(points)  # number of points in segment
+    size = len(points)  # number of points in segment
     x_cords = [p[0] for p in points]  # all x values for segment
     y_cords = [p[1] for p in points]  # all y values for segment
     xy = map(lambda x, y: x * y, x_cords, y_cords)  # xi*yi values for segment
     sum_x = sum(x_cords)  # sum of all x values for segment
     sum_y = sum(y_cords)  # sum of all y values for segment
-    # calculate slope of least squared error line
-    a_numerator = n * (sum(xy)) - (sum_x * sum_y)
-    a_denominator = n * (sum([x ** 2 for x in x_cords])) - (sum_x) ** 2
-    a = a_numerator / a_denominator if a_denominator > 0 else inf
-    # calculate y-intercept of least squared error line
-    b = (sum_y - (a * sum_x)) / n
-    # calculate SEE using the least squared error line
-    e = sum(map(lambda x, y: (y - a * x - b) ** 2, x_cords, y_cords))
-    return e
+    a_numerator = size * (sum(xy)) - (sum_x * sum_y)
+    a_denominator = size * (sum([x ** 2 for x in x_cords])) - (sum_x) ** 2
+    a = a_numerator / a_denominator if a_denominator > 0 else inf  # slope
+    b = (sum_y - (a * sum_x)) / size  # y-intercept
+    return sum(
+        map(
+            lambda x, y: (y - a * x - b) ** 2, x_cords, y_cords
+        )
+    )  # SSE
 
 
 def segment_least_squares(points, c):
@@ -103,25 +104,50 @@ def segment_least_squares(points, c):
             if cost < min_cost:
                 min_cost = cost  # new minimum cost found
                 i = start  # save start point for segment
-                seg_starts[end] = start
+                seg_starts[end] = start  # save segment start point
+
         m[end] = min_cost  # store min cost for segment ending here
 
     return m, seg_starts
 
 
-def plot_points(points):
+def find_segments(points, seg_starts):
     """
-    Plot points on a graph
-    :param points: a list of points where each point is [x, y]
+    Find each point included in either end of a segment
+    :param points: list of points [x,y]
+    :param seg_starts: list of starting points for segments. seg_starts[i] is 
+                       the starting point of a segment while i is the end point
+    :return: each point in points included in the endpoints of all the segments
+    """
+    if len(points) == 1:
+        return points  # exclude last point, it will always point to itself
+    else:
+        included_point = points[-1]
+        new_cutoff = seg_starts[-1] + 1
+        return find_segments(points[:new_cutoff],
+                             seg_starts[:new_cutoff]) + [included_point]
+
+
+def plot_all(points, segment_points):
+    """
+    Plot all points and segments in the optimal solution using matplotlib
+    :param points: list of points [x,y]
+    :param segment_points: list of segment endpoints points [x,y] in points 
+    :return: show a graph with all points and segments plotted.
     """
     xs = [p[0] for p in points]
     ys = [p[1] for p in points]
     plot.plot(xs, ys, 'ro')
+
+    xs = [p[0] for p in segment_points]
+    ys = [p[1] for p in segment_points]
+    plot.plot(xs, ys)
+
     plot.show()
 
 
 def main():
-    cords = [  # make it out of order by x value
+    points = [  # make it out of order by x value
         [3, 3],
         [2, 2],
         [1, 1],
@@ -133,10 +159,11 @@ def main():
         [8, 5]
     ]
 
-    m, seg_points = segment_least_squares(cords, .5)
-    print("Cost of optimal solution: {}".format(m[-1]))  # accumulated cost
-    print(seg_points)
-    plot_points(cords)
+    m, seg_points = segment_least_squares(points, 10)
+    total_cost = m[-1]
+    print("Total cost of line(s) through points: {}".format(total_cost))
+    segment_endpoints = find_segments(points, seg_points)
+    plot_all(points, segment_endpoints)
 
 
 if __name__ == '__main__':
