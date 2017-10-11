@@ -65,28 +65,48 @@ def compute_err(points):
     return e
 
 
-def segment_least_squares(points, C):
+def segment_least_squares(points, c):
+    """
+    Given points in a plane and a constant cost > 0, find a squesnce of lines
+    that minimizes f(x) = E + cost*L where:
+        E is the sum of the sums of the squared errors in each segment
+        L is the number of lines
+    :param points: list of points where each point is in the format [x, y] 
+    :param c: the cost of creating a new segment
+    :return:
+            A list of accumulated cost values for the optimal solution's
+            segments, and a list containing the starting points of each segment
+            as its values, with the index of that list being the end points.
+            
+    """
     size = len(points)
     sorted_points = quick_sort(points, 0, size - 1)
-
     squared_errors = dict()
-    for point_j in range(1, size):  # for each point
-        for point_i in range(0, point_j):  # for each point < the j_th point
-            # compute eij for segment pi...pj and save it
-            e = compute_err(sorted_points[point_i:point_j + 1])
-            squared_errors[(point_i, point_j)] = e
-    print(squared_errors)
-    m = [0] * size  # array to keep track of error values
-    for j in range(1, size):  # for each point
-        min_err = inf
-        for i in range(0, j):  # for each point < the j_th point
-            # get the error of the total segment
-            penalty = squared_errors[(i, j)] + C + m[i - 1]
-            if penalty < min_err:  # get the segment with min error
-                min_err = penalty  # minimum error found
-        m[j] = min_err  # minimum error for a segment where j is the end
 
-    return m
+    for end in range(1, size):  # end of the segment
+
+        for start in range(0, end):  # start of the segment
+
+            points_in_segment = sorted_points[start:end + 1]
+            err = compute_err(points_in_segment)  # compute eij for segment
+            squared_errors[(start, end)] = err
+
+    m = [0] * size  # track accumulated cost
+    seg_starts = [0] * size  # track start and end points of segments
+
+    for end in range(0, size):  # end of segment
+        min_cost = inf
+
+        for start in range(0, end):  # beginning of segment
+
+            cost = squared_errors[(start, end)] + c + m[start - 1]
+            if cost < min_cost:
+                min_cost = cost  # new minimum cost found
+                i = start  # save start point for segment
+                seg_starts[end] = start
+        m[end] = min_cost  # store min cost for segment ending here
+
+    return m, seg_starts
 
 
 def plot_points(points):
@@ -102,14 +122,22 @@ def plot_points(points):
 
 def main():
     cords = [  # make it out of order by x value
+        [3, 3],
+        [2, 2],
         [1, 1],
-        [2, 3],
-        [4, 4],
+        [4, 3],
+        [5, 3],
+        [6, 3],
+        [9, 6],
+        [7, 4],
+        [8, 5]
     ]
 
-    m = segment_least_squares(cords, 1)  # find the segments, cost
-    print("Cost of optimal solution: {}".format(m[-1]))
+    m, seg_points = segment_least_squares(cords, .5)
+    print("Cost of optimal solution: {}".format(m[-1]))  # accumulated cost
+    print(seg_points)
     plot_points(cords)
+
 
 if __name__ == '__main__':
     main()
