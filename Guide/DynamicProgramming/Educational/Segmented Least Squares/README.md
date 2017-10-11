@@ -66,9 +66,13 @@ As you can see, _c_ will control how many lines v.s. how accurate the fit is.
 ```Python
     [[10, 9], [3, 4], [5, 6]]
 ```
-2. A constant _C_ which is the cost of adding a new segment.
+2. A constant _c_ which is the cost of adding a new segment to the optimal solution.
 
 ### Output Format
+
+- the total "cost" of the optimal solution (i.e. the sum of the costs of the segments), and
+- a visual graph depicting the points in _S_ and the segments in the optimal solution.
+
 
 ## Algorithm
 ### Overview
