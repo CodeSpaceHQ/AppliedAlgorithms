@@ -119,8 +119,49 @@ actual implementation there are a few more simple parts required so that the opt
 
 ## Analysis
 
+The segmented least squares algorithm has a time complexity of O(n<sup>3</sup>):
+- O(n<sup>3</sup>) for finding all _e(i,j)_ values + O(n<sup>2</sup>) for finding all _OPT(j)_ values.
+and a space complexity of O(n<sup>2</sup>).
+
+This time complexity can be improved to O(n<sup>2</sup>) time and O(n) space by pre-computing
+various statistics.
 
 ## Example
+
+For our example we will be using a series of 9 points given in input format:
+
+`[[3, 3], [2, 2], [1, 1], [4, 3], [5, 3], [6, 3], [9, 6], [7, 4], [8, 5]]`
+
+Which plotted on a graph looks like:
+
+![Input Plotted](./assets/initial_plot.png)
+
+As you can imagine, the desired number of segments _L_ would be 3, provided the given input _c_ allowed for that.
+
+*Step 1: sort the input*
+
+Using quick sort, our resulting points look like:
+
+`[[1, 1], [2, 2], [3, 3], [4, 3], [5, 3], [6, 3], [7, 4], [8, 5], [9, 6]]`
+
+*Step 2: computing _e(i,j)_*
+
+We can now go through each possible segment and compute _e(i,j)_ -- the sum of least squared error.
+This computation is rather lengthy so it will not be traced over here. The implementation of this computation can be found in
+the solution file under the function `compute_err`.
+
+To compute all _e(i,j)_ values, we have a pointer _j_ pointing to the end of a segment, and a pointer _i_ pointing to the beginning of a segment.
+_j_ is moved back every time _i_ reaches it, causing a loop through of all possible segments in _S_.
+
+The resulting dictionary holding all _e(i,j)_ values looks like this:
+```
+{(1, 2): 0.0, (5, 6): 0.0, (1, 3): 0.16666666666666669, (4, 8): 0.4000000000000007, (4, 5): 0.0, (2, 8): 1.8571428571428572, (1, 7): 1.107142857142857, (2, 7): 1.0857142857142859, (1, 4): 0.3000000000000001, (6, 7): 0.0, (2, 6): 0.3999999999999998, (1, 6): 0.5714285714285712, (0, 7): 1.4047619047619049, (6, 8): 0.0,
+(3, 7): 0.7000000000000001, (2, 5): 0.0, (0, 8): 1.9833333333333336, (0, 3): 0.30000000000000016, (5, 8): 0.0, (3, 5): 0.0, (0, 1): 0.0, (0, 5): 1.0857142857142859, (4, 6): 0.16666666666666669, (4, 7): 0.29999999999999954, (1, 5): 0.4, (7, 8): 0.0, (5, 7): 0.0, (0, 2): 0.0,
+(3, 8): 1.0857142857142863, (0, 6): 1.1071428571428572, (1, 8): 1.869047619047619, (3, 6): 0.2999999999999998, (0, 4): 0.7000000000000001, (2, 3): 0.0, (3, 4): 0.0, (2, 4): 0.0}`
+```
+
+*Step 3: compute _OPT(j)_*
+
 
 ## Conclusion
 
