@@ -77,9 +77,45 @@ As you can see, _c_ will control how many lines v.s. how accurate the fit is.
 ## Algorithm
 ### Overview
 
+- _OPT(j)_ will denote the minimum cost for points _p<sub>1</sub>,p<sub>2</sub>,...,p<sub>j</sub>.
+- _e(i,j)_ will denote the minimum sum of squared errors for points _p<sub>i</sub>,p<sub>i+1</sub>,...,p<sub>j</sub>_
+
+To compute _OPT(j)_ we will use the formula:
+
+![OPT(j)](./assets/opt_j.png)
+
+Where _OPT(i-1)_ is the cost of the previous minimum costing segment for some points, _c_ is the cost of adding a new segment,
+and _e(i,j)_ is the sum of squared errors for a segment running though points  _p<sub>i</sub>,...,p<sub>j</sub>_
+
+1. Sort _S_ by x coordinates.
+2. Compute _e(i,j)_ for every possible segment in _S_.
+3. Go through each segment and find _OPT(j)_, storing the value in an array _m_ at index _j_
+4. Since _m_ keeps track of the accumulating costs of the minimum costing segments included in the optimal solution, the cost of the optimal solution will be in the last element of _m_.
+
+
 ### Pseudo Code
 
+This pseudo code follows the above algorithm and returns the cost of the optimal solution. It should be noted that in the
+actual implementation there are a few more simple parts required so that the optimal solution can be graphed as well.
 
+````Python
+
+    def segmented_least_squares(points, c):
+
+        points = sort_points(points)  # sort by x values
+        n = len(points)
+
+        for j = 1 to n:  # for each point
+            for i = 1 to j:   # for each point up to j
+                compute the least squares error e(i,j) for the segment pi, pi+1,...,pj
+
+        m[0] = 0  # initialize array with 0 cost
+        for j = 1 to n:
+            for i = 1 to j:
+                m[j] = min(e(i,j) + c + m[i-1])  # m[j] is the minimum costing segment for the points pi to pj
+
+        return m[n]
+````
 
 ## Analysis
 
