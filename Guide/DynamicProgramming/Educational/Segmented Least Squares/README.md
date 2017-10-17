@@ -94,7 +94,13 @@ Recall that to do this we will have to calculate:
 ![Sum of Squared Error Line](./assets/sse.png) using ![Sum of Squared Error Line](./assets/a_and_b.png)
 
 
+For the segment p<sub>0</sub>,...p<sub>0</sub>, _e<sub>00</sub>_ = 0
+
 For the segment p<sub>0</sub>,...p<sub>1</sub>:
+For the segment p<sub>0</sub>,...p<sub>2</sub>:
+For the segment p<sub>1</sub>,...p<sub>3</sub>:
+
+
 
 
 

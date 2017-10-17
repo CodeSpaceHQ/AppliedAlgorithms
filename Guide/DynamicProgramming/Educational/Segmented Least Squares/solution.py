@@ -81,10 +81,10 @@ def segment_least_squares(points, c):
             
     """
     size = len(points)
-    sorted_points = quick_sort(points, 0, size - 1)
+    sorted_points = quick_sort(points, 0, size - 1)  # this will sort the original list of points as well
     squared_errors = dict()
 
-    for end in range(1, size):  # end of the segment
+    for end in range(0, size):  # end of the segment
 
         for start in range(0, end):  # start of the segment
 
@@ -147,19 +147,25 @@ def plot_all(points, segment_points):
 
 
 def main():
-    points = [  # make it out of order by x value
-        [3, 3],
-        [2, 2],
+    # points = [  # make it out of order by x value
+    #     [3, 3],
+    #     [2, 2],
+    #     [1, 1],
+    #     [4, 3],
+    #     [5, 3],
+    #     [6, 3],
+    #     [9, 6],
+    #     [7, 4],
+    #     [8, 5]
+    # ]
+
+    points = [
         [1, 1],
-        [4, 3],
-        [5, 3],
-        [6, 3],
-        [9, 6],
-        [7, 4],
-        [8, 5]
+        [2, 3],
+        [4, 4]
     ]
 
-    m, seg_points = segment_least_squares(points, 10)
+    m, seg_points = segment_least_squares(points,0)
     total_cost = m[-1]
     print("Total cost of line(s) through points: {}".format(total_cost))
     segment_endpoints = find_segments(points, seg_points)
