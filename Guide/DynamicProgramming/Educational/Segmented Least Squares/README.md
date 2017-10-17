@@ -79,7 +79,7 @@ The bottleneck exists when we are computing e<sub>ij</sub> for O(n<sup>2</sup>) 
 ## Example
 Due to the complex calculations that would be involved in a large example, this README's example will be kept to a short 3 points.
 
-![Initial Graph](./assets/point_plot.png)
+![Initial Graph](./assets/initial_plot.png)
 
 Those three points will be:
 ```
@@ -97,34 +97,43 @@ Recall that to do this we will have to calculate:
 
 
 For the segment p<sub>0</sub>,...p<sub>1</sub>, _e<sub>01</sub>_ = 0.0
+
 ![Segment 0...1](./assets/seg_01.png)
 
-
 For the segment p<sub>0</sub>,...p<sub>2</sub>, _e<sub>02</sub>_ = 0.643
+
 ![Segment 0...2](./assets/seg_02.png)
 
 For the segment p<sub>1</sub>,...p<sub>2</sub>, _e<sub>12</sub>_ = 0.0
+
 ![Segment 1...2](./assets/seg_12.png)
 
 For the segment p<sub>0</sub>,...p<sub>3</sub>, _e<sub>03</sub>_ = 0.9
+
 ![Segment 0...3](./assets/seg_03.png)
 
 For the segment p<sub>1</sub>,...p<sub>3</sub>, _e<sub>13</sub>_ = 0.643
+
 ![Segment 1...3](./assets/seg_13.png)
 
 For the segment p<sub>2</sub>,...p<sub>3</sub>, _e<sub>23</sub>_ = 0.0
+
 ![Segment 2...3](./assets/seg_23.png)
 
 For the segment p<sub>0</sub>,...p<sub>4</sub>, _e<sub>04</sub>_ = 1.3246
+
 ![Segment 0...4](./assets/seg_04.png)
 
 For the segment p<sub>1</sub>,...p<sub>4</sub>, _e<sub>14</sub>_ = 1.3077
+
 ![Segment 1...4](./assets/seg_14.png)
 
 For the segment p<sub>2</sub>,...p<sub>4</sub>, _e<sub>24</sub>_ = 0.071
+
 ![Segment 2...4](./assets/seg_24.png)
 
 For the segment p<sub>3</sub>,...p<sub>4</sub>, _e<sub>34</sub>_ = 0.0
+
 ![Segment 3...4](./assets/seg_34.png)
 
 
