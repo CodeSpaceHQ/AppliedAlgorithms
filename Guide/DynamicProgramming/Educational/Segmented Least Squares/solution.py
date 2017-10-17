@@ -166,7 +166,7 @@ def main():
         [7, 9]
     ]
 
-    m, seg_points = segment_least_squares(points,0)
+    m, seg_points = segment_least_squares(points,10)
     total_cost = m[-1]
     print("Total cost of line(s) through points: {}".format(total_cost))
     segment_endpoints = find_segments(points, seg_points)

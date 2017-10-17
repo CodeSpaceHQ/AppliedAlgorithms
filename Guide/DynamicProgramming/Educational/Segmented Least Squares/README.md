@@ -77,11 +77,10 @@ The bottleneck exists when we are computing e<sub>ij</sub> for O(n<sup>2</sup>) 
 
 
 ## Example
-Due to the complex calculations that would be involved in a large example, this README's example will be kept to a short 3 points.
 
 ![Initial Graph](./assets/initial_plot.png)
 
-Those three points will be:
+Our example points will be
 ```
         [1, 1],
         [2, 3],
