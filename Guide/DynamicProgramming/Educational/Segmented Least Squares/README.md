@@ -1,4 +1,4 @@
-# Shortest Path Tree in a Graph
+# Segmented Least Squares
 
 This problem is introduced in [Dr. Gelfond Applied Algorithms](http://redwood.cs.ttu.edu/~mgelfond/FALL-2012/slides.pdf) and is further discussed by [UMASS](https://people.cs.umass.edu/~sheldon/teaching/mhc/cs312/2013sp/Slides/Slides15%20-%20Segmented%20Least%20Squares.pdf) as well as other universities.
 
@@ -83,9 +83,11 @@ Due to the complex calculations that would be involved in a large example, this 
 
 Those three points will be:
 ```
-    [1, 1],
-    [2, 3],
-    [4, 4],
+        [1, 1],
+        [2, 3],
+        [4, 4],
+        [5, 6],
+        [7, 9]
 ```
 
 The first step in our algorithm is to find _e<sub>ij</sub>_ for each segment _p<sub>i</sub>,...p<sub>j</sub>_ in _S_
@@ -94,11 +96,44 @@ Recall that to do this we will have to calculate:
 ![Sum of Squared Error Line](./assets/sse.png) using ![Sum of Squared Error Line](./assets/a_and_b.png)
 
 
-For the segment p<sub>0</sub>,...p<sub>0</sub>, _e<sub>00</sub>_ = 0
+For the segment p<sub>0</sub>,...p<sub>1</sub>, _e<sub>01</sub>_ = 0.0
+![Segment 0...1](./assets/seg_01.png)
 
-For the segment p<sub>0</sub>,...p<sub>1</sub>:
-For the segment p<sub>0</sub>,...p<sub>2</sub>:
-For the segment p<sub>1</sub>,...p<sub>3</sub>:
+
+For the segment p<sub>0</sub>,...p<sub>2</sub>, _e<sub>02</sub>_ = 0.643
+![Segment 0...2](./assets/seg_02.png)
+
+For the segment p<sub>1</sub>,...p<sub>2</sub>, _e<sub>12</sub>_ = 0.0
+![Segment 1...2](./assets/seg_12.png)
+
+For the segment p<sub>0</sub>,...p<sub>3</sub>, _e<sub>03</sub>_ = 0.9
+![Segment 0...3](./assets/seg_03.png)
+
+For the segment p<sub>1</sub>,...p<sub>3</sub>, _e<sub>13</sub>_ = 0.643
+![Segment 1...3](./assets/seg_13.png)
+
+For the segment p<sub>2</sub>,...p<sub>3</sub>, _e<sub>23</sub>_ = 0.0
+![Segment 2...3](./assets/seg_23.png)
+
+For the segment p<sub>0</sub>,...p<sub>4</sub>, _e<sub>04</sub>_ = 1.3246
+![Segment 0...4](./assets/seg_04.png)
+
+For the segment p<sub>1</sub>,...p<sub>4</sub>, _e<sub>14</sub>_ = 1.3077
+![Segment 1...4](./assets/seg_14.png)
+
+For the segment p<sub>2</sub>,...p<sub>4</sub>, _e<sub>24</sub>_ = 0.071
+![Segment 2...4](./assets/seg_24.png)
+
+For the segment p<sub>3</sub>,...p<sub>4</sub>, _e<sub>34</sub>_ = 0.0
+![Segment 3...4](./assets/seg_34.png)
+
+
+
+
+
+
+
+
 
 
 

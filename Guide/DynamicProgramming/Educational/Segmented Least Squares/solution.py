@@ -94,7 +94,6 @@ def segment_least_squares(points, c):
 
     m = [0] * size  # track accumulated cost
     seg_starts = [0] * size  # track start and end points of segments
-
     for end in range(0, size):  # end of segment
         min_cost = inf
 
@@ -162,7 +161,9 @@ def main():
     points = [
         [1, 1],
         [2, 3],
-        [4, 4]
+        [4, 4],
+        [5, 6],
+        [7, 9]
     ]
 
     m, seg_points = segment_least_squares(points,0)
