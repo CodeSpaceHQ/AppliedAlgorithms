@@ -7,73 +7,114 @@ Category: Dynamic Programming
 Difficulty: Hard
 
 ## Problem
-Given a set _S = {(x<sub>1</sub>, y<sub>1</sub>),...(x<sub>n</sub>, y<sub>n</sub>)}_ of points on the coordinate plane, find a line of best fit.
 
+Given _n_ points in the plane: _(x<sub>1</sub>, y<sub>1</sub>),  (x<sub>2</sub>, y<sub>2</sub>),..., (x<sub>n</sub>, y<sub>n</sub>)_.
+Find **a sequence of lines** that minimizes _f(x) = E + cL_ where:
+- _E_ is the sum of the sum of squared errors for each segment
+- _L_ is the number of segments in the solution
+- _c_ > 0 is a given constant
 
 ### Overview
-The line of best fit for a segment _p<sub>i</sub>,...p<sub>j</sub>_ where _p_ denotes a point in _S_ can be found using the least squares method. A line minimizing the sum of squared errors
-is given by the equation:
 
-![Sum of Squared Error Line](./assets/sse.png)
+To understand the problem of _Segmented least squares_ we must first understand the problem of _Least Squares_.
+The notes over these two problems are taken from Princeton's lecture slides on them found above.
 
-Where _y<sub>i</sub>_ and _x<sub>i</sub>_ are points in _S_ and _a_ (the slope of the line) and _b_ (the y-intercept of the line) are found using:
+#### Least Squares
 
-![Sum of Squared Error Line](./assets/a_and_b.png)
+Given _n_ points in the plane: _(x<sub>1</sub>, y<sub>1</sub>),  (x<sub>2</sub>, y<sub>2</sub>),..., (x<sub>n</sub>, y<sub>n</sub>)_.
+Find **a line** _y = ax + b_ that minimizes the sum of the squared error given by the equation:
 
-We will denote the squared error for a segment _p<sub>i</sub>,...p<sub>j</sub>_ in _S_ as _e<sub>ij</sub>_ which is found by computing the sum of squared errors using the equations above.
+![Sum of squared errors formula](./assets/sse.png)
+
+The SSE formula is minimized when the slope _a_ of the line and the y-intercept _b_ are found using:
+
+![slope and intercept formulas for minimizing sum of the squared errors](./assets/a_and_b.png)
+
+A Least Squares solution would look like this:
+
+![Least squares solution example](./assets/least_squares_sol.png)
+
+The red line from the point to the solution line is the error value for that point. The solution line minimizes the sum of all
+of the error values for each point.
+
+#### Segmented Least Squares
+
+Given _n_ points in the plane: _(x<sub>1</sub>, y<sub>1</sub>),  (x<sub>2</sub>, y<sub>2</sub>),..., (x<sub>n</sub>, y<sub>n</sub>)_.
+Find **a sequence of lines** that minimizes _f(x) = E + cL_ where:
+- _E_ is the sum of the sum of squared errors for each segment
+- _L_ is the number of segments in the solution
+- _c_ > 0 is a given constant
+
+The difference is is that here we are trying to find multiple "lines" or "segments" that
+will minimize the sum of squared errors while also trying to balance how many segments we have (using the given _c_).
+
+A Segmented least squares solution could look like this:
+
+![Segmented least squares solution 1](./assets/seg_least_squares_sol1.png)
+
+Another solution if the given _c_ value was really low could be:
+
+![Segmented least squares solution 2](./assets/seg_least_squares_sol2.png)
+
+As you can see, _c_ will control how many lines v.s. how accurate the fit is.
 
 ### Input Format
 
 1. A list of points in _S_ where each point is in the format `[x, y]`. An example input would look like:
-
 ```Python
     [[10, 9], [3, 4], [5, 6]]
 ```
-2. A constant _C_ which controls how many line segments to fit to points in _S_.
+2. A constant _c_ which is the cost of adding a new segment to the optimal solution.
 
 ### Output Format
-Output will include the cost (the total squared error of the resulting line) and the endpoints for each line in the included segments.
+
+- the total "cost" of the optimal solution (i.e. the sum of the costs of the segments), and
+- a visual graph depicting the points in _S_ and the segments in the optimal solution.
 
 ## Algorithm
 ### Overview
-1. Sort points in _S_ with respect to the x-coordinate
-2. Calculate _e<sub>ij</sub>_ for each segment _p<sub>i</sub>,...p<sub>j</sub>_ in _S_.
-3. Find the minimum error value for the resulting line
+- _OPT(j)_ will denote the minimum cost for points _p<sub>1</sub>,p<sub>2</sub>,...,p<sub>j</sub>.
+- _e(i,j)_ will denote the minimum sum of squared errors for points _p<sub>i</sub>,p<sub>i+1</sub>,...,p<sub>j</sub>_
 
-Each step in our algorithm requires significant steps in implementation. Step 1 can be accomplished using _quick sort_ on the list of points.
-Step 2 requires us to loop through each possible segment in _S_ and use the above SSE formulas to calculate _e<sub>ij</sub>_ for later use.
-Step 3 uses a recurrence relation opt(j) = min<sub>1<=i<=j</sub>(e<sub>ij</sub> + C + opt(i-1)) to find the line segment(s) with the least error.
+To compute _OPT(j)_ we will use the formula:
 
-The recurrence relation is trying to find the minimum _penalty_ for a line over some points.
-_Penalty_ is defined as e<sub>ij</sub> + C
+![OPT(j)](./assets/opt_j.png)
 
+Where _OPT(i-1)_ is the cost of the previous minimum costing segment for some points, _c_ is the cost of adding a new segment,
+and _e(i,j)_ is the sum of squared errors for a segment running though points  _p<sub>i</sub>,...,p<sub>j</sub>_
+
+1. Sort _S_ by x coordinates.
+2. Compute _e(i,j)_ for every possible segment in _S_.
+3. Go through each segment and find _OPT(j)_, storing the value in an array _m_ at index _j_
+4. Since _m_ keeps track of the accumulating costs of the minimum costing segments included in the optimal solution, the cost of the optimal solution will be in the last element of _m_.
 
 ### Pseudo Code
 
-```Python
+This pseudo code follows the above algorithm and returns the cost of the optimal solution. It should be noted that in the
+actual implementation there are a few more simple parts required so that the optimal solution can be graphed as well.
 
-   def segmented_least_squares(points, C):
-
-        for all pairs i < j:
-            compute least squared error eij for the segment pi,...pj
-
-        array M
-        M[0] = 0
+````Python
+    def segmented_least_squares(points, c):
+        points = sort_points(points)  # sort by x values
+        n = len(points)
+        for j = 1 to n:  # for each point
+            for i = 1 to j:   # for each point up to j
+                compute the least squares error e(i,j) for the segment pi, pi+1,...,pj
+        m[0] = 0  # initialize array with 0 cost
         for j = 1 to n:
-            M[j] = find minimum penalty for line segments 1<=i<=j
-
-        return M[n]
-
-```
-
-
+            for i = 1 to j:
+                m[j] = min(e(i,j) + c + m[i-1])  # m[j] is the minimum costing segment for the points pi to pj
+        return m[n]
+````
 ## Analysis
-The time complexity of this algorithm is O(n<sup>3</sup>). Computing the least squared error e<sub>ij</sub> for each segment of points in S takes O(n<sup>3</sup>) time, and
-finding the minimum penalty for the line segment takes O(n<sup>2</sup>) time.
 
-The space complexity of this algorithm is O(n<sup>2</sup>).
+The segmented least squares algorithm has a time complexity of O(n<sup>3</sup>):
+- O(n<sup>3</sup>) for finding all _e(i,j)_ values + O(n<sup>2</sup>) for finding all _OPT(j)_ values.
 
-The bottleneck exists when we are computing e<sub>ij</sub> for O(n<sup>2</sup>) pairs. This algorithm can be improved to O(n<sup>2</sup>) time and O(n) space by pre-computing some statistics.
+and a space complexity of O(n<sup>2</sup>).
+
+This time complexity can be improved to O(n<sup>2</sup>) time and O(n) space by pre-computing
+various statistics.
 
 
 ## Example
@@ -139,6 +180,10 @@ For the segment p<sub>2</sub>,...p<sub>4</sub>, _e<sub>24</sub>_ = 0.071
 ![Segment 3...4](./assets/seg_34.png)
 
 For the segment p<sub>3</sub>,...p<sub>4</sub>, _e<sub>34</sub>_ = 0.0
+
+
+Next we will need to find _OPT(j)_ by finding the minimum costing segment over
+some points.
 
 
 
