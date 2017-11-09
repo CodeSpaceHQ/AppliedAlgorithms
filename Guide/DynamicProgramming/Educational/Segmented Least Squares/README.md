@@ -244,5 +244,5 @@ in the `solution.py` file, and the final solution looks like:
 ## Conclusion
 
 The final solution can be changed by changing the value of the input `c`, and thereby adjusting how much it
-"costs" to add a new segment. 
+"costs" to add a new segment.
 

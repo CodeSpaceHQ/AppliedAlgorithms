@@ -46,7 +46,6 @@ def segment_least_squares(points, c):
             as its values, with the index of that list being the end points.
             
     """
-
     n = len(points)
     # Sort point by x-coordinate
     points.sort(key=lambda k: k[0])
@@ -84,7 +83,7 @@ def segment_least_squares(points, c):
 def find_segments(points, seg_starts):
     """
     Find each point included in either end of a segment
-    :param points: list of points [x,y]
+    :param points: list of points [[x,y], ...]
     :param seg_starts: list of starting points for segments. seg_starts[i] is 
                        the starting point of a segment while i is the end point
     :return: each point in points included in the endpoints of all the segments
