@@ -141,6 +141,7 @@ Our example points will be
         [5, 6],
         [7, 9]
 ```
+and our `c` value will be `c = 0.5`
 
 The first step in our algorithm is to find _e<sub>ij</sub>_ for each segment _p<sub>i</sub>,...p<sub>j</sub>_ in _S_
 
@@ -194,18 +195,15 @@ For the segment p<sub>2</sub>,...p<sub>4</sub>, _e<sub>24</sub>_ = 0.071
 For the segment p<sub>3</sub>,...p<sub>4</sub>, _e<sub>34</sub>_ = 0.0
 
 
-Next we will need to find _OPT(j)_ by finding the minimum costing segment over
-some points.
+Next we will compute the optimal solution using _OPT(j)_. We will initialize
+our optimal cost array with _m[0] = 0_.
 
+The first segment we will evaluate is _p<sub>0</sub>...p<sub>1</sub>_.
 
-
-
-
-
-
-
-
-
+- _m = [0]
+- _m[1] = OPT(1) = min<sub>0<=i<1</sub>(e(0,1) + 0.5 + OPT(i))_
+- - `i = 0, j = `, cost = 0.0 + 0.5 + 0 = 0.5
+- _m[1] = min(0.5) = 0.5
 
 
 
