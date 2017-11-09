@@ -64,7 +64,7 @@ As you can see, _c_ will control how many lines v.s. how accurate the fit is.
 ```Python
     [[10, 9], [3, 4], [5, 6]]
 ```
-2. A constant _c_ which is the cost of adding a new segment to the optimal solution.
+2. A constant _c_ > 0 which is the cost of adding a new segment to the optimal solution.
 
 ### Output Format
 
@@ -73,7 +73,7 @@ As you can see, _c_ will control how many lines v.s. how accurate the fit is.
 
 ## Algorithm
 ### Overview
-- _OPT(j)_ will denote the minimum cost for points _p<sub>1</sub>,p<sub>2</sub>,...,p<sub>j</sub>.
+- _OPT(j)_ will denote the minimum cost for a segment through the points _p<sub>i</sub>,p<sub>i+1</sub>,...,p<sub>j</sub>_.
 - _e(i,j)_ will denote the minimum sum of squared errors for points _p<sub>i</sub>,p<sub>i+1</sub>,...,p<sub>j</sub>_
 
 To compute _OPT(j)_ we will use the formula:
