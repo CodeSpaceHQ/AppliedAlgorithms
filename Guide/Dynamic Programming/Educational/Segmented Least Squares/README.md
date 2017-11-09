@@ -203,7 +203,7 @@ Calculate least costing segments through _p<sub>0</sub>...p<sub>1</sub>_:
 - _m = [0]
 - _m[1] = OPT(1) = min<sub>0<=i<1</sub>(e(i, j) + 0.5 + OPT(i))_
     - `i = 0, j = 1`, cost = 0.0 + 0.5 + 0 = 0.5
-- _m[1] = min(0.5) = 0.5
+- _m[1]_ = min(0.5) = 0.5
 
 Calculate least costing segments through _p<sub>0</sub>...p<sub>2</sub>_:
 
@@ -211,7 +211,7 @@ Calculate least costing segments through _p<sub>0</sub>...p<sub>2</sub>_:
 - _m[2] = OPT(2) = min<sub>0<=i<2</sub>(e(i, j) + 0.5 + OPT(i))_
     - `i = 0, j = 2`, cost = 0.643 + 0.5 + 0 = 1.143
     - `i = 1, j = 2`, cost = 0.0 + 0.5 + 0.5 = 1
-- _m[1] = min(1, 1.143) = 1
+- _m[2]_ = min(1, 1.143) = 1
 
 Calculate least costing segments through _p<sub>0</sub>...p<sub>3</sub>_:
 
@@ -220,7 +220,7 @@ Calculate least costing segments through _p<sub>0</sub>...p<sub>3</sub>_:
     - `i = 0, j = 3`, cost = 0.9 + 0.5 + 0 = 1.4
     - `i = 1, j = 3`, cost = 0.643 + 0.5 + 0.5 = 1.643
     - `i = 2, j = 3`, cost = 0.0 + 0.5 + 1 = 1.5
-- _m[1] = min(1.4, 1.643, 1.5) = 1.4
+- _m[3]_ = min(1.4, 1.643, 1.5) = 1.4
 
 Calculate least costing segments through _p<sub>0</sub>...p<sub>4</sub>_:
 
@@ -230,7 +230,7 @@ Calculate least costing segments through _p<sub>0</sub>...p<sub>4</sub>_:
     - `i = 1, j = 4`, cost = 1.3077 + 0.5 + 0.5 = 2.3077
     - `i = 2, j = 4`, cost = 0.071 + 0.5 + 1 = 1.571
     - `i = 3, j = 4`, cost = 0.0 + 0.5 + 1.4 = 1.9
-- _m[1] = min(1.8246, 2.3077, 1.571, 1.9) = 1.571
+- _m[4]_ = min(1.8246, 2.3077, 1.571, 1.9) = 1.571
 
 
 Our final array _m = [0, 0.5, 1, 1.4, 1.571] denotes the optimal solution has a cost of _m[n-1]_ = 1.571.
