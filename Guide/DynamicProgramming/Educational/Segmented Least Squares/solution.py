@@ -60,7 +60,7 @@ def segment_least_squares(points, c):
             # Compute SSE eij for this segment
             error = compute_sse(included_points)
             e[i][j] = error
-
+    print(e)
     # List to track accumulating cost
     m = [0] * n
     # List to track start/end points of segments
@@ -77,7 +77,7 @@ def segment_least_squares(points, c):
                 # Save new minimum segment
                 segments[j] = i
         m[j] = min_cost
-
+    print(m)
     return m[-1], segments
 
 
