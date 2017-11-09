@@ -118,18 +118,6 @@ def plot_all(points, segment_points):
 
 
 def main():
-    # points = [  # make it out of order by x value
-    #     [3, 3],
-    #     [2, 2],
-    #     [1, 1],
-    #     [4, 3],
-    #     [5, 3],
-    #     [6, 3],
-    #     [9, 6],
-    #     [7, 4],
-    #     [8, 5]
-    # ]
-
     points = [
         [1, 1],
         [2, 3],

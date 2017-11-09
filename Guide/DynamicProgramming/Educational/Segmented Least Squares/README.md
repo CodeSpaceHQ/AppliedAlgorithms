@@ -80,31 +80,43 @@ To compute _OPT(j)_ we will use the formula:
 
 ![OPT(j)](./assets/opt_j.png)
 
-Where _OPT(i-1)_ is the cost of the previous minimum costing segment for some points, _c_ is the cost of adding a new segment,
-and _e(i,j)_ is the sum of squared errors for a segment running though points  _p<sub>i</sub>,...,p<sub>j</sub>_
+Where:
+- _OPT(i)_ is the cost of the previous optimal segment through the points _p<sub>i`</sub>,p<sub>i+1</sub>,...,p<sub>i</sub>_,
+- _c_ is the cost of adding a new segment and,
+- _e(i,j)_ is the sum of squared errors for a segment running though points  _p<sub>i</sub>,...,p<sub>j</sub>_
+
+Our algorithm is as follows:
 
 1. Sort _S_ by x coordinates.
 2. Compute _e(i,j)_ for every possible segment in _S_.
-3. Go through each segment and find _OPT(j)_, storing the value in an array _m_ at index _j_
-4. Since _m_ keeps track of the accumulating costs of the minimum costing segments included in the optimal solution, the cost of the optimal solution will be in the last element of _m_.
+3. For each point _j_ in _S_, find _OPT(j)_, storing the value in array _m_.
+4. Since _m_ keeps track of the accumulating costs of the optimal segments in the solution, the cost of the optimal solution will be in the last element of _m_.
+
+It should be noted that in our solution file we include some variables for keeping track of the points that exist in the optimal solution for the purpose
+of plotting them visually later.
 
 ### Pseudo Code
 
-This pseudo code follows the above algorithm and returns the cost of the optimal solution. It should be noted that in the
-actual implementation there are a few more simple parts required so that the optimal solution can be graphed as well.
+This pseudo code follows the above algorithm and returns the cost of the optimal solution. As stated previously, in the
+actual implementation there are a few more steps so that the optimal solution can be graphed.
 
 ````Python
     def segmented_least_squares(points, c):
-        points = sort_points(points)  # sort by x values
+        sort(points)  # sort by x values
         n = len(points)
-        for j = 1 to n:  # for each point
-            for i = 1 to j:   # for each point up to j
+
+        # Compute Sum of Squared Error for each segment
+        for j = 1 to n:
+            for i = 0 to j:
                 compute the least squares error e(i,j) for the segment pi, pi+1,...,pj
+
+        # Compute cost of optimal segment
         m[0] = 0  # initialize array with 0 cost
         for j = 1 to n:
             for i = 0 to j:
                 m[j] = min(e(i,j) + c + m[i])  # m[j] is the minimum costing segment for the points pi to pj
-        return m[n]
+
+        return m[n-1]
 ````
 ## Analysis
 
