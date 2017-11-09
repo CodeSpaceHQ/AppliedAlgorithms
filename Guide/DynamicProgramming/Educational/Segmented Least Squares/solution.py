@@ -4,24 +4,32 @@ import matplotlib.pyplot as plot
 def compute_sse(points):
     """
     Compute the minimum sum of the squared error of
-    a line through n given points.
-    :param points: a list of points [x,y] that are sorted by x values
+    a line through given points.
+    :param points: a list of points [[x,y],...]
     :return: the minimum sum of squared error value for the
              line passing through the points
     """
-    size = len(points)  # number of points in segment
-    x_cords = [p[0] for p in points]  # all x values for segment
-    y_cords = [p[1] for p in points]  # all y values for segment
-    xy = map(lambda x, y: x * y, x_cords, y_cords)  # xi*yi values for segment
-    sum_x = sum(x_cords)  # sum of all x values for segment
-    sum_y = sum(y_cords)  # sum of all y values for segment
-    a_numerator = size * (sum(xy)) - (sum_x * sum_y)
-    a_denominator = size * (sum([x ** 2 for x in x_cords])) - sum_x ** 2
-    a = a_numerator / a_denominator if a_denominator > 0 else float('inf')  # slope
-    b = (sum_y - (a * sum_x)) / size  # y-intercept
-
+    n = len(points)
+    # all x values for segment
+    x_cords = [p[0] for p in points]
+    # all y values for segment
+    y_cords = [p[1] for p in points]
+    # xi*yi values for segment
+    xy = map(lambda x, y: x * y, x_cords, y_cords)
+    # sum of all x values for segment
+    sum_x = sum(x_cords)
+    # sum of all y values for segment
+    sum_y = sum(y_cords)
+    a_numerator = n * (sum(xy)) - (sum_x * sum_y)
+    a_denominator = n * (sum([x ** 2 for x in x_cords])) - sum_x ** 2
+    # slope of line
+    a = a_numerator / a_denominator if a_denominator > 0 else float('inf')
+    # y-intercept of line
+    b = (sum_y - (a * sum_x)) / n  # y-intercept
+    # Sum of squared errors of line with slope a y-intercept b going through
+    # points (xi, yi)
     err = sum( map(lambda x, y: (y - a * x - b) ** 2, x_cords, y_cords))
-    return err # SSE
+    return err
 
 
 def segment_least_squares(points, c):
@@ -70,7 +78,7 @@ def segment_least_squares(points, c):
                 segments[j] = i
         m[j] = min_cost
 
-    return m, segments
+    return m[-1], segments
 
 
 def find_segments(points, seg_starts):
@@ -130,10 +138,8 @@ def main():
         [7, 9]
     ]
 
-    m, segments = segment_least_squares(points, .75)
-    print(m)
-    total_cost = m[-1]
-    print("Total cost of line(s) through points: {}".format(total_cost))
+    cost, segments = segment_least_squares(points, .75)
+    print("Total cost of line(s) through points: {}".format(cost))
     endpoints = find_segments(points, segments)
     plot_all(points, endpoints)
 
