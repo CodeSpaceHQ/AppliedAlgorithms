@@ -2,11 +2,11 @@
 
 This problem is introduced in [Dr. Gelfond Applied Algorithms](http://redwood.cs.ttu.edu/~mgelfond/FALL-2012/slides.pdf) and is further discussed by [Washington University](https://courses.cs.washington.edu/courses/cse521/13wi/slides/06dp-sched.pdf)
 
-This problem is a vriation of the simpler [Interval Scheduling](https://github.com/CodeSpaceHQ/AppliedAlgorithms/tree/master/Guide/Greedy/Educational/Interval%20Scheduling) problem that can be solved using a greedy algorithm.
+This problem is a variation of the simpler [Interval Scheduling](https://github.com/CodeSpaceHQ/AppliedAlgorithms/tree/master/Guide/Greedy/Educational/Interval%20Scheduling) problem that can be solved using a greedy algorithm.
 
 Category: Dynamic Programming
 
-Difficulty: Hard
+Difficulty: Medium
 
 ## Problem
 Given _n_ requests where each request _i_ has an associated interval _[s<sub>i</sub>, f<sub>i</sub>)_ and has a weight/value

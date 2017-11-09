@@ -11,9 +11,10 @@ Here you can browse through the current problems we have solved and written solu
 | [Bonetrousle](/Guide/Constructive/Bonetrousle)                                | Constructive        | Medium     | Java     |
 | [New Year Chaos](/Guide/Constructive/New%20Year%20Chaos)                      | Constructive        | Medium     | CPP      |
 | [Contacts](/Guide/Data%20Structures/Contacts)                                 | Data Structures     | Medium     | Java     |
-| [Abbreviation](/Guide/DynamicProgramming/Abbreviation)                        | Dynamic Programming | Medium     | Java     |
-| [Maximum Path Sum](/Guide/DynamicProgramming/Maximum%20Path%20Sum)            | Dynamic Programming | Easy       | Java     |
-| [Nikita And The Game](/Guide/DynamicProgramming/Nikita%20And%20The%20Game)    | Dynamic Programming | Medium     | Java     |
+| [Abbreviation](/Guide/DynamicProgramming/Practice/Abbreviation)                        | Dynamic Programming | Medium     | Java     |
+| [Maximum Path Sum](/Guide/DynamicProgramming/Practice/Maximum%20Path%20Sum)            | Dynamic Programming | Easy       | Java     |
+| [Nikita And The Game](/Guide/DynamicProgramming/Practice/Nikita%20And%20The%20Game)    | Dynamic Programming | Medium     | C++     |
+| [Segmented Least Squares](/Guide/DynamicProgramming/Educational/Segmented%20Least%20Squares)    | Dynamic Programming | Hard     | Python     |
 | [Jack goes to Rapture](/Guide/GraphTheory/JackGoesToRapture)                  | Graph Theory        | Medium     | Java     |
 | [Journey to the Moon](/Guide/GraphTheory/Journey%20to%20the%20Moon)           | Graph Theory        | Medium     | CPP      |
 | [Algorithmic Crush](/Guide/Greedy/Practice/Algorithmic%20Crush)               | Greedy              | Hard       | CPP      |
