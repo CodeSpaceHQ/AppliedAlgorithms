@@ -102,8 +102,8 @@ actual implementation there are a few more simple parts required so that the opt
                 compute the least squares error e(i,j) for the segment pi, pi+1,...,pj
         m[0] = 0  # initialize array with 0 cost
         for j = 1 to n:
-            for i = 1 to j:
-                m[j] = min(e(i,j) + c + m[i-1])  # m[j] is the minimum costing segment for the points pi to pj
+            for i = 0 to j:
+                m[j] = min(e(i,j) + c + m[i])  # m[j] is the minimum costing segment for the points pi to pj
         return m[n]
 ````
 ## Analysis
